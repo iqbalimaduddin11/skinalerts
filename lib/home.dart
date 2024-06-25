@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+<<<<<<< HEAD
 import 'package:skinalert/Clickforcheck.dart';
 import 'package:skinalert/Diagnosis.dart';
 import 'package:skinalert/Symptoms.dart';
+=======
+import 'package:skinalert/home/Clickforcheck.dart';
+import 'package:skinalert/home/Diagnosis.dart';
+import 'package:skinalert/home/Symptoms.dart';
+>>>>>>> 79d77bf (first commit)
 import 'Profile.dart';
 import 'Team.dart';
 import 'History.dart';
@@ -108,14 +114,20 @@ class _MyHomePageState extends State<MyHomePage> {
                       setState(() => _index = 0);
                     },
 <<<<<<< HEAD
+<<<<<<< HEAD
                     child: Text('Symptoms', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 0 ? const Color(0xFF5C715E) : const Color(0xFF5C715E))),
 =======
+=======
+>>>>>>> 79d77bf (first commit)
                     style: ButtonStyle(
                       backgroundColor: _index == 0 ? MaterialStateProperty.all(Color(0xFF5C715E)) : MaterialStateProperty.all(Color(0xFFF2F9F1)),
                       foregroundColor: _index == 0 ? MaterialStateProperty.all(Color(0xFFF2F9F1)) : MaterialStateProperty.all(Color(0xFF5C715E)),
                     ),
                     child: Text('Symptoms', style: TextStyle(fontFamily: 'LeagueSpartan',fontSize: 10,fontWeight: FontWeight.bold)),
+<<<<<<< HEAD
 >>>>>>> 5474dc9 (push update)
+=======
+>>>>>>> 79d77bf (first commit)
                   ),
                 ),
                 SizedBox(
@@ -125,14 +137,20 @@ class _MyHomePageState extends State<MyHomePage> {
                       setState(() => _index = 1);
                     },
 <<<<<<< HEAD
+<<<<<<< HEAD
                     child: Text('Diagnosis And Treatment', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 1 ? const Color(0xFF5C715E) : const Color(0xFF5C715E))),
 =======
+=======
+>>>>>>> 79d77bf (first commit)
                     style: ButtonStyle(
                       backgroundColor: _index == 1 ? MaterialStateProperty.all(Color(0xFF5C715E)) : MaterialStateProperty.all(Color(0xFFF2F9F1)),
                       foregroundColor: _index == 1 ? MaterialStateProperty.all(Color(0xFFF2F9F1)) : MaterialStateProperty.all(Color(0xFF5C715E)),
                     ),
                     child: Text('Diagnosis And Treatment', style: TextStyle(fontFamily: 'LeagueSpartan', fontSize: 10,fontWeight: FontWeight.bold)),
+<<<<<<< HEAD
 >>>>>>> 5474dc9 (push update)
+=======
+>>>>>>> 79d77bf (first commit)
                   ),
                 ),
                 SizedBox(
@@ -142,14 +160,20 @@ class _MyHomePageState extends State<MyHomePage> {
                       setState(() => _index = 2);
                     },
 <<<<<<< HEAD
+<<<<<<< HEAD
                     child: Text('Click For Check', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 2 ? const Color(0xFF5C715E) : const Color(0xFF5C715E))),
 =======
+=======
+>>>>>>> 79d77bf (first commit)
                     style: ButtonStyle(
                       backgroundColor: _index == 2 ? MaterialStateProperty.all(Color(0xFF5C715E)) : MaterialStateProperty.all(Color(0xFFF2F9F1)),
                       foregroundColor: _index == 2 ? MaterialStateProperty.all(Color(0xFFF2F9F1)): MaterialStateProperty.all(Color(0xFF5C715E)),
                     ),
                     child: Text('Click For Check', style: TextStyle(fontFamily: 'LeagueSpartan',fontSize: 10,fontWeight: FontWeight.bold)),
+<<<<<<< HEAD
 >>>>>>> 5474dc9 (push update)
+=======
+>>>>>>> 79d77bf (first commit)
                   ),
                 ),
               ],
@@ -175,8 +199,11 @@ class _MyHomePageState extends State<MyHomePage> {
           onTap: (int val) {
             setState(() => _indexNavbar = val);
 <<<<<<< HEAD
+<<<<<<< HEAD
             if (val == 2) {
 =======
+=======
+>>>>>>> 79d77bf (first commit)
             if (val == 0) {
               Navigator.push(
                 context,
@@ -188,7 +215,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 MaterialPageRoute(builder: (context) => Historypage()),
               );
             } else if (val == 2) {
+<<<<<<< HEAD
 >>>>>>> 5474dc9 (push update)
+=======
+>>>>>>> 79d77bf (first commit)
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => ProfilePage()),
@@ -202,6 +232,7 @@ class _MyHomePageState extends State<MyHomePage> {
           },
           currentIndex: _indexNavbar,
 <<<<<<< HEAD
+<<<<<<< HEAD
           backgroundColor: const Color(0xFF5C715E),
           selectedItemColor: Colors.black,
           unselectedItemColor: const Color(0xFFF2F9F1),
@@ -210,6 +241,11 @@ class _MyHomePageState extends State<MyHomePage> {
           selectedItemColor: Colors.black,
           unselectedItemColor: Color(0xFFF2F9F1),
 >>>>>>> 5474dc9 (push update)
+=======
+          backgroundColor: Color(0xFF5C715E),
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Color(0xFFF2F9F1),
+>>>>>>> 79d77bf (first commit)
           items: [
             FloatingNavbarItem(icon: Icons.home),
             FloatingNavbarItem(icon: Icons.history),

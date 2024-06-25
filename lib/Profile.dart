@@ -1,13 +1,19 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 79d77bf (first commit)
 // ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'History.dart';
 import 'home.dart';
 import 'Team.dart';
+<<<<<<< HEAD
 =======
 import 'package:flutter/material.dart'; 
 >>>>>>> c943860 (update now)
+=======
+>>>>>>> 79d77bf (first commit)
 
 class ProfilePage extends StatefulWidget {
   @override
