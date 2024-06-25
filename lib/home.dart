@@ -6,6 +6,7 @@ import 'package:skinalert/Diagnosis.dart';
 import 'package:skinalert/Symptoms.dart';
 import 'Profile.dart';
 import 'Team.dart';
+import 'History.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -83,8 +84,13 @@ class _MyHomePageState extends State<MyHomePage> {
               viewportFraction: 0.8,
             ),
             items: imgList.map((item) => Container(
-              child: Center(
-                child: Image.asset(item, fit: BoxFit.cover, width: 1000)
+              decoration: BoxDecoration(
+                border: Border.all(color: Color(0xFF5C715E), width: 2), // Border around images
+                borderRadius: BorderRadius.circular(10), // Rounded corners
+              ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(10), // Match the border radius
+                child: Image.asset(item, fit: BoxFit.cover, width: 1000),
               ),
             )).toList(),
           ),
@@ -95,28 +101,55 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                Expanded(
+                SizedBox(
+                  width: 100, // Set the width of the button
                   child: TextButton(
                     onPressed: () {
                       setState(() => _index = 0);
                     },
+<<<<<<< HEAD
                     child: Text('Symptoms', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 0 ? const Color(0xFF5C715E) : const Color(0xFF5C715E))),
+=======
+                    style: ButtonStyle(
+                      backgroundColor: _index == 0 ? MaterialStateProperty.all(Color(0xFF5C715E)) : MaterialStateProperty.all(Color(0xFFF2F9F1)),
+                      foregroundColor: _index == 0 ? MaterialStateProperty.all(Color(0xFFF2F9F1)) : MaterialStateProperty.all(Color(0xFF5C715E)),
+                    ),
+                    child: Text('Symptoms', style: TextStyle(fontFamily: 'LeagueSpartan',fontSize: 10,fontWeight: FontWeight.bold)),
+>>>>>>> 5474dc9 (push update)
                   ),
                 ),
-                Expanded(
+                SizedBox(
+                  width: 100, // Set the width of the button
                   child: TextButton(
                     onPressed: () {
                       setState(() => _index = 1);
                     },
+<<<<<<< HEAD
                     child: Text('Diagnosis And Treatment', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 1 ? const Color(0xFF5C715E) : const Color(0xFF5C715E))),
+=======
+                    style: ButtonStyle(
+                      backgroundColor: _index == 1 ? MaterialStateProperty.all(Color(0xFF5C715E)) : MaterialStateProperty.all(Color(0xFFF2F9F1)),
+                      foregroundColor: _index == 1 ? MaterialStateProperty.all(Color(0xFFF2F9F1)) : MaterialStateProperty.all(Color(0xFF5C715E)),
+                    ),
+                    child: Text('Diagnosis And Treatment', style: TextStyle(fontFamily: 'LeagueSpartan', fontSize: 10,fontWeight: FontWeight.bold)),
+>>>>>>> 5474dc9 (push update)
                   ),
                 ),
-                Expanded(
+                SizedBox(
+                  width: 100, // Set the width of the button
                   child: TextButton(
                     onPressed: () {
                       setState(() => _index = 2);
                     },
+<<<<<<< HEAD
                     child: Text('Click For Check', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 2 ? const Color(0xFF5C715E) : const Color(0xFF5C715E))),
+=======
+                    style: ButtonStyle(
+                      backgroundColor: _index == 2 ? MaterialStateProperty.all(Color(0xFF5C715E)) : MaterialStateProperty.all(Color(0xFFF2F9F1)),
+                      foregroundColor: _index == 2 ? MaterialStateProperty.all(Color(0xFFF2F9F1)): MaterialStateProperty.all(Color(0xFF5C715E)),
+                    ),
+                    child: Text('Click For Check', style: TextStyle(fontFamily: 'LeagueSpartan',fontSize: 10,fontWeight: FontWeight.bold)),
+>>>>>>> 5474dc9 (push update)
                   ),
                 ),
               ],
@@ -126,7 +159,7 @@ class _MyHomePageState extends State<MyHomePage> {
           // Content Area
           Expanded(
             child: Padding(
-              padding: const EdgeInsets.all(16.0),
+              padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 16),
               child: _index == 0
                 ? SymptomsPage()
                 : _index == 1
@@ -141,7 +174,21 @@ class _MyHomePageState extends State<MyHomePage> {
         child: FloatingNavbar(
           onTap: (int val) {
             setState(() => _indexNavbar = val);
+<<<<<<< HEAD
             if (val == 2) {
+=======
+            if (val == 0) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MyHomePage()),
+              );
+            } else if (val == 1) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Historypage()),
+              );
+            } else if (val == 2) {
+>>>>>>> 5474dc9 (push update)
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => ProfilePage()),
@@ -154,9 +201,15 @@ class _MyHomePageState extends State<MyHomePage> {
             }
           },
           currentIndex: _indexNavbar,
+<<<<<<< HEAD
           backgroundColor: const Color(0xFF5C715E),
           selectedItemColor: Colors.black,
           unselectedItemColor: const Color(0xFFF2F9F1),
+=======
+          backgroundColor: Color(0xFF5C715E),
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Color(0xFFF2F9F1),
+>>>>>>> 5474dc9 (push update)
           items: [
             FloatingNavbarItem(icon: Icons.home),
             FloatingNavbarItem(icon: Icons.history),

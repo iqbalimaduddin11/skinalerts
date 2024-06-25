@@ -1,13 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
+import 'History.dart';
+import 'home.dart';
+import 'Profile.dart';
 
-class ProjectTeamPage extends StatelessWidget {
+class ProjectTeamPage extends StatefulWidget {
+  @override
+  _ProjectTeamPageState createState() => _ProjectTeamPageState();
+}
+
+
+class _ProjectTeamPageState extends State<ProjectTeamPage> {
+  int _indexNavbar = 3;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFF2F9F1),
       appBar: AppBar(
         backgroundColor: Color(0xFFF2F9F1),
-        leading: SizedBox(),
+        automaticallyImplyLeading: false,
         elevation: 0,
         title: Center(
           child: Text(
@@ -56,6 +68,45 @@ class ProjectTeamPage extends StatelessWidget {
             ),
           ),
         ],
+      ),
+      bottomNavigationBar: Container(
+        height: 110, // Atur tinggi sesuai kebutuhan untuk menghindari overflow
+        child: FloatingNavbar(
+          onTap: (int val) {
+            setState(() => _indexNavbar = val);
+            if (val == 0) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => MyHomePage()),
+              );
+            } else if (val == 1) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Historypage()),
+              );
+            } else if (val == 2) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProfilePage()),
+              );
+            } else if (val == 3) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProjectTeamPage()),
+              );
+            }
+          },
+          currentIndex: _indexNavbar,
+          backgroundColor: Color(0xFF5C715E),
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Color(0xFFF2F9F1),
+          items: [
+            FloatingNavbarItem(icon: Icons.home),
+            FloatingNavbarItem(icon: Icons.history),
+            FloatingNavbarItem(icon: Icons.person_outline),
+            FloatingNavbarItem(icon: Icons.info_outline),
+          ],
+        ),
       ),
     );
   }
