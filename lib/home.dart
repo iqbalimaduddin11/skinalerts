@@ -8,12 +8,15 @@ import 'Profile.dart';
 import 'Team.dart';
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  ScrollController _vertical = ScrollController();
+  final ScrollController _vertical = ScrollController();
   int _index = 0;
   int _indexNavbar = 0;
   final List<String> imgList = [
@@ -32,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF2F9F1),
+      backgroundColor: const Color(0xFFF2F9F1),
       extendBody: true,
       appBar: AppBar(
         toolbarHeight: 0, // Hide the app bar
@@ -41,18 +44,18 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           // Profile section
           Container(
-            padding: EdgeInsets.all(16.0),
-            color: Color(0xFFF2F9F1), // Background color for profile section
+            padding: const EdgeInsets.all(16.0),
+            color: const Color(0xFFF2F9F1), // Background color for profile section
             child: Row(
               children: [
                 CircleAvatar(
                   radius: 30,
-                  backgroundImage: AssetImage('assets/Icons/logo2.png'), // Add your profile picture asset here
+                  backgroundImage: const AssetImage('assets/Icons/logo2.png'), // Add your profile picture asset here
                 ),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+                  children: const [
                     Text(
                       'Hi, WelcomeBack',
                       style: TextStyle(fontSize: 16, color: Color(0xFF5C715E), fontFamily: 'LeagueSpartan'),
@@ -66,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
           ),
-          SizedBox(height: 8), // Space between profile and carousel slider
+          const SizedBox(height: 8), // Space between profile and carousel slider
           // Carousel Slider
           CarouselSlider(
             options: CarouselOptions(
@@ -76,7 +79,7 @@ class _MyHomePageState extends State<MyHomePage> {
               aspectRatio: 16/9,
               autoPlayCurve: Curves.fastOutSlowIn,
               enableInfiniteScroll: true,
-              autoPlayAnimationDuration: Duration(milliseconds: 800),
+              autoPlayAnimationDuration: const Duration(milliseconds: 800),
               viewportFraction: 0.8,
             ),
             items: imgList.map((item) => Container(
@@ -85,7 +88,7 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             )).toList(),
           ),
-          SizedBox(height: 8), // Space between carousel slider and navigation tabs
+          const SizedBox(height: 8), // Space between carousel slider and navigation tabs
           // Navigation Tabs
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -97,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () {
                       setState(() => _index = 0);
                     },
-                    child: Text('Symptoms', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 0 ? Color(0xFF5C715E) : Color(0xFF5C715E))),
+                    child: Text('Symptoms', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 0 ? const Color(0xFF5C715E) : const Color(0xFF5C715E))),
                   ),
                 ),
                 Expanded(
@@ -105,7 +108,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () {
                       setState(() => _index = 1);
                     },
-                    child: Text('Diagnosis And Treatment', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 1 ? Color(0xFF5C715E) : Color(0xFF5C715E))),
+                    child: Text('Diagnosis And Treatment', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 1 ? const Color(0xFF5C715E) : const Color(0xFF5C715E))),
                   ),
                 ),
                 Expanded(
@@ -113,13 +116,13 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () {
                       setState(() => _index = 2);
                     },
-                    child: Text('Click For Check', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 2 ? Color(0xFF5C715E) : Color(0xFF5C715E))),
+                    child: Text('Click For Check', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 2 ? const Color(0xFF5C715E) : const Color(0xFF5C715E))),
                   ),
                 ),
               ],
             ),
           ),
-          Divider(),
+          const Divider(),
           // Content Area
           Expanded(
             child: Padding(
@@ -134,34 +137,34 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       bottomNavigationBar: Container(
-      height: 110, // Atur tinggi sesuai kebutuhan untuk menghindari overflow
-      child: FloatingNavbar(
-        onTap: (int val) {
-          setState(() => _indexNavbar = val);
-          if (val == 2) {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => ProfilePage()),
-            );
-         } else if (val == 3) {
+        height: 110, // Atur tinggi sesuai kebutuhan untuk menghindari overflow
+        child: FloatingNavbar(
+          onTap: (int val) {
+            setState(() => _indexNavbar = val);
+            if (val == 2) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProfilePage()),
+              );
+            } else if (val == 3) {
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => ProjectTeamPage()),
               );
             }
           },
-        currentIndex: _indexNavbar,
-        backgroundColor: Color(0xFF5C715E),
-        selectedItemColor: Colors.black,
-        unselectedItemColor: Color(0xFFF2F9F1),
-        items: [
-          FloatingNavbarItem(icon: Icons.home),
-          FloatingNavbarItem(icon: Icons.history),
-          FloatingNavbarItem(icon: Icons.person_outline),
-          FloatingNavbarItem(icon: Icons.info_outline),
-        ],
+          currentIndex: _indexNavbar,
+          backgroundColor: const Color(0xFF5C715E),
+          selectedItemColor: Colors.black,
+          unselectedItemColor: const Color(0xFFF2F9F1),
+          items: [
+            FloatingNavbarItem(icon: Icons.home),
+            FloatingNavbarItem(icon: Icons.history),
+            FloatingNavbarItem(icon: Icons.person_outline),
+            FloatingNavbarItem(icon: Icons.info_outline),
+          ],
+        ),
       ),
-    ),
     );
   }
 }

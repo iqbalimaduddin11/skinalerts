@@ -3,7 +3,10 @@ import 'signup.dart';
 import 'home.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _LoginPageState createState() => _LoginPageState();
 }
 
@@ -23,15 +26,15 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xFFF2F9F1),
+      color: const Color(0xFFF2F9F1),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.transparent,
-          leading: SizedBox(),
+          leading: const SizedBox(),
           centerTitle: true,
-          title: Text(
+          title: const Text(
             'Log In',
             style: TextStyle(
               color: Color(0xFF5C715E),
@@ -49,8 +52,8 @@ class _LoginPageState extends State<LoginPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  SizedBox(height: 16),
-                  Text(
+                  const SizedBox(height: 16),
+                  const Text(
                     'Welcome',
                     style: TextStyle(
                       color: Color(0xFF5C715E),
@@ -60,8 +63,8 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     textAlign: TextAlign.left,
                   ),
-                  SizedBox(height: 8),
-                  Text(
+                  const SizedBox(height: 8),
+                  const Text(
                     'SkinAlert Apps, Solusi pintar untuk deteksi dini kanker kulit.',
                     style: TextStyle(
                       color: Color(0xFF5C715E),
@@ -70,17 +73,27 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     textAlign: TextAlign.left,
                   ),
-                  SizedBox(height: 32),
+                  const SizedBox(height: 32),
+                  const Text(
+                    'Email or Mobile Number',
+                    style: TextStyle(
+                      color: Color(0xFF5C715E),
+                      fontSize: 20,
+                      fontWeight: FontWeight.normal,
+                      fontFamily: 'LeagueSpartan',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
                   Container(
                     decoration: BoxDecoration(
-                      color: Color(0xFF5C715E),
-                      borderRadius: BorderRadius.circular(10),
+                      color: const Color(0xFF5C715E),
+                      borderRadius: BorderRadius.circular(13),
                     ),
                     child: TextFormField(
                       controller: _emailController,
-                      style: TextStyle(color: Color(0xFFF2F9F1)),
-                      decoration: InputDecoration(
-                        labelText: 'Email or Mobile Number',
+                      style: const TextStyle(color: Color(0xFFF2F9F1)),
+                      decoration: const InputDecoration(
+                        labelText: 'example@example.com',
                         labelStyle: TextStyle(color: Color(0xFFF2F9F1)),
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
@@ -93,25 +106,35 @@ class _LoginPageState extends State<LoginPage> {
                       },
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
+                  const Text(
+                    'Password',
+                    style: TextStyle(
+                      color: Color(0xFF5C715E),
+                      fontSize: 20,
+                      fontWeight: FontWeight.normal,
+                      fontFamily: 'LeagueSpartan',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
                   Container(
                     decoration: BoxDecoration(
-                      color: Color(0xFF5C715E),
-                      borderRadius: BorderRadius.circular(10),
+                      color: const Color(0xFF5C715E),
+                      borderRadius: BorderRadius.circular(13),
                     ),
                     child: TextFormField(
                       controller: _passwordController,
-                      style: TextStyle(color: Color(0xFFF2F9F1)),
+                      style: const TextStyle(color: Color(0xFFF2F9F1)),
                       obscureText: !_showPassword,
                       decoration: InputDecoration(
-                        labelText: 'Password',
-                        labelStyle: TextStyle(color: Color(0xFFF1F8E8)),
+                        labelText: 'Enter your password',
+                        labelStyle: const TextStyle(color: Color(0xFFF1F8E8)),
                         border: InputBorder.none,
-                        contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
+                        contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
                         suffixIcon: IconButton(
                           icon: Icon(
                             _showPassword ? Icons.visibility : Icons.visibility_off,
-                            color: Color(0xFFF1F8E8),
+                            color: const Color(0xFFF1F8E8),
                           ),
                           onPressed: () {
                             setState(() {
@@ -128,12 +151,12 @@ class _LoginPageState extends State<LoginPage> {
                       },
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   Align(
                     alignment: Alignment.centerRight,
                     child: TextButton(
                       onPressed: () {},
-                      child: Text(
+                      child: const Text(
                         'Forget Password',
                         style: TextStyle(
                           fontFamily: 'LeagueSpartan',
@@ -143,7 +166,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 32),
+                  const SizedBox(height: 32),
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
@@ -154,7 +177,14 @@ class _LoginPageState extends State<LoginPage> {
                         );
                       }
                     },
-                    child: Text(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFF5C715E),
+                      padding: const EdgeInsets.symmetric(vertical: 16.0),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                    ),
+                    child: const Text(
                       'Log In',
                       style: TextStyle(
                         color: Color(0xFFF1F8E8),
@@ -162,16 +192,9 @@ class _LoginPageState extends State<LoginPage> {
                         fontSize: 18,
                       ),
                     ),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Color(0xFF5C715E),
-                      padding: EdgeInsets.symmetric(vertical: 16.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
                   ),
-                  SizedBox(height: 16),
-                  Center(
+                  const SizedBox(height: 16),
+                  const Center(
                     child: Text(
                       'or sign up with',
                       style: TextStyle(
@@ -180,7 +203,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
@@ -198,7 +221,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ],
                   ),
-                  SizedBox(height: 16),
+                  const SizedBox(height: 16),
                   Center(
                     child: TextButton(
                       onPressed: () {
@@ -207,7 +230,7 @@ class _LoginPageState extends State<LoginPage> {
                           MaterialPageRoute(builder: (context) => SignUpPage()),
                         );
                       },
-                      child: Text(
+                      child: const Text(
                         "Don't have an account? Sign Up",
                         style: TextStyle(
                           fontFamily: 'LeagueSpartan',
@@ -217,7 +240,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 32),
+                  const SizedBox(height: 32),
                 ],
               ),
             ),
