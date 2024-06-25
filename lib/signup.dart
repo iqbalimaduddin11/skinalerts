@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'loginpage.dart';
 
+
 class SignUpPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -167,7 +168,7 @@ class _ProfileTextFieldState extends State<ProfileTextField> {
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(30.0),
               borderSide: BorderSide.none,
-),
+              ),
             contentPadding: EdgeInsets.symmetric(vertical: 16, horizontal: 20),
             suffixIcon: widget.obscureText
               ? IconButton(
