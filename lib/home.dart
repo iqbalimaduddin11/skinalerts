@@ -12,6 +12,7 @@ import 'package:skinalert/home/Symptoms.dart';
 >>>>>>> 79d77bf (first commit)
 import 'Profile.dart';
 import 'Team.dart';
+// ignore: unused_import
 import 'History.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -32,6 +33,8 @@ class _MyHomePageState extends State<MyHomePage> {
     'assets/gambar3.jpg',
     'assets/gambar4.jpg',
   ];
+  
+  get child => null;
 
   @override
   void dispose() {
@@ -115,19 +118,28 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     child: Text('Symptoms', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 0 ? const Color(0xFF5C715E) : const Color(0xFF5C715E))),
 =======
 =======
 >>>>>>> 79d77bf (first commit)
+=======
+>>>>>>> 32e0131 (first commit production)
                     style: ButtonStyle(
                       backgroundColor: _index == 0 ? MaterialStateProperty.all(Color(0xFF5C715E)) : MaterialStateProperty.all(Color(0xFFF2F9F1)),
                       foregroundColor: _index == 0 ? MaterialStateProperty.all(Color(0xFFF2F9F1)) : MaterialStateProperty.all(Color(0xFF5C715E)),
                     ),
                     child: Text('Symptoms', style: TextStyle(fontFamily: 'LeagueSpartan',fontSize: 10,fontWeight: FontWeight.bold)),
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 5474dc9 (push update)
 =======
 >>>>>>> 79d77bf (first commit)
+=======
+=======
+                    child: Text('Symptoms', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 0 ? const Color(0xFF5C715E) : const Color(0xFF5C715E))),
+>>>>>>> 241935e (push first project)
+>>>>>>> 32e0131 (first commit production)
                   ),
                 ),
                 SizedBox(
@@ -138,19 +150,28 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     child: Text('Diagnosis And Treatment', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 1 ? const Color(0xFF5C715E) : const Color(0xFF5C715E))),
 =======
 =======
 >>>>>>> 79d77bf (first commit)
+=======
+>>>>>>> 32e0131 (first commit production)
                     style: ButtonStyle(
                       backgroundColor: _index == 1 ? MaterialStateProperty.all(Color(0xFF5C715E)) : MaterialStateProperty.all(Color(0xFFF2F9F1)),
                       foregroundColor: _index == 1 ? MaterialStateProperty.all(Color(0xFFF2F9F1)) : MaterialStateProperty.all(Color(0xFF5C715E)),
                     ),
                     child: Text('Diagnosis And Treatment', style: TextStyle(fontFamily: 'LeagueSpartan', fontSize: 10,fontWeight: FontWeight.bold)),
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 5474dc9 (push update)
 =======
 >>>>>>> 79d77bf (first commit)
+=======
+=======
+                    child: Text('Diagnosis And Treatment', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 1 ? const Color(0xFF5C715E) : const Color(0xFF5C715E))),
+>>>>>>> 241935e (push first project)
+>>>>>>> 32e0131 (first commit production)
                   ),
                 ),
                 SizedBox(
@@ -161,19 +182,28 @@ class _MyHomePageState extends State<MyHomePage> {
                     },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     child: Text('Click For Check', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 2 ? const Color(0xFF5C715E) : const Color(0xFF5C715E))),
 =======
 =======
 >>>>>>> 79d77bf (first commit)
+=======
+>>>>>>> 32e0131 (first commit production)
                     style: ButtonStyle(
                       backgroundColor: _index == 2 ? MaterialStateProperty.all(Color(0xFF5C715E)) : MaterialStateProperty.all(Color(0xFFF2F9F1)),
                       foregroundColor: _index == 2 ? MaterialStateProperty.all(Color(0xFFF2F9F1)): MaterialStateProperty.all(Color(0xFF5C715E)),
                     ),
                     child: Text('Click For Check', style: TextStyle(fontFamily: 'LeagueSpartan',fontSize: 10,fontWeight: FontWeight.bold)),
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 5474dc9 (push update)
 =======
 >>>>>>> 79d77bf (first commit)
+=======
+=======
+                    child: Text('Click For Check', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 2 ? const Color(0xFF5C715E) : const Color(0xFF5C715E))),
+>>>>>>> 241935e (push first project)
+>>>>>>> 32e0131 (first commit production)
                   ),
                 ),
               ],
@@ -200,10 +230,13 @@ class _MyHomePageState extends State<MyHomePage> {
             setState(() => _indexNavbar = val);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             if (val == 2) {
 =======
 =======
 >>>>>>> 79d77bf (first commit)
+=======
+>>>>>>> 32e0131 (first commit production)
             if (val == 0) {
               Navigator.push(
                 context,
@@ -216,9 +249,15 @@ class _MyHomePageState extends State<MyHomePage> {
               );
             } else if (val == 2) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 5474dc9 (push update)
 =======
 >>>>>>> 79d77bf (first commit)
+=======
+=======
+            if (val == 2) {
+>>>>>>> 241935e (push first project)
+>>>>>>> 32e0131 (first commit production)
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => ProfilePage()),
@@ -231,6 +270,7 @@ class _MyHomePageState extends State<MyHomePage> {
             }
           },
           currentIndex: _indexNavbar,
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
           backgroundColor: const Color(0xFF5C715E),
@@ -246,6 +286,16 @@ class _MyHomePageState extends State<MyHomePage> {
           selectedItemColor: Colors.black,
           unselectedItemColor: Color(0xFFF2F9F1),
 >>>>>>> 79d77bf (first commit)
+=======
+          backgroundColor: Color(0xFF5C715E),
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Color(0xFFF2F9F1),
+=======
+          backgroundColor: const Color(0xFF5C715E),
+          selectedItemColor: Colors.black,
+          unselectedItemColor: const Color(0xFFF2F9F1),
+>>>>>>> 241935e (push first project)
+>>>>>>> 32e0131 (first commit production)
           items: [
             FloatingNavbarItem(icon: Icons.home),
             FloatingNavbarItem(icon: Icons.history),

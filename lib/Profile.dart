@@ -20,46 +20,24 @@ class ProfilePage extends StatefulWidget {
   _ProfilePageState createState() => _ProfilePageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> { 
-  TextEditingController _dobController = TextEditingController();
+class _ProfilePageState extends State<ProfilePage> {
+  int _indexNavbar = 2;
 
-  @override
-  void dispose() {
-    _dobController.dispose();
-    super.dispose();
-  }
+<<<<<<< HEAD
+=======
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
 
- Future<void> _selectDate(BuildContext context) async {
-  DateTime? picked = await showDatePicker(
-    context: context,
-    initialDate: DateTime.now(),
-    firstDate: DateTime(1900),
-    lastDate: DateTime.now(),
-    builder: (BuildContext context, Widget? child) {
-      return Theme(
-        data: ThemeData(
-          colorScheme: ColorScheme.light(
-            primary: Color(0xFF5C715E), 
-            onPrimary: Color(0xFFF2F9F1), 
-          ),
-        ),
-        child: child!,
-      );
-    },
-  );
-  if (picked != null && picked != DateTime.now()) {
-    setState(() {
-      _dobController.text = "${picked.toLocal()}".split(' ')[0];
-    });
-  }
-}
-
+<<<<<<< HEAD
 <<<<<<< HEAD
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
 =======
 >>>>>>> 5474dc9 (push update)
+=======
+>>>>>>> 241935e (push first project)
+>>>>>>> 32e0131 (first commit production)
   @override
   Widget build(BuildContext context) {
     return Scaffold(
