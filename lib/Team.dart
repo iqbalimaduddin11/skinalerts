@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
-import 'History.dart';
-import 'home.dart';
-import 'Profile.dart';
+import 'package:flutter/material.dart'; 
 
 class ProjectTeamPage extends StatefulWidget {
   @override
@@ -10,8 +6,7 @@ class ProjectTeamPage extends StatefulWidget {
 }
 
 
-class _ProjectTeamPageState extends State<ProjectTeamPage> {
-  int _indexNavbar = 3;
+class _ProjectTeamPageState extends State<ProjectTeamPage> { 
 
   @override
   Widget build(BuildContext context) {
@@ -69,45 +64,7 @@ class _ProjectTeamPageState extends State<ProjectTeamPage> {
           ),
         ],
       ),
-      bottomNavigationBar: Container(
-        height: 110, // Atur tinggi sesuai kebutuhan untuk menghindari overflow
-        child: FloatingNavbar(
-          onTap: (int val) {
-            setState(() => _indexNavbar = val);
-            if (val == 0) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => MyHomePage()),
-              );
-            } else if (val == 1) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Historypage()),
-              );
-            } else if (val == 2) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ProfilePage()),
-              );
-            } else if (val == 3) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ProjectTeamPage()),
-              );
-            }
-          },
-          currentIndex: _indexNavbar,
-          backgroundColor: Color(0xFF5C715E),
-          selectedItemColor: Colors.black,
-          unselectedItemColor: Color(0xFFF2F9F1),
-          items: [
-            FloatingNavbarItem(icon: Icons.home),
-            FloatingNavbarItem(icon: Icons.history),
-            FloatingNavbarItem(icon: Icons.person_outline),
-            FloatingNavbarItem(icon: Icons.info_outline),
-          ],
-        ),
-      ),
+      
     );
   }
 }

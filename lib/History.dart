@@ -1,8 +1,4 @@
-import 'package:flutter/material.dart';
-import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
-import 'home.dart';
-import 'Profile.dart';
-import 'Team.dart';
+import 'package:flutter/material.dart'; 
 
 class Historypage extends StatefulWidget {
   @override
@@ -12,19 +8,18 @@ class Historypage extends StatefulWidget {
 class _HistorypageState extends State<Historypage> {
   final List<Map<String, String>> history = [
     {
-      'date': '12 April 2023 | 22:00 WIB',
+      'date': '12 April 2023  22:00 \nWIB',
       'description': 'Telah Melakukan Check For Skin Cancer'
     },
     {
-      'date': '10 Feb 2024 | 08:00 WIB',
+      'date': '10 Feb 2024  08:00  \nWIB',
       'description': 'Telah Melakukan Check For Skin Cancer'
     },
     {
-      'date': '12 Juni 2024 | 13:00 WIB',
+      'date': '12 Juni 2024  13:00  \nWIB',
       'description': 'Telah Melakukan Check For Skin Cancer'
     },
-  ];
-  int _indexNavbar = 1; // Default to the History page
+  ]; 
 
   @override
   Widget build(BuildContext context) {
@@ -195,45 +190,7 @@ class _HistorypageState extends State<Historypage> {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        height: 110, // Adjust height as needed to avoid overflow
-        child: FloatingNavbar(
-          onTap: (int val) {
-            setState(() => _indexNavbar = val);
-            if (val == 0) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => MyHomePage()),
-              );
-            } else if (val == 1) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Historypage()),
-              );
-            } else if (val == 2) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ProfilePage()),
-              );
-            } else if (val == 3) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ProjectTeamPage()),
-              );
-            }
-          },
-          currentIndex: _indexNavbar,
-          backgroundColor: Color(0xFF5C715E),
-          selectedItemColor: Colors.black,
-          unselectedItemColor: Color(0xFFF2F9F1),
-          items: [
-            FloatingNavbarItem(icon: Icons.home),
-            FloatingNavbarItem(icon: Icons.history),
-            FloatingNavbarItem(icon: Icons.person_outline),
-            FloatingNavbarItem(icon: Icons.info_outline),
-          ],
-        ),
-      ),
+       
     );
   }
 }

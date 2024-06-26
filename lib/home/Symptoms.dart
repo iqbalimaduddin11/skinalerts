@@ -12,8 +12,7 @@ class SymptomsPage extends StatelessWidget {
       child: SizedBox(
         height: 350,
         child: Scrollbar(
-          thickness: 10,
-          thumbVisibility: true,
+          thickness: 10, 
           trackVisibility: true,
           radius: const Radius.circular(3),
           child: SingleChildScrollView(

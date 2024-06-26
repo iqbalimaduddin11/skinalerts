@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'signup.dart';
-import 'home.dart';
+import 'package:skinalert/home/main_page.dart';
+import 'signup.dart'; 
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -173,7 +173,7 @@ class _LoginPageState extends State<LoginPage> {
                         // Navigate to HomePage after login validation
                         Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (context) => MyHomePage()),
+                          MaterialPageRoute(builder: (context) => MainPage()),
                         );
                       }
                     },

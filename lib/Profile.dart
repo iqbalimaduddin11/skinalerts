@@ -1,17 +1,52 @@
+<<<<<<< HEAD
 // ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'History.dart';
 import 'home.dart';
 import 'Team.dart';
+=======
+import 'package:flutter/material.dart'; 
+>>>>>>> c943860 (update now)
 
 class ProfilePage extends StatefulWidget {
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
-  int _indexNavbar = 2;
+class _ProfilePageState extends State<ProfilePage> { 
+  TextEditingController _dobController = TextEditingController();
+
+  @override
+  void dispose() {
+    _dobController.dispose();
+    super.dispose();
+  }
+
+ Future<void> _selectDate(BuildContext context) async {
+  DateTime? picked = await showDatePicker(
+    context: context,
+    initialDate: DateTime.now(),
+    firstDate: DateTime(1900),
+    lastDate: DateTime.now(),
+    builder: (BuildContext context, Widget? child) {
+      return Theme(
+        data: ThemeData(
+          colorScheme: ColorScheme.light(
+            primary: Color(0xFF5C715E), 
+            onPrimary: Color(0xFFF2F9F1), 
+          ),
+        ),
+        child: child!,
+      );
+    },
+  );
+  if (picked != null && picked != DateTime.now()) {
+    setState(() {
+      _dobController.text = "${picked.toLocal()}".split(' ')[0];
+    });
+  }
+}
 
 <<<<<<< HEAD
 class ProfilePage extends StatelessWidget {
@@ -51,8 +86,8 @@ class ProfilePage extends StatelessWidget {
                   alignment: Alignment.bottomRight,
                   child: CircleAvatar(
                     radius: 15,
-                    backgroundColor: Colors.white,
-                    child: Icon(Icons.edit, color: Color(0xFF5C715E), size: 20),
+                    backgroundColor: Color(0xFF5C715E),
+                    child: Icon(Icons.edit, color: Color(0xFFF2F9F1), size: 20),
                   ),
                 ),
               ),
@@ -68,6 +103,12 @@ class ProfilePage extends StatelessWidget {
               ),
               const ProfileTextField(
                 label: 'Date Of Birth',
+                controller: _dobController,
+                onTap: () => _selectDate(context),
+              ),
+              ProfileDropdownField(
+                label: 'Sex',
+                items: ['Men', 'Women'],
               ),
               const SizedBox(height: 20),
               ElevatedButton(
@@ -94,53 +135,21 @@ class ProfilePage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        height: 110, // Atur tinggi sesuai kebutuhan untuk menghindari overflow
-        child: FloatingNavbar(
-          onTap: (int val) {
-            setState(() => _indexNavbar = val);
-            if (val == 0) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => MyHomePage()),
-              );
-            } else if (val == 1) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => Historypage()),
-              );
-            } else if (val == 2) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ProfilePage()),
-              );
-            } else if (val == 3) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ProjectTeamPage()),
-              );
-            }
-          },
-          currentIndex: _indexNavbar,
-          backgroundColor: Color(0xFF5C715E),
-          selectedItemColor: Colors.black,
-          unselectedItemColor: Color(0xFFF2F9F1),
-          items: [
-            FloatingNavbarItem(icon: Icons.home),
-            FloatingNavbarItem(icon: Icons.history),
-            FloatingNavbarItem(icon: Icons.person_outline),
-            FloatingNavbarItem(icon: Icons.info_outline),
-          ],
-        ),
-      ),
+      
     );
   }
 }
 
 class ProfileTextField extends StatelessWidget {
   final String label;
+  final TextEditingController? controller;
+  final VoidCallback? onTap;
 
+<<<<<<< HEAD
   const ProfileTextField({super.key, required this.label});
+=======
+  ProfileTextField({required this.label, this.controller, this.onTap});
+>>>>>>> c943860 (update now)
 
   @override
   Widget build(BuildContext context) {
@@ -159,6 +168,9 @@ class ProfileTextField extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           TextFormField(
+            controller: controller,
+            onTap: onTap,
+            readOnly: onTap != null,
             decoration: InputDecoration(
               filled: true,
               fillColor: const Color(0xFF5C715E),
@@ -169,15 +181,93 @@ class ProfileTextField extends StatelessWidget {
               contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
               hintStyle: const TextStyle(
                 fontSize: 16,
-                color: Color(0xFFF2F9F1),
+                color: Color(0xFF5C715E),
                 fontFamily: 'LeagueSpartan',
               ),
             ),
+<<<<<<< HEAD
               style: const TextStyle(
+=======
+            style: TextStyle(
+>>>>>>> c943860 (update now)
               fontSize: 16,
               color: Color(0xFFF2F9F1),
               fontFamily: 'LeagueSpartan',
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ProfileDropdownField extends StatefulWidget {
+  final String label;
+  final List<String> items;
+
+  ProfileDropdownField({required this.label, required this.items});
+
+  @override
+  _ProfileDropdownFieldState createState() => _ProfileDropdownFieldState();
+}
+
+class _ProfileDropdownFieldState extends State<ProfileDropdownField> {
+  String? selectedValue;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            widget.label,
+            style: TextStyle(
+              fontSize: 14,
+              color: Color(0xFF5C715E),
+              fontFamily: 'LeagueSpartan',
+            ),
+          ),
+          SizedBox(height: 8),
+          DropdownButtonFormField<String>(
+            hint: Text(
+              'Select',
+            style: TextStyle(
+                fontSize: 16,
+                color: Color(0xFFF2F9F1),
+                fontFamily: 'LeagueSpartan',
+              ),),
+              icon: Icon(Icons.arrow_drop_down_sharp,color:Color(0xFFF2F9F1),size: 25,),
+            decoration: InputDecoration(
+              filled: true,
+              fillColor: Color(0xFF5C715E), 
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+                borderSide: BorderSide.none,
+              ),
+              contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),   
+            ),
+            dropdownColor: Color(0xFF5C715E),
+            value: selectedValue,
+            onChanged: (newValue) {
+              setState(() {
+                selectedValue = newValue;
+              });
+            },
+            items: widget.items.map((String item) {
+              return DropdownMenuItem<String>(
+                value: item,
+                child: Text(
+                  item,
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Color(0xFFF2F9F1),
+                    fontFamily: 'LeagueSpartan',
+                  ),
+                ),
+              );
+            }).toList(),
           ),
         ],
       ),

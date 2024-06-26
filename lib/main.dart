@@ -14,9 +14,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'SkinAlert',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
       home: SplashScreen(),
     );
   }
