@@ -60,6 +60,7 @@ class _SignUpPageState extends State<SignUpPage> {
           style: TextStyle(
             color: Color(0xFF5C715E),
             fontFamily: 'LeagueSpartan',
+            fontWeight: FontWeight.bold
           ),
         ),
         backgroundColor: Color(0xFFF2F9F1),

@@ -1,13 +1,4 @@
-<<<<<<< HEAD
 import 'package:flutter/material.dart'; 
-=======
-// ignore: file_names
-import 'package:flutter/material.dart';
-import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
-import 'History.dart';
-import 'home.dart';
-import 'Team.dart';
->>>>>>> 9c3a5ef (first commit)
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -23,7 +14,7 @@ class _ProfilePageState extends State<ProfilePage> {
     super.dispose();
   }
 
- Future<void> _selectDate(BuildContext context) async {
+Future<void> _selectDate(BuildContext context) async {
   DateTime? picked = await showDatePicker(
     context: context,
     initialDate: DateTime.now(),
@@ -48,12 +39,6 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 }
 
-<<<<<<< HEAD
-=======
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
-
->>>>>>> 241935e (push first project)
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -92,16 +77,16 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              const ProfileTextField(
+              ProfileTextField(
                 label: 'Full Name',
               ),
-              const ProfileTextField(
+              ProfileTextField(
                 label: 'Phone Number',
               ),
-              const ProfileTextField(
+              ProfileTextField(
                 label: 'Email',
               ),
-              const ProfileTextField(
+              ProfileTextField(
                 label: 'Date Of Birth',
                 controller: _dobController,
                 onTap: () => _selectDate(context),
@@ -145,11 +130,7 @@ class ProfileTextField extends StatelessWidget {
   final TextEditingController? controller;
   final VoidCallback? onTap;
 
-<<<<<<< HEAD
   ProfileTextField({required this.label, this.controller, this.onTap});
-=======
-  const ProfileTextField({super.key, required this.label});
->>>>>>> 9c3a5ef (first commit)
 
   @override
   Widget build(BuildContext context) {
@@ -185,11 +166,7 @@ class ProfileTextField extends StatelessWidget {
                 fontFamily: 'LeagueSpartan',
               ),
             ),
-<<<<<<< HEAD
             style: TextStyle(
-=======
-              style: const TextStyle(
->>>>>>> 9c3a5ef (first commit)
               fontSize: 16,
               color: Color(0xFFF2F9F1),
               fontFamily: 'LeagueSpartan',

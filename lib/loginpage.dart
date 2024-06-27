@@ -74,16 +74,16 @@ class _LoginPageState extends State<LoginPage> {
                     textAlign: TextAlign.left,
                   ),
                   const SizedBox(height: 32),
-                  const Text(
-                    'Email or Mobile Number',
-                    style: TextStyle(
-                      color: Color(0xFF5C715E),
-                      fontSize: 20,
-                      fontWeight: FontWeight.normal,
-                      fontFamily: 'LeagueSpartan',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
+                  // const Text(
+                  //   'Email or Mobile Number',
+                  //   style: TextStyle(
+                  //     color: Color(0xFF5C715E),
+                  //     fontSize: 20,
+                  //     fontWeight: FontWeight.normal,
+                  //     fontFamily: 'LeagueSpartan',
+                  //   ),
+                  //   textAlign: TextAlign.left,
+                  // ),
                   Container(
                     decoration: BoxDecoration(
                       color: const Color(0xFF5C715E),
@@ -107,16 +107,16 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  const Text(
-                    'Password',
-                    style: TextStyle(
-                      color: Color(0xFF5C715E),
-                      fontSize: 20,
-                      fontWeight: FontWeight.normal,
-                      fontFamily: 'LeagueSpartan',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
+                  // const Text(
+                  //   'Password',
+                  //   style: TextStyle(
+                  //     color: Color(0xFF5C715E),
+                  //     fontSize: 20,
+                  //     fontWeight: FontWeight.normal,
+                  //     fontFamily: 'LeagueSpartan',
+                  //   ),
+                  //   textAlign: TextAlign.left,
+                  // ),
                   Container(
                     decoration: BoxDecoration(
                       color: const Color(0xFF5C715E),
@@ -127,13 +127,8 @@ class _LoginPageState extends State<LoginPage> {
                       style: const TextStyle(color: Color(0xFFF2F9F1)),
                       obscureText: !_showPassword,
                       decoration: InputDecoration(
-<<<<<<< HEAD
                         labelText: 'Password',
                         labelStyle: TextStyle(color: Color(0xFFF2F9F1)),
-=======
-                        labelText: 'Enter your password',
-                        labelStyle: const TextStyle(color: Color(0xFFF1F8E8)),
->>>>>>> 9c3a5ef (first commit)
                         border: InputBorder.none,
                         contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
                         suffixIcon: IconButton(
