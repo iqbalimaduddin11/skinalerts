@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import 'package:flutter/material.dart'; 
 
 class ProfilePage extends StatefulWidget {
@@ -22,40 +21,30 @@ class _ProfilePageState extends State<ProfilePage> {
     super.dispose();
   }
 
-  Future<void> _selectDate(BuildContext context) async {
-    DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      firstDate: DateTime(1900),
-      lastDate: DateTime.now(),
-      builder: (BuildContext context, Widget? child) {
-        return Theme(
-          data: ThemeData(
-            colorScheme: ColorScheme.light(
-              primary: Color(0xFF5C715E), 
-              onPrimary: Color(0xFFF2F9F1), 
-            ),
+ Future<void> _selectDate(BuildContext context) async {
+  DateTime? picked = await showDatePicker(
+    context: context,
+    initialDate: DateTime.now(),
+    firstDate: DateTime(1900),
+    lastDate: DateTime.now(),
+    builder: (BuildContext context, Widget? child) {
+      return Theme(
+        data: ThemeData(
+          colorScheme: ColorScheme.light(
+            primary: Color(0xFF5C715E), 
+            onPrimary: Color(0xFFF2F9F1), 
           ),
-          child: child!,
-        );
-      },
-    );
-    if (picked != null && picked != DateTime.now()) {
-      setState(() {
-        _dobController.text = "${picked.toLocal()}".split(' ')[0];
-      });
-    }
+        ),
+        child: child!,
+      );
+    },
+  );
+  if (picked != null && picked != DateTime.now()) {
+    setState(() {
+      _dobController.text = "${picked.toLocal()}".split(' ')[0];
+    });
   }
-
-  Future<void> _updateProfile() async {
-    final user = _auth.currentUser;
-    if (user!= null) {
-      user.updateDisplayName(_fullNameController.text);
-      user.updateEmail(_emailController.text);
-      // Update other profile information as needed
-      await user.reload();
-    }
-  }
+}
 
 <<<<<<< HEAD
 =======
@@ -100,17 +89,17 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
-              ProfileTextField(
+              const SizedBox(height: 20),
+              const ProfileTextField(
                 label: 'Full Name',
               ),
-              const ProfileTextField(
+              ProfileTextField(
                 label: 'Phone Number',
               ),
-              const ProfileTextField(
+              ProfileTextField(
                 label: 'Email',
               ),
-              const ProfileTextField(
+              ProfileTextField(
                 label: 'Date Of Birth',
                 controller: _dobController,
                 onTap: () => _selectDate(context),
@@ -146,11 +135,7 @@ class ProfileTextField extends StatelessWidget {
   final TextEditingController? controller;
   final VoidCallback? onTap;
 
-<<<<<<< HEAD
   ProfileTextField({required this.label, this.controller, this.onTap});
-=======
-  const ProfileTextField({super.key, required this.label});
->>>>>>> 9c3a5ef (first commit)
 
   @override
   Widget build(BuildContext context) {
@@ -186,11 +171,7 @@ class ProfileTextField extends StatelessWidget {
                 fontFamily: 'LeagueSpartan',
               ),
             ),
-<<<<<<< HEAD
             style: TextStyle(
-=======
-              style: const TextStyle(
->>>>>>> 9c3a5ef (first commit)
               fontSize: 16,
               color: Color(0xFFF2F9F1),
               fontFamily: 'LeagueSpartan',
