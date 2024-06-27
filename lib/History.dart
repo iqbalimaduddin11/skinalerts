@@ -8,15 +8,15 @@ class Historypage extends StatefulWidget {
 class _HistorypageState extends State<Historypage> {
   final List<Map<String, String>> history = [
     {
-      'date': '12 April 2023  22:00 \nWIB',
+      'date': '12 April 2023  \n22:00 WIB',
       'description': 'Telah Melakukan Check For Skin Cancer'
     },
     {
-      'date': '10 Feb 2024  08:00  \nWIB',
+      'date': '10 Feb 2024  \n08:00 WIB',
       'description': 'Telah Melakukan Check For Skin Cancer'
     },
     {
-      'date': '12 Juni 2024  13:00  \nWIB',
+      'date': '12 Juni 2024  \n13:00 WIB',
       'description': 'Telah Melakukan Check For Skin Cancer'
     },
   ]; 

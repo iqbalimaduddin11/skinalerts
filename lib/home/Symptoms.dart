@@ -4,7 +4,7 @@ class SymptomsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: const Color(0xFFF1F8E8),
+      color: Color(0xFFF2F9F1),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(10),
         side: const BorderSide(color: Colors.black),

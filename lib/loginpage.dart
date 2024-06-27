@@ -127,8 +127,13 @@ class _LoginPageState extends State<LoginPage> {
                       style: const TextStyle(color: Color(0xFFF2F9F1)),
                       obscureText: !_showPassword,
                       decoration: InputDecoration(
+<<<<<<< HEAD
                         labelText: 'Enter your password',
                         labelStyle: const TextStyle(color: Color(0xFFF1F8E8)),
+=======
+                        labelText: 'Password',
+                        labelStyle: TextStyle(color: Color(0xFFF2F9F1)),
+>>>>>>> 77139f5 (update loginpage)
                         border: InputBorder.none,
                         contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
                         suffixIcon: IconButton(
