@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 79d77bf (first commit)
 =======
@@ -10,12 +11,17 @@ import 'package:flutter/material.dart';
 =======
 >>>>>>> aeb3465 (push branch production)
 >>>>>>> 5b710bf (push branch production)
+=======
+import 'package:flutter/material.dart'; 
+=======
+>>>>>>> 6749efe (push branch production)
 // ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'History.dart';
 import 'home.dart';
 import 'Team.dart';
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -27,20 +33,55 @@ import 'package:flutter/material.dart';
 >>>>>>> 9c3a5ef (first commit)
 >>>>>>> aeb3465 (push branch production)
 >>>>>>> 5b710bf (push branch production)
+=======
+>>>>>>> 9c3a5ef (first commit)
+>>>>>>> 6749efe (push branch production)
 
 class ProfilePage extends StatefulWidget {
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
-  int _indexNavbar = 2;
+class _ProfilePageState extends State<ProfilePage> { 
+  TextEditingController _dobController = TextEditingController();
+
+  @override
+  void dispose() {
+    _dobController.dispose();
+    super.dispose();
+  }
+
+ Future<void> _selectDate(BuildContext context) async {
+  DateTime? picked = await showDatePicker(
+    context: context,
+    initialDate: DateTime.now(),
+    firstDate: DateTime(1900),
+    lastDate: DateTime.now(),
+    builder: (BuildContext context, Widget? child) {
+      return Theme(
+        data: ThemeData(
+          colorScheme: ColorScheme.light(
+            primary: Color(0xFF5C715E), 
+            onPrimary: Color(0xFFF2F9F1), 
+          ),
+        ),
+        child: child!,
+      );
+    },
+  );
+  if (picked != null && picked != DateTime.now()) {
+    setState(() {
+      _dobController.text = "${picked.toLocal()}".split(' ')[0];
+    });
+  }
+}
 
 <<<<<<< HEAD
 =======
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -59,6 +100,8 @@ class ProfilePage extends StatelessWidget {
 
 >>>>>>> aeb3465 (push branch production)
 >>>>>>> 5b710bf (push branch production)
+=======
+>>>>>>> 6749efe (push branch production)
 >>>>>>> 241935e (push first project)
 >>>>>>> 32e0131 (first commit production)
   @override
@@ -99,16 +142,16 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              const ProfileTextField(
+              ProfileTextField(
                 label: 'Full Name',
               ),
-              const ProfileTextField(
+              ProfileTextField(
                 label: 'Phone Number',
               ),
-              const ProfileTextField(
+              ProfileTextField(
                 label: 'Email',
               ),
-              const ProfileTextField(
+              ProfileTextField(
                 label: 'Date Of Birth',
                 controller: _dobController,
                 onTap: () => _selectDate(context),
@@ -154,6 +197,7 @@ class ProfileTextField extends StatelessWidget {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   const ProfileTextField({super.key, required this.label});
 =======
   ProfileTextField({required this.label, this.controller, this.onTap});
@@ -164,6 +208,9 @@ class ProfileTextField extends StatelessWidget {
   const ProfileTextField({super.key, required this.label});
 >>>>>>> 9c3a5ef (first commit)
 >>>>>>> 5b710bf (push branch production)
+=======
+  ProfileTextField({required this.label, this.controller, this.onTap});
+>>>>>>> 6749efe (push branch production)
 
   @override
   Widget build(BuildContext context) {
@@ -201,6 +248,7 @@ class ProfileTextField extends StatelessWidget {
             ),
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
               style: const TextStyle(
 =======
             style: TextStyle(
@@ -211,6 +259,9 @@ class ProfileTextField extends StatelessWidget {
               style: const TextStyle(
 >>>>>>> 9c3a5ef (first commit)
 >>>>>>> 5b710bf (push branch production)
+=======
+            style: TextStyle(
+>>>>>>> 6749efe (push branch production)
               fontSize: 16,
               color: Color(0xFFF2F9F1),
               fontFamily: 'LeagueSpartan',
