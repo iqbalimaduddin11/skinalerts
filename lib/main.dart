@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:skinalert/authentication/authentication_wrapper.dart';
 import 'package:skinalert/firebase_options.dart';
 
+<<<<<<< HEAD
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
 <<<<<<< HEAD
@@ -21,6 +22,11 @@ void main() {
   );
 >>>>>>> f08f975 (update login & signup page)
   runApp(const MyApp());
+=======
+
+void main() {
+  runApp(MyApp());
+>>>>>>> 6b1fbb2 (push branch production)
 }
 
 class MyApp extends StatelessWidget {

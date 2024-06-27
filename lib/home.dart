@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
@@ -34,11 +35,20 @@ import 'package:skinalert/home/Clickforcheck.dart';
 import 'package:skinalert/home/Diagnosis.dart';
 import 'package:skinalert/home/Symptoms.dart';
 import 'package:skinalert/loginpage.dart';
+=======
+import 'package:flutter/material.dart';
+import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:skinalert/Clickforcheck.dart';
+import 'package:skinalert/Diagnosis.dart';
+import 'package:skinalert/Symptoms.dart';
+>>>>>>> 6b1fbb2 (push branch production)
 import 'Profile.dart';
 import 'Team.dart';
 import 'History.dart';
 
 class MyHomePage extends StatefulWidget {
+<<<<<<< HEAD
 <<<<<<< HEAD
   const MyHomePage({super.key});
 >>>>>>> aeb3465 (push branch production)
@@ -72,6 +82,16 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   final CollectionReference myItems =
       FirebaseFirestore.instance.collection("users");
+=======
+  const MyHomePage({super.key});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _MyHomePageState createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+>>>>>>> 6b1fbb2 (push branch production)
   final ScrollController _vertical = ScrollController();
   int _index = 0;
   int _indexNavbar = 0;
@@ -81,6 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
     'assets/gambar3.jpg',
     'assets/gambar4.jpg',
   ];
+<<<<<<< HEAD
 <<<<<<< HEAD
   
   get child => null;
@@ -131,6 +152,15 @@ class _MyHomePageState extends State<MyHomePage> {
 //   }
 
 <<<<<<< HEAD
+=======
+
+  @override
+  void dispose() {
+    _vertical.dispose();
+    super.dispose();
+  }
+
+>>>>>>> 6b1fbb2 (push branch production)
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -140,12 +170,16 @@ class _MyHomePageState extends State<MyHomePage> {
         toolbarHeight: 0, // Hide the app bar
       ),
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 6b1fbb2 (push branch production)
       body: Column(
         children: [
           // Profile section
           Container(
             padding: const EdgeInsets.all(16.0),
             color: const Color(0xFFF2F9F1), // Background color for profile section
+<<<<<<< HEAD
 <<<<<<< HEAD
             child: const Row(
               children: [
@@ -158,6 +192,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
 =======
+=======
+>>>>>>> 6b1fbb2 (push branch production)
             child: Row(
               children: [
                 CircleAvatar(
@@ -168,7 +204,10 @@ class _MyHomePageState extends State<MyHomePage> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
+<<<<<<< HEAD
 >>>>>>> aeb3465 (push branch production)
+=======
+>>>>>>> 6b1fbb2 (push branch production)
                     Text(
                       'Hi, WelcomeBack',
                       style: TextStyle(fontSize: 16, color: Color(0xFF5C715E), fontFamily: 'LeagueSpartan'),
@@ -198,10 +237,14 @@ class _MyHomePageState extends State<MyHomePage> {
             items: imgList.map((item) => Container(
               decoration: BoxDecoration(
 <<<<<<< HEAD
+<<<<<<< HEAD
                 border: Border.all(color: const Color(0xFF5C715E), width: 2), // Border around images
 =======
                 border: Border.all(color: Color(0xFF5C715E), width: 2), // Border around images
 >>>>>>> aeb3465 (push branch production)
+=======
+                border: Border.all(color: Color(0xFF5C715E), width: 2), // Border around images
+>>>>>>> 6b1fbb2 (push branch production)
                 borderRadius: BorderRadius.circular(10), // Rounded corners
               ),
               child: ClipRRect(
@@ -227,6 +270,7 @@ class _MyHomePageState extends State<MyHomePage> {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     child: Text('Symptoms', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 0 ? const Color(0xFF5C715E) : const Color(0xFF5C715E))),
 =======
 =======
@@ -235,6 +279,11 @@ class _MyHomePageState extends State<MyHomePage> {
 >>>>>>> 32e0131 (first commit production)
 =======
 >>>>>>> 6749efe (push branch production)
+=======
+=======
+<<<<<<< HEAD
+>>>>>>> 6b1fbb2 (push branch production)
+>>>>>>> b74df55 (push branch production)
                     style: ButtonStyle(
                       backgroundColor: _index == 0 ? MaterialStateProperty.all(Color(0xFF5C715E)) : MaterialStateProperty.all(Color(0xFFF2F9F1)),
                       foregroundColor: _index == 0 ? MaterialStateProperty.all(Color(0xFFF2F9F1)) : MaterialStateProperty.all(Color(0xFF5C715E)),
@@ -332,6 +381,7 @@ class _MyHomePageState extends State<MyHomePage> {
 >>>>>>> 6749efe (push branch production)
 =======
 =======
+<<<<<<< HEAD
       body: StreamBuilder(
         stream: myItems.doc(_currentUser?.uid).snapshots(),
         builder: (context, AsyncSnapshot<DocumentSnapshot> snapshot) {
@@ -486,10 +536,69 @@ class _MyHomePageState extends State<MyHomePage> {
 =======
       bottomNavigationBar: Container(
 >>>>>>> aeb3465 (push branch production)
+=======
+                    child: Text('Symptoms', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 0 ? const Color(0xFF5C715E) : const Color(0xFF5C715E))),
+>>>>>>> 241935e (push first project)
+                  ),
+                ),
+                SizedBox(
+                  width: 100, // Set the width of the button
+                  child: TextButton(
+                    onPressed: () {
+                      setState(() => _index = 1);
+                    },
+<<<<<<< HEAD
+                    style: ButtonStyle(
+                      backgroundColor: _index == 1 ? MaterialStateProperty.all(Color(0xFF5C715E)) : MaterialStateProperty.all(Color(0xFFF2F9F1)),
+                      foregroundColor: _index == 1 ? MaterialStateProperty.all(Color(0xFFF2F9F1)) : MaterialStateProperty.all(Color(0xFF5C715E)),
+                    ),
+                    child: Text('Diagnosis And Treatment', style: TextStyle(fontFamily: 'LeagueSpartan', fontSize: 10,fontWeight: FontWeight.bold)),
+=======
+                    child: Text('Diagnosis And Treatment', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 1 ? const Color(0xFF5C715E) : const Color(0xFF5C715E))),
+>>>>>>> 241935e (push first project)
+                  ),
+                ),
+                SizedBox(
+                  width: 100, // Set the width of the button
+                  child: TextButton(
+                    onPressed: () {
+                      setState(() => _index = 2);
+                    },
+<<<<<<< HEAD
+                    style: ButtonStyle(
+                      backgroundColor: _index == 2 ? MaterialStateProperty.all(Color(0xFF5C715E)) : MaterialStateProperty.all(Color(0xFFF2F9F1)),
+                      foregroundColor: _index == 2 ? MaterialStateProperty.all(Color(0xFFF2F9F1)): MaterialStateProperty.all(Color(0xFF5C715E)),
+                    ),
+                    child: Text('Click For Check', style: TextStyle(fontFamily: 'LeagueSpartan',fontSize: 10,fontWeight: FontWeight.bold)),
+=======
+                    child: Text('Click For Check', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 2 ? const Color(0xFF5C715E) : const Color(0xFF5C715E))),
+>>>>>>> 241935e (push first project)
+                  ),
+                ),
+              ],
+            ),
+          ),
+          const Divider(),
+          // Content Area
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 16),
+              child: _index == 0
+                ? SymptomsPage()
+                : _index == 1
+                  ? DiagnosisPage()
+                  : ClickForCheckPage(),
+            ),
+          ),
+        ],
+      ),
+      bottomNavigationBar: Container(
+>>>>>>> 6b1fbb2 (push branch production)
         height: 110, // Atur tinggi sesuai kebutuhan untuk menghindari overflow
         child: FloatingNavbar(
           onTap: (int val) {
             setState(() => _indexNavbar = val);
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -502,6 +611,11 @@ class _MyHomePageState extends State<MyHomePage> {
 >>>>>>> 32e0131 (first commit production)
 =======
 >>>>>>> 6749efe (push branch production)
+=======
+=======
+<<<<<<< HEAD
+>>>>>>> 6b1fbb2 (push branch production)
+>>>>>>> b74df55 (push branch production)
             if (val == 0) {
               Navigator.push(
                 context,
@@ -516,16 +630,23 @@ class _MyHomePageState extends State<MyHomePage> {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 5474dc9 (push update)
 =======
 >>>>>>> 79d77bf (first commit)
 =======
+>>>>>>> b74df55 (push branch production)
+=======
 =======
             if (val == 2) {
 >>>>>>> 241935e (push first project)
+<<<<<<< HEAD
 >>>>>>> 32e0131 (first commit production)
 =======
 >>>>>>> 6749efe (push branch production)
+=======
+>>>>>>> 6b1fbb2 (push branch production)
+>>>>>>> b74df55 (push branch production)
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => ProfilePage()),
@@ -542,6 +663,7 @@ class _MyHomePageState extends State<MyHomePage> {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           backgroundColor: const Color(0xFF5C715E),
           selectedItemColor: Colors.black,
           unselectedItemColor: const Color(0xFFF2F9F1),
@@ -556,6 +678,13 @@ class _MyHomePageState extends State<MyHomePage> {
           unselectedItemColor: Color(0xFFF2F9F1),
 >>>>>>> 79d77bf (first commit)
 =======
+=======
+          backgroundColor: Color(0xFF5C715E),
+          selectedItemColor: Colors.black,
+          unselectedItemColor: Color(0xFFF2F9F1),
+=======
+<<<<<<< HEAD
+>>>>>>> b74df55 (push branch production)
           backgroundColor: Color(0xFF5C715E),
           selectedItemColor: Colors.black,
           unselectedItemColor: Color(0xFFF2F9F1),
@@ -564,12 +693,16 @@ class _MyHomePageState extends State<MyHomePage> {
           selectedItemColor: Colors.black,
           unselectedItemColor: const Color(0xFFF2F9F1),
 >>>>>>> 241935e (push first project)
+<<<<<<< HEAD
 >>>>>>> 32e0131 (first commit production)
 =======
           backgroundColor: Color(0xFF5C715E),
           selectedItemColor: Colors.black,
           unselectedItemColor: Color(0xFFF2F9F1),
 >>>>>>> 6749efe (push branch production)
+=======
+>>>>>>> 6b1fbb2 (push branch production)
+>>>>>>> b74df55 (push branch production)
           items: [
             FloatingNavbarItem(icon: Icons.home),
             FloatingNavbarItem(icon: Icons.history),
@@ -581,6 +714,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+<<<<<<< HEAD
 =======
 //   @override
 //   Widget build(BuildContext context) {
@@ -727,3 +861,5 @@ class _MyHomePageState extends State<MyHomePage> {
 //   }
 // }
 >>>>>>> ab4caa1 (merging local branch)
+=======
+>>>>>>> 6b1fbb2 (push branch production)

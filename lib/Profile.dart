@@ -9,6 +9,7 @@
 <<<<<<< HEAD
 import 'package:flutter/material.dart'; 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> aeb3465 (push branch production)
 >>>>>>> 5b710bf (push branch production)
@@ -42,7 +43,12 @@ import 'package:flutter/material.dart';
 =======
 import 'package:firebase_auth/firebase_auth.dart';
 >>>>>>> f08f975 (update login & signup page)
+<<<<<<< HEAD
 >>>>>>> 834b9f3 (update login & signup page)
+=======
+=======
+>>>>>>> 6b1fbb2 (push branch production)
+>>>>>>> b74df55 (push branch production)
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -180,17 +186,17 @@ class ProfilePage extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 20),
+              SizedBox(height: 20),
               ProfileTextField(
                 label: 'Full Name',
               ),
-              ProfileTextField(
+              const ProfileTextField(
                 label: 'Phone Number',
               ),
-              ProfileTextField(
+              const ProfileTextField(
                 label: 'Email',
               ),
-              ProfileTextField(
+              const ProfileTextField(
                 label: 'Date Of Birth',
                 controller: _dobController,
                 onTap: () => _selectDate(context),
@@ -201,16 +207,8 @@ class ProfilePage extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               ElevatedButton(
-                onPressed: _updateProfile,
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: const Color(0xFFF2F9F1),
-                  backgroundColor: const Color(0xFF5C715E),
-                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
-                child: const Text(
+                onPressed: () {},
+                child: Text(
                   'Update',
                   style: TextStyle(
                     fontSize: 16,
@@ -237,6 +235,7 @@ class ProfileTextField extends StatelessWidget {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   const ProfileTextField({super.key, required this.label});
 =======
   ProfileTextField({required this.label, this.controller, this.onTap});
@@ -250,6 +249,12 @@ class ProfileTextField extends StatelessWidget {
 =======
   ProfileTextField({required this.label, this.controller, this.onTap});
 >>>>>>> 6749efe (push branch production)
+=======
+  ProfileTextField({required this.label, this.controller, this.onTap});
+=======
+  const ProfileTextField({super.key, required this.label});
+>>>>>>> 9c3a5ef (first commit)
+>>>>>>> b74df55 (push branch production)
 
   @override
   Widget build(BuildContext context) {
@@ -288,6 +293,7 @@ class ProfileTextField extends StatelessWidget {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
               style: const TextStyle(
 =======
             style: TextStyle(
@@ -301,6 +307,12 @@ class ProfileTextField extends StatelessWidget {
 =======
             style: TextStyle(
 >>>>>>> 6749efe (push branch production)
+=======
+            style: TextStyle(
+=======
+              style: const TextStyle(
+>>>>>>> 9c3a5ef (first commit)
+>>>>>>> b74df55 (push branch production)
               fontSize: 16,
               color: Color(0xFFF2F9F1),
               fontFamily: 'LeagueSpartan',
