@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
@@ -16,7 +17,8 @@ import 'Team.dart';
 import 'History.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
+  // ignore: non_constant_identifier_names
+  const MyHomePage({super.key, User? User});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -56,16 +58,16 @@ class _MyHomePageState extends State<MyHomePage> {
           Container(
             padding: const EdgeInsets.all(16.0),
             color: const Color(0xFFF2F9F1), // Background color for profile section
-            child: Row(
+            child: const Row(
               children: [
                 CircleAvatar(
                   radius: 30,
-                  backgroundImage: const AssetImage('assets/Icons/logo2.png'), // Add your profile picture asset here
+                  backgroundImage: AssetImage('assets/Icons/logo2.png'), // Add your profile picture asset here
                 ),
-                const SizedBox(width: 16),
+                SizedBox(width: 16),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: const [
+                  children: [
                     Text(
                       'Hi, WelcomeBack',
                       style: TextStyle(fontSize: 16, color: Color(0xFF5C715E), fontFamily: 'LeagueSpartan'),
@@ -94,7 +96,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             items: imgList.map((item) => Container(
               decoration: BoxDecoration(
-                border: Border.all(color: Color(0xFF5C715E), width: 2), // Border around images
+                border: Border.all(color: const Color(0xFF5C715E), width: 2), // Border around images
                 borderRadius: BorderRadius.circular(10), // Rounded corners
               ),
               child: ClipRRect(
@@ -223,7 +225,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
-      bottomNavigationBar: Container(
+      bottomNavigationBar: SizedBox(
         height: 110, // Atur tinggi sesuai kebutuhan untuk menghindari overflow
         child: FloatingNavbar(
           onTap: (int val) {

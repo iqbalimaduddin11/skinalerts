@@ -1,6 +1,9 @@
+import 'package:fluttertoast/fluttertoast.dart';
+import 'package:skinalert/authentication/authentication_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:skinalert/home/main_page.dart';
 import 'signup.dart'; 
+
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -11,16 +14,28 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  final _email = TextEditingController();
+  final _password = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
   bool _showPassword = false;
 
-  @override
-  void dispose() {
-    _emailController.dispose();
-    _passwordController.dispose();
-    super.dispose();
+  void handleLogin() {
+    AuthenticationService()
+      .loginWithEmailAndPassword(
+        email: _email.text,
+        password: _password.text
+      )
+      .then(
+        (status) {
+          if (status == AuthResultStatus.successful) {
+            Fluttertoast.showToast(msg: "Successfull");
+          } else {
+            final errorMsg = 
+              AuthExceptionHandler.generateExceptionMessage(status);
+            Fluttertoast.showToast(msg: errorMsg);
+          }
+        },
+    );
   }
 
   @override
@@ -87,10 +102,10 @@ class _LoginPageState extends State<LoginPage> {
                   Container(
                     decoration: BoxDecoration(
                       color: const Color(0xFF5C715E),
-                      borderRadius: BorderRadius.circular(13),
+                      borderRadius: BorderRadius.circular(14),
                     ),
                     child: TextFormField(
-                      controller: _emailController,
+                      controller: _email,
                       style: const TextStyle(color: Color(0xFFF2F9F1)),
                       decoration: const InputDecoration(
                         labelText: 'example@example.com',
@@ -98,8 +113,8 @@ class _LoginPageState extends State<LoginPage> {
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
                       ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
+                      validator: (text) {
+                        if (text == null || text.trim().isEmpty) {
                           return 'Please enter your email or mobile number';
                         }
                         return null;
@@ -120,20 +135,15 @@ class _LoginPageState extends State<LoginPage> {
                   Container(
                     decoration: BoxDecoration(
                       color: const Color(0xFF5C715E),
-                      borderRadius: BorderRadius.circular(13),
+                      borderRadius: BorderRadius.circular(14),
                     ),
                     child: TextFormField(
-                      controller: _passwordController,
+                      controller: _password,
                       style: const TextStyle(color: Color(0xFFF2F9F1)),
                       obscureText: !_showPassword,
                       decoration: InputDecoration(
-<<<<<<< HEAD
                         labelText: 'Enter your password',
                         labelStyle: const TextStyle(color: Color(0xFFF1F8E8)),
-=======
-                        labelText: 'Password',
-                        labelStyle: TextStyle(color: Color(0xFFF2F9F1)),
->>>>>>> 77139f5 (update loginpage)
                         border: InputBorder.none,
                         contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
                         suffixIcon: IconButton(
@@ -148,14 +158,15 @@ class _LoginPageState extends State<LoginPage> {
                           },
                         ),
                       ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
+                      validator: (text) {
+                        if (text == null || text.trim().isEmpty) {
                           return 'Please enter your password';
                         }
                         return null;
                       },
                     ),
                   ),
+<<<<<<< HEAD
 <<<<<<< HEAD
                   const SizedBox(height: 16),
                   Align(
@@ -176,14 +187,39 @@ class _LoginPageState extends State<LoginPage> {
 =======
                   SizedBox(height: 32),
 >>>>>>> 708b273 (update now)
+=======
+                  SizedBox(height: 32),
+=======
+                  // const SizedBox(height: 16),
+                  // Align(
+                  //   alignment: Alignment.centerRight,
+                  //   child: TextButton(
+                  //     onPressed: () {},
+                  //     child: const Text(
+                  //       'Forget Password',
+                  //       style: TextStyle(
+                  //         fontFamily: 'LeagueSpartan',
+                  //         fontSize: 16,
+                  //         color: Color(0xFF5C715E),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // ),
+                  const SizedBox(height: 32),
+>>>>>>> d505008 (update feature login)
+>>>>>>> e3bc1d7 (update feature login)
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         // Navigate to HomePage after login validation
+<<<<<<< HEAD
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(builder: (context) => MainPage()),
                         );
+=======
+                        handleLogin();
+>>>>>>> d505008 (update feature login)
                       }
                     },
                     style: ElevatedButton.styleFrom(

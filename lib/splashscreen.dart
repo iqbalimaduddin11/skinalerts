@@ -1,8 +1,12 @@
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:skinalert/loginpage.dart';
 
 class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
+
   @override
   _SplashScreenState createState() => _SplashScreenState();
 }
@@ -11,9 +15,9 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 5), () {
+    Timer(const Duration(seconds: 5), () {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => LoginPage()),
+        MaterialPageRoute(builder: (context) => const LoginPage()),
       );
     });
   }
@@ -30,11 +34,11 @@ class _SplashScreenState extends State<SplashScreen> {
             Container(
             width: 200,
             height: 200,
-            margin: EdgeInsets.only(bottom: 30),
+            margin: const EdgeInsets.only(bottom: 30),
             color: Colors.transparent,
             child: Image.asset('assets/Icons/logo.png'),
-             ),
-            Text(
+            ),
+            const Text(
               'Skin',
               style: TextStyle(
                 fontFamily: 'lobster-two', // Use a custom font if available
@@ -43,7 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 color: Color(0xFF2C4237),
               ),
             ),
-            Text(
+            const Text(
               'Alert',
               style: TextStyle(
                 fontFamily: 'lobster-two', // Use a custom font if available
@@ -52,7 +56,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 color: Color(0xFF2C4237),
               ),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             // Subtitle
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40.0),
@@ -60,7 +64,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 children: [
                       RichText(
                       textAlign: TextAlign.center,
-                      text: TextSpan(
+                      text: const TextSpan(
                         children: [
                           TextSpan(
                             text: 'Welcome ',
@@ -82,7 +86,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         ],
                       ),
                     ),
-                  Text(
+                  const Text(
                     'Solusi cerdas untuk deteksi dini kanker kulit.',
                     textAlign: TextAlign.center,
                     style: TextStyle(

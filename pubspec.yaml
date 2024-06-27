@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.3.4 <4.0.0'
+  sdk: '>=3.3.4'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -28,13 +28,20 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+<<<<<<< HEAD
   calendar_date_picker2: ^1.1.5
+=======
+  fluttertoast: ^8.2.6
+>>>>>>> d505008 (update feature login)
   carousel_slider: ^4.2.1
   cupertino_icons: ^1.0.6
   # firebase_core: ^3.1.0
   # google_sign_in: ^5.3.3
   # http: ^1.0.0
 
+  firebase_auth: ^5.1.0
+  firebase_core: ^3.1.1
+  sign_in_button: ^3.2.0
   floating_bottom_navigation_bar: ^1.5.2
   flutter:
     sdk: flutter
@@ -59,7 +66,7 @@ flutter_icons:
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
-  flutter_lints: ^3.0.0
+  flutter_lints: ^4.0.0
   flutter_test:
     sdk: flutter
 

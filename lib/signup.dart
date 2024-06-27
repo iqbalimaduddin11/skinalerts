@@ -1,6 +1,8 @@
+import 'package:skinalert/authentication/auth_service.dart';
 import 'package:flutter/material.dart';
 import 'loginpage.dart';
 
+<<<<<<< HEAD
 class SignUpPage extends StatefulWidget {
   @override
   _SignUpPageState createState() => _SignUpPageState();
@@ -48,10 +50,23 @@ class _SignUpPageState extends State<SignUpPage> {
       });
     }
   }
+=======
+class SignUpPage extends StatelessWidget {
+  SignUpPage({super.key});
+
+  final TextEditingController _name = TextEditingController();
+  final TextEditingController _email = TextEditingController();
+  final TextEditingController _password = TextEditingController();
+  final TextEditingController _number = TextEditingController();
+  // final TextEditingController _password = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
+
+>>>>>>> d505008 (update feature login)
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+<<<<<<< HEAD
       backgroundColor: Color(0xFFF2F9F1),
       appBar: AppBar(
         automaticallyImplyLeading: false,
@@ -66,6 +81,9 @@ class _SignUpPageState extends State<SignUpPage> {
         elevation: 0,
         centerTitle: true,
       ),
+=======
+      backgroundColor: const Color(0xFFF2F9F1),
+>>>>>>> d505008 (update feature login)
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: SingleChildScrollView(
@@ -73,9 +91,16 @@ class _SignUpPageState extends State<SignUpPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+<<<<<<< HEAD
               SizedBox(height: 32),
               Container(
                 decoration: BoxDecoration(
+=======
+              const Text(
+                'New Account',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+>>>>>>> d505008 (update feature login)
                   color: Color(0xFF5C715E),
                   borderRadius: BorderRadius.circular(10),
                 ),
@@ -96,6 +121,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   },
                 ),
               ),
+<<<<<<< HEAD
               SizedBox(height: 20),
               Container(
                 decoration: BoxDecoration(
@@ -204,6 +230,32 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               SizedBox(height: 20),
               Text(
+=======
+              const SizedBox(height: 20),
+              TextFormField(
+                controller: _name,
+                decoration: const InputDecoration(labelText: 'example'),
+              ),
+              const SizedBox(height: 20),
+              TextFormField(
+                controller: _email,
+                decoration: const InputDecoration(labelText: 'example@example.com'),
+              ),
+              const SizedBox(height: 20),
+              TextFormField(
+                controller: _password,
+                decoration: const InputDecoration(labelText: '**********'),
+              ),
+              const SizedBox(height: 20),
+              TextFormField(
+                controller: _number,
+                decoration: const InputDecoration(labelText: '+1234 567 890'),
+              ),
+              // const SizedBox(height: 20),
+              // TextFormField(),
+              const SizedBox(height: 20),
+              const Text(
+>>>>>>> d505008 (update feature login)
                 'By continuing, you agree to',
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -212,7 +264,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   fontFamily: 'LeagueSpartan',
                 ),
               ),
-              Text(
+              const Text(
                 'Terms of Use and Privacy Policy.',
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -221,17 +273,35 @@ class _SignUpPageState extends State<SignUpPage> {
                   fontFamily: 'LeagueSpartan',
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               ElevatedButton(
-                onPressed: () {},
                 style: ElevatedButton.styleFrom(
+<<<<<<< HEAD
                   backgroundColor: Color(0xFF5C715E),
                   padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
+=======
+                  backgroundColor: const Color(0xFF5C715E),
+                  padding: const EdgeInsets.symmetric(vertical: 16),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(14),
+>>>>>>> d505008 (update feature login)
                   ),
                 ),
-                child: Text(
+                onPressed: () async {
+                  await AuthService().signup(
+                    email: _email.text, 
+                    password: _password.text
+                  );
+                  if (_formKey.currentState!.validate()) {
+                    Navigator.pushReplacement(
+                      context, 
+                      MaterialPageRoute(builder: (context) => const LoginPage())
+                    );
+                  }
+                },
+                child: const Text(
                   'Sign Up',
                   style: TextStyle(
                     fontSize: 18,
@@ -240,8 +310,8 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ),
               ),
-              SizedBox(height: 16),
-              Text(
+              const SizedBox(height: 16),
+              const Text(
                 'or sign up with',
                 textAlign: TextAlign.center,
                 style: TextStyle(
@@ -250,7 +320,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   fontFamily: 'LeagueSpartan',
                 ),
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -268,15 +338,15 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                 ],
               ),
-              SizedBox(height: 16),
+              const SizedBox(height: 16),
               TextButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => LoginPage()),
+                    MaterialPageRoute(builder: (context) => const LoginPage()),
                   );
                 },
-                child: Text(
+                child: const Text(
                   'already have an account? Log in',
                   textAlign: TextAlign.center,
                   style: TextStyle(
@@ -293,3 +363,74 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 }
+<<<<<<< HEAD
+=======
+
+class ProfileTextField extends StatefulWidget {
+  final String label;
+  final String hintText;
+  final bool obscureText;
+
+  ProfileTextField({
+    required this.label,
+    required this.hintText,
+    this.obscureText = false,
+  });
+
+  @override
+  _ProfileTextFieldState createState() => _ProfileTextFieldState();
+}
+
+class _ProfileTextFieldState extends State<ProfileTextField> {
+  bool _isFocused = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          widget.label,
+          style: TextStyle(
+            fontSize: 16,
+            color: _isFocused? const Color(0xFF5C715E) : const Color(0xFF5C715E),
+            fontFamily: 'LeagueSpartan',
+          ),
+        ),
+        const SizedBox(height: 8),
+        TextField(
+          obscureText: widget.obscureText,
+          decoration: InputDecoration(
+            hintText: widget.hintText,
+            hintStyle: const TextStyle(color: Color(0xFFF2F9F1)),
+            filled: true,
+            fillColor: const Color(0xFF5C715E),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(14),
+              borderSide: BorderSide.none,
+          ),
+            contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 20),
+            suffixIcon: widget.obscureText
+              ? IconButton(
+                    icon: const Icon(Icons.visibility_off, color: Color(0xFFF2F9F1)),
+                    onPressed: () {},
+                  )
+              : null,
+          ),
+          onTap: () {
+            setState(() {
+              _isFocused = true;
+            });
+          },
+          onSubmitted: (value) {
+            setState(() {
+              _isFocused = false;
+            });
+          },
+        ),
+      ],
+    );
+  }
+}
+
+>>>>>>> d505008 (update feature login)
