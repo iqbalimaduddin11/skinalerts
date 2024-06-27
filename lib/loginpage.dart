@@ -7,10 +7,6 @@ import 'package:skinalert/service/authentication_service.dart';
 
 
 class LoginPage extends StatefulWidget {
-  final void Function()? onPressed;
-  
-  const LoginPage({super.key, this.onPressed});
-
   @override
   // ignore: library_private_types_in_public_api
   _LoginPageState createState() => _LoginPageState();
@@ -43,8 +39,10 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xFFF2F9F1),
+    return Container(
+      color: Color(0xFFF2F9F1),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.transparent,
@@ -102,14 +100,14 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      color: const Color(0xFF5C715E),
-                      borderRadius: BorderRadius.circular(14),
+                      color: Color(0xFF5C715E),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                     child: TextFormField(
-                      controller: _email,
-                      style: const TextStyle(color: Color(0xFFF2F9F1)),
-                      decoration: const InputDecoration(
-                        labelText: 'example@example.com',
+                      controller: _emailController,
+                      style: TextStyle(color: Color(0xFFF2F9F1)),
+                      decoration: InputDecoration(
+                        labelText: 'Email or Mobile Number',
                         labelStyle: TextStyle(color: Color(0xFFF2F9F1)),
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
@@ -135,12 +133,12 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   Container(
                     decoration: BoxDecoration(
-                      color: const Color(0xFF5C715E),
-                      borderRadius: BorderRadius.circular(14),
+                      color: Color(0xFF5C715E),
+                      borderRadius: BorderRadius.circular(10),
                     ),
                     child: TextFormField(
-                      controller: _password,
-                      style: const TextStyle(color: Color(0xFFF2F9F1)),
+                      controller: _passwordController,
+                      style: TextStyle(color: Color(0xFFF2F9F1)),
                       obscureText: !_showPassword,
                       decoration: InputDecoration(
                         labelText: 'Enter your password',
@@ -187,17 +185,13 @@ class _LoginPageState extends State<LoginPage> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         // Navigate to HomePage after login validation
-                        handleLogin();
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) => MainPage()),
+                        );
                       }
                     },
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color(0xFF5C715E),
-                      padding: const EdgeInsets.symmetric(vertical: 16.0),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
-                    ),
-                    child: const Text(
+                    child: Text(
                       'Log In',
                       style: TextStyle(
                         color: Color(0xFFF1F8E8),
@@ -237,8 +231,13 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 16),
                   Center(
                     child: TextButton(
-                      onPressed: widget.onPressed,
-                      child: const Text(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SignUpPage()),
+                        );
+                      },
+                      child: Text(
                         "Don't have an account? Sign Up",
                         style: TextStyle(
                           fontFamily: 'LeagueSpartan',
