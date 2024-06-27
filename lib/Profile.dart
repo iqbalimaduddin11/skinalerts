@@ -1,4 +1,13 @@
+<<<<<<< HEAD
 import 'package:flutter/material.dart'; 
+=======
+// ignore: file_names
+import 'package:flutter/material.dart';
+import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
+import 'History.dart';
+import 'home.dart';
+import 'Team.dart';
+>>>>>>> 9c3a5ef (first commit)
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -39,12 +48,18 @@ class _ProfilePageState extends State<ProfilePage> {
   }
 }
 
+<<<<<<< HEAD
+=======
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
+
+>>>>>>> 241935e (push first project)
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF2F9F1),
+      backgroundColor: const Color(0xFFF2F9F1),
       appBar: AppBar(
-        backgroundColor: Color(0xFFF2F9F1),
+        backgroundColor: const Color(0xFFF2F9F1),
         elevation: 0,
         toolbarHeight: 0, // Hide the app bar
       ),
@@ -53,8 +68,8 @@ class _ProfilePageState extends State<ProfilePage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SizedBox(height: 40), // Add some space from the top
-              Text(
+              const SizedBox(height: 40), // Add some space from the top
+              const Text(
                 'Profile',
                 style: TextStyle(
                   fontSize: 24,
@@ -63,8 +78,8 @@ class _ProfilePageState extends State<ProfilePage> {
                   fontFamily: 'LeagueSpartan',
                 ),
               ),
-              SizedBox(height: 10),
-              CircleAvatar(
+              const SizedBox(height: 10),
+              const CircleAvatar(
                 radius: 50,
                 backgroundImage: AssetImage('assets/Icons/logo2.png'), // Add your profile picture asset here
                 child: Align(
@@ -76,17 +91,17 @@ class _ProfilePageState extends State<ProfilePage> {
                   ),
                 ),
               ),
-              SizedBox(height: 20),
-              ProfileTextField(
+              const SizedBox(height: 20),
+              const ProfileTextField(
                 label: 'Full Name',
               ),
-              ProfileTextField(
+              const ProfileTextField(
                 label: 'Phone Number',
               ),
-              ProfileTextField(
+              const ProfileTextField(
                 label: 'Email',
               ),
-              ProfileTextField(
+              const ProfileTextField(
                 label: 'Date Of Birth',
                 controller: _dobController,
                 onTap: () => _selectDate(context),
@@ -95,10 +110,18 @@ class _ProfilePageState extends State<ProfilePage> {
                 label: 'Sex',
                 items: ['Men', 'Women'],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {},
-                child: Text(
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: const Color(0xFFF2F9F1),
+                  backgroundColor: const Color(0xFF5C715E),
+                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                child: const Text(
                   'Update',
                   style: TextStyle(
                     fontSize: 16,
@@ -106,16 +129,8 @@ class _ProfilePageState extends State<ProfilePage> {
                     fontFamily: 'LeagueSpartan',
                   ),
                 ),
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: Color(0xFFF2F9F1),
-                  backgroundColor: Color(0xFF5C715E),
-                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 12),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(8),
-                  ),
-                ),
               ),
-              SizedBox(height: 40), // Add some space at the bottom
+              const SizedBox(height: 40), // Add some space at the bottom
             ],
           ),
         ),
@@ -130,7 +145,11 @@ class ProfileTextField extends StatelessWidget {
   final TextEditingController? controller;
   final VoidCallback? onTap;
 
+<<<<<<< HEAD
   ProfileTextField({required this.label, this.controller, this.onTap});
+=======
+  const ProfileTextField({super.key, required this.label});
+>>>>>>> 9c3a5ef (first commit)
 
   @override
   Widget build(BuildContext context) {
@@ -141,32 +160,36 @@ class ProfileTextField extends StatelessWidget {
         children: [
           Text(
             label,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 14,
               color: Color(0xFF5C715E),
               fontFamily: 'LeagueSpartan',
             ),
           ),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
           TextFormField(
             controller: controller,
             onTap: onTap,
             readOnly: onTap != null,
             decoration: InputDecoration(
               filled: true,
-              fillColor: Color(0xFF5C715E),
+              fillColor: const Color(0xFF5C715E),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide.none,
               ),
-              contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              hintStyle: TextStyle(
+              contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+              hintStyle: const TextStyle(
                 fontSize: 16,
                 color: Color(0xFF5C715E),
                 fontFamily: 'LeagueSpartan',
               ),
             ),
+<<<<<<< HEAD
             style: TextStyle(
+=======
+              style: const TextStyle(
+>>>>>>> 9c3a5ef (first commit)
               fontSize: 16,
               color: Color(0xFFF2F9F1),
               fontFamily: 'LeagueSpartan',
