@@ -110,10 +110,17 @@ class _LoginPageState extends State<LoginPage> {
                   Container(
                     decoration: BoxDecoration(
                       color: const Color(0xFF5C715E),
+<<<<<<< HEAD
                       borderRadius: BorderRadius.circular(14),
                     ),
                     child: TextFormField(
                       controller: _email,
+=======
+                      borderRadius: BorderRadius.circular(13),
+                    ),
+                    child: TextFormField(
+                      controller: _emailController,
+>>>>>>> aeb3465 (push branch production)
                       style: const TextStyle(color: Color(0xFFF2F9F1)),
                       decoration: const InputDecoration(
                         labelText: 'example@example.com',
@@ -143,15 +150,32 @@ class _LoginPageState extends State<LoginPage> {
                   Container(
                     decoration: BoxDecoration(
                       color: const Color(0xFF5C715E),
+<<<<<<< HEAD
                       borderRadius: BorderRadius.circular(14),
                     ),
                     child: TextFormField(
                       controller: _password,
+=======
+                      borderRadius: BorderRadius.circular(13),
+                    ),
+                    child: TextFormField(
+                      controller: _passwordController,
+>>>>>>> aeb3465 (push branch production)
                       style: const TextStyle(color: Color(0xFFF2F9F1)),
                       obscureText: !_showPassword,
                       decoration: InputDecoration(
+<<<<<<< HEAD
                         labelText: 'Enter your password',
                         labelStyle: const TextStyle(color: Color(0xFFF1F8E8)),
+=======
+<<<<<<< HEAD
+                        labelText: 'Password',
+                        labelStyle: TextStyle(color: Color(0xFFF2F9F1)),
+=======
+                        labelText: 'Enter your password',
+                        labelStyle: const TextStyle(color: Color(0xFFF1F8E8)),
+>>>>>>> 9c3a5ef (first commit)
+>>>>>>> 5b710bf (push branch production)
                         border: InputBorder.none,
                         contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
                         suffixIcon: IconButton(
@@ -176,6 +200,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                   const SizedBox(height: 16),
                   Align(
                     alignment: Alignment.centerRight,
@@ -196,6 +221,8 @@ class _LoginPageState extends State<LoginPage> {
                   SizedBox(height: 32),
 >>>>>>> 708b273 (update now)
 =======
+=======
+>>>>>>> 5b710bf (push branch production)
                   SizedBox(height: 32),
 =======
                   // const SizedBox(height: 16),
@@ -215,7 +242,28 @@ class _LoginPageState extends State<LoginPage> {
                   // ),
                   const SizedBox(height: 32),
 >>>>>>> d505008 (update feature login)
+<<<<<<< HEAD
 >>>>>>> e3bc1d7 (update feature login)
+=======
+=======
+                  const SizedBox(height: 16),
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'Forget Password',
+                        style: TextStyle(
+                          fontFamily: 'LeagueSpartan',
+                          fontSize: 16,
+                          color: Color(0xFF5C715E),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 32),
+>>>>>>> aeb3465 (push branch production)
+>>>>>>> 5b710bf (push branch production)
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {

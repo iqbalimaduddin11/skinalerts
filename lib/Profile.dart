@@ -1,7 +1,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 79d77bf (first commit)
+=======
+=======
+<<<<<<< HEAD
+import 'package:flutter/material.dart'; 
+=======
+>>>>>>> aeb3465 (push branch production)
+>>>>>>> 5b710bf (push branch production)
 // ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
@@ -10,10 +18,15 @@ import 'home.dart';
 import 'Team.dart';
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
 import 'package:flutter/material.dart'; 
 >>>>>>> c943860 (update now)
 =======
 >>>>>>> 79d77bf (first commit)
+=======
+>>>>>>> 9c3a5ef (first commit)
+>>>>>>> aeb3465 (push branch production)
+>>>>>>> 5b710bf (push branch production)
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -30,12 +43,22 @@ class ProfilePage extends StatelessWidget {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
 
 =======
 >>>>>>> 5474dc9 (push update)
 =======
+=======
+=======
+<<<<<<< HEAD
+=======
+class ProfilePage extends StatelessWidget {
+  const ProfilePage({super.key});
+
+>>>>>>> aeb3465 (push branch production)
+>>>>>>> 5b710bf (push branch production)
 >>>>>>> 241935e (push first project)
 >>>>>>> 32e0131 (first commit production)
   @override
@@ -130,10 +153,17 @@ class ProfileTextField extends StatelessWidget {
   final VoidCallback? onTap;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   const ProfileTextField({super.key, required this.label});
 =======
   ProfileTextField({required this.label, this.controller, this.onTap});
 >>>>>>> c943860 (update now)
+=======
+  ProfileTextField({required this.label, this.controller, this.onTap});
+=======
+  const ProfileTextField({super.key, required this.label});
+>>>>>>> 9c3a5ef (first commit)
+>>>>>>> 5b710bf (push branch production)
 
   @override
   Widget build(BuildContext context) {
@@ -170,10 +200,17 @@ class ProfileTextField extends StatelessWidget {
               ),
             ),
 <<<<<<< HEAD
+<<<<<<< HEAD
               style: const TextStyle(
 =======
             style: TextStyle(
 >>>>>>> c943860 (update now)
+=======
+            style: TextStyle(
+=======
+              style: const TextStyle(
+>>>>>>> 9c3a5ef (first commit)
+>>>>>>> 5b710bf (push branch production)
               fontSize: 16,
               color: Color(0xFFF2F9F1),
               fontFamily: 'LeagueSpartan',

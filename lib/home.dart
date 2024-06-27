@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
@@ -19,6 +20,20 @@ import 'History.dart';
 class MyHomePage extends StatefulWidget {
   // ignore: non_constant_identifier_names
   const MyHomePage({super.key, User? User});
+=======
+import 'package:flutter/material.dart';
+import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:skinalert/Clickforcheck.dart';
+import 'package:skinalert/Diagnosis.dart';
+import 'package:skinalert/Symptoms.dart';
+import 'Profile.dart';
+import 'Team.dart';
+import 'History.dart';
+
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key});
+>>>>>>> aeb3465 (push branch production)
 
   @override
   // ignore: library_private_types_in_public_api
@@ -35,8 +50,11 @@ class _MyHomePageState extends State<MyHomePage> {
     'assets/gambar3.jpg',
     'assets/gambar4.jpg',
   ];
+<<<<<<< HEAD
   
   get child => null;
+=======
+>>>>>>> aeb3465 (push branch production)
 
   @override
   void dispose() {
@@ -58,6 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Container(
             padding: const EdgeInsets.all(16.0),
             color: const Color(0xFFF2F9F1), // Background color for profile section
+<<<<<<< HEAD
             child: const Row(
               children: [
                 CircleAvatar(
@@ -68,6 +87,18 @@ class _MyHomePageState extends State<MyHomePage> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+=======
+            child: Row(
+              children: [
+                CircleAvatar(
+                  radius: 30,
+                  backgroundImage: const AssetImage('assets/Icons/logo2.png'), // Add your profile picture asset here
+                ),
+                const SizedBox(width: 16),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: const [
+>>>>>>> aeb3465 (push branch production)
                     Text(
                       'Hi, WelcomeBack',
                       style: TextStyle(fontSize: 16, color: Color(0xFF5C715E), fontFamily: 'LeagueSpartan'),
@@ -96,7 +127,11 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             items: imgList.map((item) => Container(
               decoration: BoxDecoration(
+<<<<<<< HEAD
                 border: Border.all(color: const Color(0xFF5C715E), width: 2), // Border around images
+=======
+                border: Border.all(color: Color(0xFF5C715E), width: 2), // Border around images
+>>>>>>> aeb3465 (push branch production)
                 borderRadius: BorderRadius.circular(10), // Rounded corners
               ),
               child: ClipRRect(
@@ -225,7 +260,11 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ],
       ),
+<<<<<<< HEAD
       bottomNavigationBar: SizedBox(
+=======
+      bottomNavigationBar: Container(
+>>>>>>> aeb3465 (push branch production)
         height: 110, // Atur tinggi sesuai kebutuhan untuk menghindari overflow
         child: FloatingNavbar(
           onTap: (int val) {

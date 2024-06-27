@@ -6,10 +6,14 @@ import 'package:skinalert/firebase_options.dart';
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
 
+<<<<<<< HEAD
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform
   );
   
+=======
+void main() {
+>>>>>>> aeb3465 (push branch production)
   runApp(const MyApp());
 }
 
