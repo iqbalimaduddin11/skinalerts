@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:skinalert/home.dart';
 import 'package:skinalert/loginpage.dart';
-import 'package:skinalert/signup.dart';
+// import 'package:skinalert/signup.dart';
 
 
 class AuthenticationWrapper extends StatelessWidget {
@@ -21,7 +21,7 @@ class AuthenticationWrapper extends StatelessWidget {
               return MyHomePage(User: snapshot.data);
             } else {
               // return const LoginPage();
-              return LoginPage();
+              return const LoginPage();
             }
           }
         },

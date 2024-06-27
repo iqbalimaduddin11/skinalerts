@@ -1,8 +1,16 @@
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:skinalert/authentication/authentication_wrapper.dart';
+// import 'package:skinalert/authentication/authentication_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:skinalert/home/main_page.dart';
 import 'signup.dart'; 
+<<<<<<< HEAD
+=======
+=======
+import 'package:skinalert/execption/auth_execption_handler.dart';
+import 'package:skinalert/service/authentication_service.dart';
+import 'signup.dart';
+import 'home.dart';
+>>>>>>> 617d2db (update loginpage)
 
 
 class LoginPage extends StatefulWidget {
