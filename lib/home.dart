@@ -39,10 +39,22 @@ import 'package:skinalert/loginpage.dart';
 import 'package:flutter/material.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+<<<<<<< HEAD
 import 'package:skinalert/Clickforcheck.dart';
 import 'package:skinalert/Diagnosis.dart';
 import 'package:skinalert/Symptoms.dart';
 >>>>>>> 6b1fbb2 (push branch production)
+=======
+import 'package:skinalert/home/Clickforcheck.dart';
+import 'package:skinalert/home/Diagnosis.dart';
+import 'package:skinalert/home/Symptoms.dart';
+
+// import 'package:skinalert/Clickforcheck.dart';
+
+// import 'package:skinalert/Diagnosis.dart';
+
+// import 'package:skinalert/Symptoms.dart';
+>>>>>>> 48b3aba (push branch production)
 import 'Profile.dart';
 import 'Team.dart';
 import 'History.dart';
@@ -271,6 +283,7 @@ class _MyHomePageState extends State<MyHomePage> {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     child: Text('Symptoms', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 0 ? const Color(0xFF5C715E) : const Color(0xFF5C715E))),
 =======
 =======
@@ -284,11 +297,19 @@ class _MyHomePageState extends State<MyHomePage> {
 <<<<<<< HEAD
 >>>>>>> 6b1fbb2 (push branch production)
 >>>>>>> b74df55 (push branch production)
+=======
+=======
+<<<<<<< HEAD
+>>>>>>> 6b1fbb2 (push branch production)
+=======
+>>>>>>> 48b3aba (push branch production)
+>>>>>>> 1bc94ab (push branch production)
                     style: ButtonStyle(
                       backgroundColor: _index == 0 ? MaterialStateProperty.all(Color(0xFF5C715E)) : MaterialStateProperty.all(Color(0xFFF2F9F1)),
                       foregroundColor: _index == 0 ? MaterialStateProperty.all(Color(0xFFF2F9F1)) : MaterialStateProperty.all(Color(0xFF5C715E)),
                     ),
                     child: Text('Symptoms', style: TextStyle(fontFamily: 'LeagueSpartan',fontSize: 10,fontWeight: FontWeight.bold)),
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -380,6 +401,8 @@ class _MyHomePageState extends State<MyHomePage> {
 =======
 >>>>>>> 6749efe (push branch production)
 =======
+=======
+>>>>>>> 1bc94ab (push branch production)
 =======
 <<<<<<< HEAD
       body: StreamBuilder(
@@ -539,6 +562,8 @@ class _MyHomePageState extends State<MyHomePage> {
 =======
                     child: Text('Symptoms', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 0 ? const Color(0xFF5C715E) : const Color(0xFF5C715E))),
 >>>>>>> 241935e (push first project)
+=======
+>>>>>>> 48b3aba (push branch production)
                   ),
                 ),
                 SizedBox(
@@ -547,15 +572,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () {
                       setState(() => _index = 1);
                     },
-<<<<<<< HEAD
                     style: ButtonStyle(
                       backgroundColor: _index == 1 ? MaterialStateProperty.all(Color(0xFF5C715E)) : MaterialStateProperty.all(Color(0xFFF2F9F1)),
                       foregroundColor: _index == 1 ? MaterialStateProperty.all(Color(0xFFF2F9F1)) : MaterialStateProperty.all(Color(0xFF5C715E)),
                     ),
                     child: Text('Diagnosis And Treatment', style: TextStyle(fontFamily: 'LeagueSpartan', fontSize: 10,fontWeight: FontWeight.bold)),
-=======
-                    child: Text('Diagnosis And Treatment', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 1 ? const Color(0xFF5C715E) : const Color(0xFF5C715E))),
->>>>>>> 241935e (push first project)
                   ),
                 ),
                 SizedBox(
@@ -564,15 +585,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     onPressed: () {
                       setState(() => _index = 2);
                     },
-<<<<<<< HEAD
                     style: ButtonStyle(
                       backgroundColor: _index == 2 ? MaterialStateProperty.all(Color(0xFF5C715E)) : MaterialStateProperty.all(Color(0xFFF2F9F1)),
                       foregroundColor: _index == 2 ? MaterialStateProperty.all(Color(0xFFF2F9F1)): MaterialStateProperty.all(Color(0xFF5C715E)),
                     ),
                     child: Text('Click For Check', style: TextStyle(fontFamily: 'LeagueSpartan',fontSize: 10,fontWeight: FontWeight.bold)),
-=======
-                    child: Text('Click For Check', style: TextStyle(fontFamily: 'LeagueSpartan', color: _index == 2 ? const Color(0xFF5C715E) : const Color(0xFF5C715E))),
->>>>>>> 241935e (push first project)
                   ),
                 ),
               ],
@@ -603,6 +620,7 @@ class _MyHomePageState extends State<MyHomePage> {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             if (val == 2) {
 =======
 =======
@@ -616,6 +634,13 @@ class _MyHomePageState extends State<MyHomePage> {
 <<<<<<< HEAD
 >>>>>>> 6b1fbb2 (push branch production)
 >>>>>>> b74df55 (push branch production)
+=======
+=======
+<<<<<<< HEAD
+>>>>>>> 6b1fbb2 (push branch production)
+=======
+>>>>>>> 48b3aba (push branch production)
+>>>>>>> 1bc94ab (push branch production)
             if (val == 0) {
               Navigator.push(
                 context,
@@ -631,11 +656,14 @@ class _MyHomePageState extends State<MyHomePage> {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 5474dc9 (push update)
 =======
 >>>>>>> 79d77bf (first commit)
 =======
 >>>>>>> b74df55 (push branch production)
+=======
+>>>>>>> 1bc94ab (push branch production)
 =======
 =======
             if (val == 2) {
@@ -646,7 +674,12 @@ class _MyHomePageState extends State<MyHomePage> {
 >>>>>>> 6749efe (push branch production)
 =======
 >>>>>>> 6b1fbb2 (push branch production)
+<<<<<<< HEAD
 >>>>>>> b74df55 (push branch production)
+=======
+=======
+>>>>>>> 48b3aba (push branch production)
+>>>>>>> 1bc94ab (push branch production)
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => ProfilePage()),
@@ -664,6 +697,7 @@ class _MyHomePageState extends State<MyHomePage> {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           backgroundColor: const Color(0xFF5C715E),
           selectedItemColor: Colors.black,
           unselectedItemColor: const Color(0xFFF2F9F1),
@@ -679,9 +713,12 @@ class _MyHomePageState extends State<MyHomePage> {
 >>>>>>> 79d77bf (first commit)
 =======
 =======
+=======
+>>>>>>> 1bc94ab (push branch production)
           backgroundColor: Color(0xFF5C715E),
           selectedItemColor: Colors.black,
           unselectedItemColor: Color(0xFFF2F9F1),
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 >>>>>>> b74df55 (push branch production)
@@ -702,7 +739,12 @@ class _MyHomePageState extends State<MyHomePage> {
 >>>>>>> 6749efe (push branch production)
 =======
 >>>>>>> 6b1fbb2 (push branch production)
+<<<<<<< HEAD
 >>>>>>> b74df55 (push branch production)
+=======
+=======
+>>>>>>> 48b3aba (push branch production)
+>>>>>>> 1bc94ab (push branch production)
           items: [
             FloatingNavbarItem(icon: Icons.home),
             FloatingNavbarItem(icon: Icons.history),

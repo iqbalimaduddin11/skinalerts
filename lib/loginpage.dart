@@ -106,16 +106,16 @@ class _LoginPageState extends State<LoginPage> {
                     textAlign: TextAlign.left,
                   ),
                   const SizedBox(height: 32),
-                  const Text(
-                    'Email or Mobile Number',
-                    style: TextStyle(
-                      color: Color(0xFF5C715E),
-                      fontSize: 20,
-                      fontWeight: FontWeight.normal,
-                      fontFamily: 'LeagueSpartan',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
+                  // const Text(
+                  //   'Email or Mobile Number',
+                  //   style: TextStyle(
+                  //     color: Color(0xFF5C715E),
+                  //     fontSize: 20,
+                  //     fontWeight: FontWeight.normal,
+                  //     fontFamily: 'LeagueSpartan',
+                  //   ),
+                  //   textAlign: TextAlign.left,
+                  // ),
                   Container(
                     decoration: BoxDecoration(
 <<<<<<< HEAD
@@ -164,16 +164,16 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  const Text(
-                    'Password',
-                    style: TextStyle(
-                      color: Color(0xFF5C715E),
-                      fontSize: 20,
-                      fontWeight: FontWeight.normal,
-                      fontFamily: 'LeagueSpartan',
-                    ),
-                    textAlign: TextAlign.left,
-                  ),
+                  // const Text(
+                  //   'Password',
+                  //   style: TextStyle(
+                  //     color: Color(0xFF5C715E),
+                  //     fontSize: 20,
+                  //     fontWeight: FontWeight.normal,
+                  //     fontFamily: 'LeagueSpartan',
+                  //   ),
+                  //   textAlign: TextAlign.left,
+                  // ),
                   Container(
                     decoration: BoxDecoration(
 <<<<<<< HEAD
