@@ -5,6 +5,7 @@
 list(APPEND FLUTTER_PLUGIN_LIST
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   file_selector_windows
 =======
   firebase_auth
@@ -15,6 +16,8 @@ list(APPEND FLUTTER_PLUGIN_LIST
   firebase_auth
   firebase_core
 >>>>>>> f08f975 (update login & signup page)
+=======
+>>>>>>> 52a22c8 (update now)
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST

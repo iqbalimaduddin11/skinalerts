@@ -8,6 +8,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include <file_selector_windows/file_selector_windows.h>
 
 void RegisterPlugins(flutter::PluginRegistry* registry) {
@@ -35,4 +36,8 @@ void RegisterPlugins(flutter::PluginRegistry* registry) {
 >>>>>>> d505008 (update feature login)
 =======
 >>>>>>> f08f975 (update login & signup page)
+=======
+
+void RegisterPlugins(flutter::PluginRegistry* registry) {
+>>>>>>> 52a22c8 (update now)
 }

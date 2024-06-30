@@ -230,6 +230,7 @@ class SignUpPage extends StatelessWidget {
                           color: const Color(0xFFF1F8E8),
                         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -386,6 +387,8 @@ class SignUpPage extends StatelessWidget {
                 child: const Text(
                   'Sign Up',
 =======
+=======
+>>>>>>> 52a22c8 (update now)
                         onPressed: () {
                           setState(() {
                             _showPassword = !_showPassword;
@@ -399,6 +402,115 @@ class SignUpPage extends StatelessWidget {
                       }
                       return null;
                     },
+=======
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your password';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              SizedBox(height: 20),
+              Container(
+                decoration: BoxDecoration(
+                  color: Color(0xFF5C715E),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: TextFormField(
+                  controller: _emailController,
+                  style: TextStyle(color: Color(0xFFF2F9F1)),
+                  decoration: InputDecoration(
+                    labelText: 'Email',
+                    labelStyle: TextStyle(color: Color(0xFFF2F9F1)),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your email';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              SizedBox(height: 20),
+              Container(
+                decoration: BoxDecoration(
+                  color: Color(0xFF5C715E),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: TextFormField(
+                  controller: _mobileNumberController,
+                  style: TextStyle(color: Color(0xFFF2F9F1)),
+                  decoration: InputDecoration(
+                    labelText: 'Mobile Number',
+                    labelStyle: TextStyle(color: Color(0xFFF2F9F1)),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your mobile number';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              SizedBox(height: 20),
+              Container(
+                decoration: BoxDecoration(
+                  color: Color(0xFF5C715E),
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                child: TextFormField(
+                  controller: _dobController,
+                  readOnly: true,
+                  onTap: () => _selectDate(context),
+                  style: TextStyle(color: Color(0xFFF2F9F1)),
+                  decoration: InputDecoration(
+                    labelText: 'Date Of Birth',
+                    labelStyle: TextStyle(color: Color(0xFFF2F9F1)),
+                    border: InputBorder.none,
+                    contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
+                  ),
+                  validator: (value) {
+                    if (value == null || value.isEmpty) {
+                      return 'Please enter your date of birth';
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              SizedBox(height: 20),
+              Text(
+                'By continuing, you agree to',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Color(0xFF5C715E),
+                  fontSize: 12,
+                  fontFamily: 'LeagueSpartan',
+                ),
+              ),
+              Text(
+                'Terms of Use and Privacy Policy.',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  color: Color(0xFF5C715E),
+                  fontSize: 12,
+                  fontFamily: 'LeagueSpartan',
+                ),
+              ),
+              SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Color(0xFF5C715E),
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+>>>>>>> 708b273 (update now)
                   ),
                 ),
                 SizedBox(height: 20),

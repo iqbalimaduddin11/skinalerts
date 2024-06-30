@@ -237,6 +237,7 @@ class _LoginPageState extends State<LoginPage> {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                   const SizedBox(height: 16),
                   Align(
                     alignment: Alignment.centerRight,
@@ -261,6 +262,8 @@ class _LoginPageState extends State<LoginPage> {
 >>>>>>> 5b710bf (push branch production)
 =======
 >>>>>>> 834b9f3 (update login & signup page)
+=======
+>>>>>>> f78677d (update now)
                   SizedBox(height: 32),
 =======
                   // const SizedBox(height: 16),
@@ -285,11 +288,18 @@ class _LoginPageState extends State<LoginPage> {
 =======
 =======
                   const SizedBox(height: 16),
+=======
+                  SizedBox(height: 16),
+>>>>>>> 52a22c8 (update now)
                   Align(
                     alignment: Alignment.centerRight,
                     child: TextButton(
                       onPressed: () {},
+<<<<<<< HEAD
                       child: const Text(
+=======
+                      child: Text(
+>>>>>>> 52a22c8 (update now)
                         'Forget Password',
                         style: TextStyle(
                           fontFamily: 'LeagueSpartan',
@@ -299,11 +309,18 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
+<<<<<<< HEAD
 =======
 >>>>>>> f08f975 (update login & signup page)
                   const SizedBox(height: 32),
 >>>>>>> aeb3465 (push branch production)
+<<<<<<< HEAD
 >>>>>>> 5b710bf (push branch production)
+=======
+=======
+                  SizedBox(height: 32),
+>>>>>>> 52a22c8 (update now)
+>>>>>>> f78677d (update now)
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {

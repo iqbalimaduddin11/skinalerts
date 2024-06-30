@@ -7,6 +7,7 @@ import Foundation
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import file_selector_macos
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
@@ -33,4 +34,8 @@ func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
   FLTFirebaseDatabasePlugin.register(with: registry.registrar(forPlugin: "FLTFirebaseDatabasePlugin"))
   FLTFirebaseMessagingPlugin.register(with: registry.registrar(forPlugin: "FLTFirebaseMessagingPlugin"))
 >>>>>>> f08f975 (update login & signup page)
+=======
+
+func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
+>>>>>>> 52a22c8 (update now)
 }
