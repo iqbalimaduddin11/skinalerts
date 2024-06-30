@@ -156,6 +156,7 @@ class _LoginPageState extends State<LoginPage> {
                       },
                     ),
                   ),
+<<<<<<< HEAD
                   const SizedBox(height: 16),
                   Align(
                     alignment: Alignment.centerRight,
@@ -172,6 +173,9 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   const SizedBox(height: 32),
+=======
+                  SizedBox(height: 32),
+>>>>>>> 708b273 (update now)
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
