@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'quisoner.dart';
 
 class ClickForCheckPage extends StatelessWidget {
   @override
@@ -43,7 +44,11 @@ class ClickForCheckPage extends StatelessWidget {
                           const SizedBox(height: 10), // Reduce the height of the SizedBox
                           ElevatedButton(
                             onPressed: () {
-                              // Action for the button
+                              // Navigate to QuestionerPage when button is clicked
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => Quisonerpage()),
+                              );
                             },
                             child: Text(
                               'Click For Check',

@@ -44,6 +44,8 @@ dependencies:
     sdk: flutter
   fluttertoast: ^8.2.6
   hexcolor: ^3.0.1
+  image_picker: ^1.1.2
+  percent_indicator: ^4.2.3
   
     
 
