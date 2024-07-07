@@ -30,14 +30,19 @@ environment:
 dependencies:
   calendar_date_picker2: ^1.1.5
   carousel_slider: ^4.2.1
+  cloud_firestore: ^5.0.2
   cupertino_icons: ^1.0.6
   # firebase_core: ^3.1.0
   # google_sign_in: ^5.3.3
   # http: ^1.0.0
 
+  firebase_auth: ^5.1.1
+  firebase_database: ^11.0.2
+  firebase_messaging: ^15.0.2
   floating_bottom_navigation_bar: ^1.5.2
   flutter:
     sdk: flutter
+  fluttertoast: ^8.2.6
   hexcolor: ^3.0.1
   
     
