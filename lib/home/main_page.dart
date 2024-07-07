@@ -23,7 +23,7 @@ class _MainPageState extends State<MainPage> {
     ProjectTeamPage(),
   ];
 
-   
+
   @override
   Widget build(BuildContext context) {
     return Scaffold( 
@@ -33,9 +33,9 @@ class _MainPageState extends State<MainPage> {
         height: 100,
         child: FloatingNavbar(  
           onTap: (int val) {
-             setState(() {
-               _indexNavbar = val;
-             });
+            setState(() {
+              _indexNavbar = val;
+            });
           },
           currentIndex: _indexNavbar,
           backgroundColor: Color(0xFF5C715E),

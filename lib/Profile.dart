@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart'; 
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -6,38 +7,55 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> { 
-  TextEditingController _dobController = TextEditingController();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  final TextEditingController _fullNameController = TextEditingController();
+  final TextEditingController _phoneNumberController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _dobController = TextEditingController();
 
   @override
   void dispose() {
+    _fullNameController.dispose();
+    _phoneNumberController.dispose();
+    _emailController.dispose();
     _dobController.dispose();
     super.dispose();
   }
 
-Future<void> _selectDate(BuildContext context) async {
-  DateTime? picked = await showDatePicker(
-    context: context,
-    initialDate: DateTime.now(),
-    firstDate: DateTime(1900),
-    lastDate: DateTime.now(),
-    builder: (BuildContext context, Widget? child) {
-      return Theme(
-        data: ThemeData(
-          colorScheme: ColorScheme.light(
-            primary: Color(0xFF5C715E), 
-            onPrimary: Color(0xFFF2F9F1), 
+  Future<void> _selectDate(BuildContext context) async {
+    DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: DateTime.now(),
+      firstDate: DateTime(1900),
+      lastDate: DateTime.now(),
+      builder: (BuildContext context, Widget? child) {
+        return Theme(
+          data: ThemeData(
+            colorScheme: ColorScheme.light(
+              primary: Color(0xFF5C715E), 
+              onPrimary: Color(0xFFF2F9F1), 
+            ),
           ),
-        ),
-        child: child!,
-      );
-    },
-  );
-  if (picked != null && picked != DateTime.now()) {
-    setState(() {
-      _dobController.text = "${picked.toLocal()}".split(' ')[0];
-    });
+          child: child!,
+        );
+      },
+    );
+    if (picked != null && picked != DateTime.now()) {
+      setState(() {
+        _dobController.text = "${picked.toLocal()}".split(' ')[0];
+      });
+    }
   }
-}
+
+  Future<void> _updateProfile() async {
+    final user = _auth.currentUser;
+    if (user!= null) {
+      user.updateDisplayName(_fullNameController.text);
+      user.updateEmail(_emailController.text);
+      // Update other profile information as needed
+      await user.reload();
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +115,7 @@ Future<void> _selectDate(BuildContext context) async {
               ),
               const SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: _updateProfile,
                 style: ElevatedButton.styleFrom(
                   foregroundColor: const Color(0xFFF2F9F1),
                   backgroundColor: const Color(0xFF5C715E),
