@@ -168,6 +168,7 @@ class _SignUpPageState extends State<SignUpPage> {
                           color: const Color(0xFFF1F8E8),
                         ),
 <<<<<<< HEAD
+<<<<<<< HEAD
                         onPressed: () {
                           setState(() {
                             _showPassword = !_showPassword;
@@ -182,6 +183,8 @@ class _SignUpPageState extends State<SignUpPage> {
                       return null;
                     },
 =======
+=======
+>>>>>>> 96d8553 (update login & signup page)
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -289,7 +292,25 @@ class _SignUpPageState extends State<SignUpPage> {
                   padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(8),
+<<<<<<< HEAD
 >>>>>>> 708b273 (update now)
+=======
+=======
+                        onPressed: () {
+                          setState(() {
+                            _showPassword = !_showPassword;
+                          });
+                        },
+                      ),
+                    ),
+                    validator: (text) {
+                      if (text == null || text.trim().isEmpty) {
+                        return 'Please enter your password';
+                      }
+                      return null;
+                    },
+>>>>>>> f08f975 (update login & signup page)
+>>>>>>> 96d8553 (update login & signup page)
                   ),
                 ),
                 SizedBox(height: 20),

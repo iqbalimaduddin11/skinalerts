@@ -7,6 +7,8 @@ import 'package:skinalert/service/authentication_service.dart';
 
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
   // ignore: library_private_types_in_public_api
   _LoginPageState createState() => _LoginPageState();
@@ -40,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xFFF2F9F1),
+      color: const Color(0xFFF2F9F1),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
@@ -88,26 +90,26 @@ class _LoginPageState extends State<LoginPage> {
                     textAlign: TextAlign.left,
                   ),
                   const SizedBox(height: 32),
-                  // const Text(
-                  //   'Email or Mobile Number',
-                  //   style: TextStyle(
-                  //     color: Color(0xFF5C715E),
-                  //     fontSize: 20,
-                  //     fontWeight: FontWeight.normal,
-                  //     fontFamily: 'LeagueSpartan',
-                  //   ),
-                  //   textAlign: TextAlign.left,
-                  // ),
+                  const Text(
+                    'Email or Mobile Number',
+                    style: TextStyle(
+                      color: Color(0xFF5C715E),
+                      fontSize: 20,
+                      fontWeight: FontWeight.normal,
+                      fontFamily: 'LeagueSpartan',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
                   Container(
                     decoration: BoxDecoration(
-                      color: Color(0xFF5C715E),
-                      borderRadius: BorderRadius.circular(10),
+                      color: const Color(0xFF5C715E),
+                      borderRadius: BorderRadius.circular(13),
                     ),
                     child: TextFormField(
                       controller: _emailController,
-                      style: TextStyle(color: Color(0xFFF2F9F1)),
-                      decoration: InputDecoration(
-                        labelText: 'Email or Mobile Number',
+                      style: const TextStyle(color: Color(0xFFF2F9F1)),
+                      decoration: const InputDecoration(
+                        labelText: 'example@example.com',
                         labelStyle: TextStyle(color: Color(0xFFF2F9F1)),
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
@@ -121,24 +123,24 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  // const Text(
-                  //   'Password',
-                  //   style: TextStyle(
-                  //     color: Color(0xFF5C715E),
-                  //     fontSize: 20,
-                  //     fontWeight: FontWeight.normal,
-                  //     fontFamily: 'LeagueSpartan',
-                  //   ),
-                  //   textAlign: TextAlign.left,
-                  // ),
+                  const Text(
+                    'Password',
+                    style: TextStyle(
+                      color: Color(0xFF5C715E),
+                      fontSize: 20,
+                      fontWeight: FontWeight.normal,
+                      fontFamily: 'LeagueSpartan',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
                   Container(
                     decoration: BoxDecoration(
-                      color: Color(0xFF5C715E),
-                      borderRadius: BorderRadius.circular(10),
+                      color: const Color(0xFF5C715E),
+                      borderRadius: BorderRadius.circular(13),
                     ),
                     child: TextFormField(
                       controller: _passwordController,
-                      style: TextStyle(color: Color(0xFFF2F9F1)),
+                      style: const TextStyle(color: Color(0xFFF2F9F1)),
                       obscureText: !_showPassword,
                       decoration: InputDecoration(
                         labelText: 'Enter your password',
@@ -165,30 +167,15 @@ class _LoginPageState extends State<LoginPage> {
                       },
                     ),
                   ),
-                  SizedBox(height: 16),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        'Forget Password',
-                        style: TextStyle(
-                          fontFamily: 'LeagueSpartan',
-                          fontSize: 16,
-                          color: Color(0xFF5C715E),
-                        ),
-                      ),
-                    ),
-                  ),
                   SizedBox(height: 32),
+=======
+                  const SizedBox(height: 32),
+>>>>>>> f08f975 (update login & signup page)
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         // Navigate to HomePage after login validation
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) => MainPage()),
-                        );
+                        handleLogin();
                       }
                     },
                     child: Text(
@@ -237,7 +224,7 @@ class _LoginPageState extends State<LoginPage> {
                           MaterialPageRoute(builder: (context) => SignUpPage()),
                         );
                       },
-                      child: Text(
+                      child: const Text(
                         "Don't have an account? Sign Up",
                         style: TextStyle(
                           fontFamily: 'LeagueSpartan',

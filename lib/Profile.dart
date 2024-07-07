@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart'; 
+import 'package:firebase_auth/firebase_auth.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -21,7 +22,7 @@ class _ProfilePageState extends State<ProfilePage> {
     super.dispose();
   }
 
- Future<void> _selectDate(BuildContext context) async {
+Future<void> _selectDate(BuildContext context) async {
   DateTime? picked = await showDatePicker(
     context: context,
     initialDate: DateTime.now(),
@@ -111,7 +112,15 @@ class ProfilePage extends StatelessWidget {
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {},
-                child: Text(
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: const Color(0xFFF2F9F1),
+                  backgroundColor: const Color(0xFF5C715E),
+                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                child: const Text(
                   'Update',
                   style: TextStyle(
                     fontSize: 16,
