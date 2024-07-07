@@ -1,30 +1,58 @@
+<<<<<<< HEAD
 import 'package:skinalert/authentication/auth_service.dart';
+=======
+import 'package:cloud_firestore/cloud_firestore.dart';
+>>>>>>> f08f975 (update login & signup page)
 import 'package:flutter/material.dart';
+import 'service/authentication_service.dart';
+import 'package:fluttertoast/fluttertoast.dart';
+import 'execption/auth_execption_handler.dart';
 import 'loginpage.dart';
 
 <<<<<<< HEAD
 class SignUpPage extends StatefulWidget {
+  final void Function()? onPressed;
+
+  const SignUpPage({super.key, this.onPressed});
+  
   @override
-  _SignUpPageState createState() => _SignUpPageState();
+  State<SignUpPage> createState() => _SignUpPageState();
 }
 
 class _SignUpPageState extends State<SignUpPage> {
-  TextEditingController _fullNameController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _mobileNumberController = TextEditingController();
-  TextEditingController _dobController = TextEditingController();
+  final _fullName = TextEditingController();
+  final _password = TextEditingController();
+  final _email = TextEditingController();
+  final _mobileNumber = TextEditingController();
+  final _dob = TextEditingController();
+  final _formKey = GlobalKey<FormState>();
   bool _showPassword = false;
 
-  @override
-  void dispose() {
-    _fullNameController.dispose();
-    _passwordController.dispose();
-    _emailController.dispose();
-    _mobileNumberController.dispose();
-    _dobController.dispose();
-    super.dispose();
+  void handleSignUp() {
+
+  AuthenticationService()
+    .SignUpWithEmailAndPassword(
+      fullName: _fullName.text, 
+      email: _email.text, 
+      password: _password.text, 
+      mobileNumber: _mobileNumber.text,
+      dob: Timestamp.now()
+    )
+        .then(
+      (status) 
+        {
+          // LoadingDialog.hideLoadingDialog(context);
+          if (status == AuthResultStatus.successful) {
+            Fluttertoast.showToast(msg: "Successfull");
+          } else {
+            final errorMsg =
+              AuthExceptionHandler.generateExceptionMessage(status);
+            Fluttertoast.showToast(msg: errorMsg);
+          }
+        }
+    );
   }
+
 
   Future<void> _selectDate(BuildContext context) async {
     DateTime? picked = await showDatePicker(
@@ -46,7 +74,7 @@ class _SignUpPageState extends State<SignUpPage> {
     );
     if (picked != null && picked != DateTime.now()) {
       setState(() {
-        _dobController.text = "${picked.toLocal()}".split(' ')[0];
+        _dob.text = "${picked.toLocal()}".split(' ')[0];
       });
     }
   }
@@ -82,6 +110,7 @@ class SignUpPage extends StatelessWidget {
         elevation: 0,
         centerTitle: true,
       ),
+<<<<<<< HEAD
 =======
       backgroundColor: const Color(0xFFF2F9F1),
 >>>>>>> d505008 (update feature login)
@@ -113,14 +142,41 @@ class SignUpPage extends StatelessWidget {
                     labelStyle: TextStyle(color: Color(0xFFF2F9F1)),
                     border: InputBorder.none,
                     contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
+=======
+      body: SingleChildScrollView(            
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Form(
+          key: _formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                SizedBox(height: 32),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(0xFF5C715E),
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your full name';
-                    }
-                    return null;
-                  },
+                  child: TextFormField(
+                    controller: _fullName,
+                    style: TextStyle(color: Color(0xFFF2F9F1)),
+                    decoration: InputDecoration(
+                      labelText: 'Full Name',
+                      labelStyle: TextStyle(color: Color(0xFFF2F9F1)),
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
+                    ),
+                    validator: (text) {
+                      if (text == null || text.trim().isEmpty) {
+                        return 'Please enter your full name';
+                      }
+                      return null;
+                    },
+>>>>>>> f08f975 (update login & signup page)
+                  ),
                 ),
+<<<<<<< HEAD
               ),
 <<<<<<< HEAD
               SizedBox(height: 20),
@@ -128,27 +184,52 @@ class SignUpPage extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: Color(0xFF5C715E),
                   borderRadius: BorderRadius.circular(10),
+=======
+                SizedBox(height: 20),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(0xFF5C715E),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: TextFormField(
+                    controller: _email,
+                    style: TextStyle(color: Color(0xFFF2F9F1)),
+                    decoration: InputDecoration(
+                      labelText: 'Email',
+                      labelStyle: TextStyle(color: Color(0xFFF2F9F1)),
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
+                    ),
+                    validator: (text) {
+                      if (text == null || text.trim().isEmpty) {
+                        return 'Please enter your email';
+                      }
+                      return null;
+                    },
+                  ),
+>>>>>>> f08f975 (update login & signup page)
                 ),
-                child: TextFormField(
-                  controller: _passwordController,
-                  obscureText: true,
-                  style: TextStyle(color: Color(0xFFF2F9F1)),
-                  decoration: InputDecoration(
-                    labelText: 'Password',
-                    labelStyle: TextStyle(color: Color(0xFFF2F9F1)),
-                    border: InputBorder.none,
-                    contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
-                    suffixIcon: IconButton(
-                          icon: Icon(
-                            _showPassword ? Icons.visibility : Icons.visibility_off,
-                            color: Color(0xFFF2F9F1),
-                          ),
-                          onPressed: () {
-                            setState(() {
-                              _showPassword = !_showPassword;
-                            });
-                          },
+                SizedBox(height: 20),
+                Container(
+                  decoration: BoxDecoration(
+                    color: const Color(0xFF5C715E),
+                    borderRadius: BorderRadius.circular(14),
+                  ),
+                  child: TextFormField(
+                    controller: _password,
+                    style: const TextStyle(color: Color(0xFFF2F9F1)),
+                    obscureText: !_showPassword,
+                    decoration: InputDecoration(
+                      labelText: 'Enter your password',
+                      labelStyle: const TextStyle(color: Color(0xFFF1F8E8)),
+                      border: InputBorder.none,
+                      contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          _showPassword ? Icons.visibility : Icons.visibility_off,
+                          color: const Color(0xFFF1F8E8),
                         ),
+<<<<<<< HEAD
                   ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -304,12 +385,82 @@ class SignUpPage extends StatelessWidget {
                 },
                 child: const Text(
                   'Sign Up',
+=======
+                        onPressed: () {
+                          setState(() {
+                            _showPassword = !_showPassword;
+                          });
+                        },
+                      ),
+                    ),
+                    validator: (text) {
+                      if (text == null || text.trim().isEmpty) {
+                        return 'Please enter your password';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                SizedBox(height: 20),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(0xFF5C715E),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: TextFormField(
+                    controller: _mobileNumber,
+                    style: TextStyle(color: Color(0xFFF2F9F1)),
+                    decoration: InputDecoration(
+                      labelText: 'Mobile Number',
+                      labelStyle: TextStyle(color: Color(0xFFF2F9F1)),
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
+                    ),
+                    validator: (int) {
+                      if (int == null || int.trim().isEmpty) {
+                        return 'Please enter your mobile number';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                SizedBox(height: 20),
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(0xFF5C715E),
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: TextFormField(
+                    controller: _dob,
+                    readOnly: true,
+                    onTap: () => _selectDate(context),
+                    style: TextStyle(color: Color(0xFFF2F9F1)),
+                    decoration: InputDecoration(
+                      labelText: 'Date Of Birth',
+                      labelStyle: TextStyle(color: Color(0xFFF2F9F1)),
+                      border: InputBorder.none,
+                      contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
+                    ),
+                    validator: (text) {
+                      if (text == null || text.trim().isEmpty) {
+                        return 'Please enter your date of birth';
+                      }
+                      return null;
+                    },
+                  ),
+                ),
+                SizedBox(height: 20),
+                Text(
+                  'By continuing, you agree to',
+                  textAlign: TextAlign.center,
+>>>>>>> f08f975 (update login & signup page)
                   style: TextStyle(
-                    fontSize: 18,
-                    color: Color(0xFFF2F9F1),
+                    color: Color(0xFF5C715E),
+                    fontSize: 12,
                     fontFamily: 'LeagueSpartan',
                   ),
                 ),
+<<<<<<< HEAD
               ),
               const SizedBox(height: 16),
               const Text(
@@ -328,11 +479,42 @@ class SignUpPage extends StatelessWidget {
                   IconButton(
                     icon: Image.asset('assets/Icons/google.png'), // Replace with your asset
                     onPressed: () {},
+=======
+                Text(
+                  'Terms of Use and Privacy Policy.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                    color: Color(0xFF5C715E),
+                    fontSize: 12,
+                    fontFamily: 'LeagueSpartan',
                   ),
-                  IconButton(
-                    icon: Image.asset('assets/Icons/facebook.png'), // Replace with your asset
-                    onPressed: () {},
+                ),
+                SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
+                      // Navigate to HomePage after login validation
+                      // print('validate is done');
+                      handleSignUp();
+                    }
+                  },
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xFF5C715E),
+                    padding: EdgeInsets.symmetric(vertical: 16),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+>>>>>>> f08f975 (update login & signup page)
                   ),
+                  child: Text(
+                    'Sign Up',
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Color(0xFFF2F9F1),
+                      fontFamily: 'LeagueSpartan',
+                    ),
+                  ),
+<<<<<<< HEAD
                   IconButton(
                     icon: Image.asset('assets/Icons/apple.png'), // Replace with your asset
                     onPressed: () {},
@@ -349,6 +531,12 @@ class SignUpPage extends StatelessWidget {
                 },
                 child: const Text(
                   'already have an account? Log in',
+=======
+                ),
+                SizedBox(height: 16),
+                Text(
+                  'or sign up with',
+>>>>>>> f08f975 (update login & signup page)
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Color(0xFF5C715E),
@@ -356,8 +544,39 @@ class SignUpPage extends StatelessWidget {
                     fontFamily: 'LeagueSpartan',
                   ),
                 ),
-              ),
-            ],
+                SizedBox(height: 16),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      icon: Image.asset('assets/Icons/google.png'), // Replace with your asset
+                      onPressed: () {},
+                    ),
+                    IconButton(
+                      icon: Image.asset('assets/Icons/facebook.png'), // Replace with your asset
+                      onPressed: () {},
+                    ),
+                    IconButton(
+                      icon: Image.asset('assets/Icons/apple.png'), // Replace with your asset
+                      onPressed: () {},
+                    ),
+                  ],
+                ),
+                SizedBox(height: 16),
+                TextButton(
+                  onPressed: widget.onPressed,
+                  child: Text(
+                    'already have an account? Log in',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: Color(0xFF5C715E),
+                      fontSize: 14,
+                      fontFamily: 'LeagueSpartan',
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:fluttertoast/fluttertoast.dart';
+<<<<<<< HEAD
 // import 'package:skinalert/authentication/authentication_wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:skinalert/home/main_page.dart';
@@ -10,11 +11,23 @@ import 'package:skinalert/execption/auth_execption_handler.dart';
 import 'package:skinalert/service/authentication_service.dart';
 import 'signup.dart';
 import 'home.dart';
+<<<<<<< HEAD
 >>>>>>> 617d2db (update loginpage)
+=======
+=======
+import 'package:flutter/material.dart';
+import 'package:skinalert/execption/auth_execption_handler.dart';
+import 'package:skinalert/service/authentication_service.dart';
+// import 'signup.dart';
+// import 'home.dart';
+>>>>>>> f08f975 (update login & signup page)
+>>>>>>> 834b9f3 (update login & signup page)
 
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  final void Function()? onPressed;
+  
+  const LoginPage({super.key, this.onPressed});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -48,10 +61,8 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: const Color(0xFFF2F9F1),
-      child: Scaffold(
-        backgroundColor: Colors.transparent,
+    return Scaffold(
+      backgroundColor: const Color(0xFFF2F9F1),
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.transparent,
@@ -97,19 +108,20 @@ class _LoginPageState extends State<LoginPage> {
                     textAlign: TextAlign.left,
                   ),
                   const SizedBox(height: 32),
-                  // const Text(
-                  //   'Email or Mobile Number',
-                  //   style: TextStyle(
-                  //     color: Color(0xFF5C715E),
-                  //     fontSize: 20,
-                  //     fontWeight: FontWeight.normal,
-                  //     fontFamily: 'LeagueSpartan',
-                  //   ),
-                  //   textAlign: TextAlign.left,
-                  // ),
+                  const Text(
+                    'Email or Mobile Number',
+                    style: TextStyle(
+                      color: Color(0xFF5C715E),
+                      fontSize: 20,
+                      fontWeight: FontWeight.normal,
+                      fontFamily: 'LeagueSpartan',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
                   Container(
                     decoration: BoxDecoration(
                       color: const Color(0xFF5C715E),
+<<<<<<< HEAD
 <<<<<<< HEAD
                       borderRadius: BorderRadius.circular(14),
                     ),
@@ -121,6 +133,12 @@ class _LoginPageState extends State<LoginPage> {
                     child: TextFormField(
                       controller: _emailController,
 >>>>>>> aeb3465 (push branch production)
+=======
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                    child: TextFormField(
+                      controller: _email,
+>>>>>>> f08f975 (update login & signup page)
                       style: const TextStyle(color: Color(0xFFF2F9F1)),
                       decoration: const InputDecoration(
                         labelText: 'example@example.com',
@@ -137,19 +155,20 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  // const Text(
-                  //   'Password',
-                  //   style: TextStyle(
-                  //     color: Color(0xFF5C715E),
-                  //     fontSize: 20,
-                  //     fontWeight: FontWeight.normal,
-                  //     fontFamily: 'LeagueSpartan',
-                  //   ),
-                  //   textAlign: TextAlign.left,
-                  // ),
+                  const Text(
+                    'Password',
+                    style: TextStyle(
+                      color: Color(0xFF5C715E),
+                      fontSize: 20,
+                      fontWeight: FontWeight.normal,
+                      fontFamily: 'LeagueSpartan',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
                   Container(
                     decoration: BoxDecoration(
                       color: const Color(0xFF5C715E),
+<<<<<<< HEAD
 <<<<<<< HEAD
                       borderRadius: BorderRadius.circular(14),
                     ),
@@ -161,9 +180,16 @@ class _LoginPageState extends State<LoginPage> {
                     child: TextFormField(
                       controller: _passwordController,
 >>>>>>> aeb3465 (push branch production)
+=======
+                      borderRadius: BorderRadius.circular(14),
+                    ),
+                    child: TextFormField(
+                      controller: _password,
+>>>>>>> f08f975 (update login & signup page)
                       style: const TextStyle(color: Color(0xFFF2F9F1)),
                       obscureText: !_showPassword,
                       decoration: InputDecoration(
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
                         labelText: 'Enter your password',
@@ -181,6 +207,10 @@ class _LoginPageState extends State<LoginPage> {
                         labelText: 'Password',
                         labelStyle: TextStyle(color: Color(0xFFF2F9F1)),
 >>>>>>> 6749efe (push branch production)
+=======
+                        labelText: 'Enter your password',
+                        labelStyle: const TextStyle(color: Color(0xFFF1F8E8)),
+>>>>>>> 834b9f3 (update login & signup page)
                         border: InputBorder.none,
                         contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
                         suffixIcon: IconButton(
@@ -206,6 +236,7 @@ class _LoginPageState extends State<LoginPage> {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                   const SizedBox(height: 16),
                   Align(
                     alignment: Alignment.centerRight,
@@ -228,6 +259,8 @@ class _LoginPageState extends State<LoginPage> {
 =======
 =======
 >>>>>>> 5b710bf (push branch production)
+=======
+>>>>>>> 834b9f3 (update login & signup page)
                   SizedBox(height: 32),
 =======
                   // const SizedBox(height: 16),
@@ -266,6 +299,8 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
+=======
+>>>>>>> f08f975 (update login & signup page)
                   const SizedBox(height: 32),
 >>>>>>> aeb3465 (push branch production)
 >>>>>>> 5b710bf (push branch production)
@@ -274,6 +309,7 @@ class _LoginPageState extends State<LoginPage> {
                       if (_formKey.currentState!.validate()) {
                         // Navigate to HomePage after login validation
 <<<<<<< HEAD
+<<<<<<< HEAD
                         Navigator.pushReplacement(
                           context,
                           MaterialPageRoute(builder: (context) => MainPage()),
@@ -281,6 +317,9 @@ class _LoginPageState extends State<LoginPage> {
 =======
                         handleLogin();
 >>>>>>> d505008 (update feature login)
+=======
+                        handleLogin();
+>>>>>>> f08f975 (update login & signup page)
                       }
                     },
                     style: ElevatedButton.styleFrom(
@@ -330,12 +369,7 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 16),
                   Center(
                     child: TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => SignUpPage()),
-                        );
-                      },
+                      onPressed: widget.onPressed,
                       child: const Text(
                         "Don't have an account? Sign Up",
                         style: TextStyle(
@@ -352,7 +386,6 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
         ),
-      ),
     );
   }
 }

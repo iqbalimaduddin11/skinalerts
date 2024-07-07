@@ -5,6 +5,7 @@ import 'package:skinalert/firebase_options.dart';
 
 Future<void> main() async{
   WidgetsFlutterBinding.ensureInitialized();
+<<<<<<< HEAD
 
 <<<<<<< HEAD
   await Firebase.initializeApp(
@@ -14,6 +15,11 @@ Future<void> main() async{
 =======
 void main() {
 >>>>>>> aeb3465 (push branch production)
+=======
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform
+  );
+>>>>>>> f08f975 (update login & signup page)
   runApp(const MyApp());
 }
 
@@ -26,14 +32,19 @@ class MyApp extends StatelessWidget {
       title: 'SkinAlert',
       debugShowCheckedModeBanner: false,
 <<<<<<< HEAD
+<<<<<<< HEAD
       home: SplashScreen(),
 =======
+=======
+>>>>>>> f08f975 (update login & signup page)
       theme: ThemeData(
         primarySwatch: Colors.green,
       ),
       home: const AuthenticationWrapper(),
+<<<<<<< HEAD
 >>>>>>> d505008 (update feature login)
+=======
+>>>>>>> f08f975 (update login & signup page)
     );
   }
 }
-

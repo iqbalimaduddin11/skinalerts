@@ -1,5 +1,11 @@
+<<<<<<< HEAD
 import 'package:skinalert/authentication/authentication_wrapper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+=======
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:flutter/cupertino.dart';
+>>>>>>> f08f975 (update login & signup page)
 import 'package:skinalert/execption/auth_execption_handler.dart';
 
 class AuthenticationService {
@@ -29,4 +35,53 @@ class AuthenticationService {
     }
     return status;
   }
+<<<<<<< HEAD
+=======
+
+  Future<AuthResultStatus> SignUpWithEmailAndPassword({
+    required String fullName,
+    required String email,
+    required String password,
+    required String mobileNumber,
+    required Timestamp dob
+  }) async {
+    try {
+      
+      final UserCredential authResult =
+        await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: email, 
+          password: password
+        );
+        if (authResult.user != null) {
+          _saveUserDetails(
+            image: null,
+            fullName: fullName,
+            email: email,
+            mobileNumber: mobileNumber,
+            dob: dob,
+            userId: authResult.user!.uid
+          );
+          status = AuthResultStatus.successful;
+        } else {
+          status = AuthResultStatus.undefined;
+        }
+
+    } catch (msg) {
+      status = AuthExceptionHandler.handleException(msg);
+    }
+    return status;
+  }
+
+
+  void _saveUserDetails({required String fullName, email, userId, required Timestamp dob, required String mobileNumber, image}) {
+    FirebaseFirestore.instance.collection('users').doc(userId).set({
+      'image': image,
+      'fullName': fullName,
+      'email': email,
+      'mobileNumber': mobileNumber,
+      'dob': dob,
+      'userId': userId,
+    });
+  }
+>>>>>>> f08f975 (update login & signup page)
 }

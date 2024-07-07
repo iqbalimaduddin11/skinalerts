@@ -4,11 +4,17 @@
 
 list(APPEND FLUTTER_PLUGIN_LIST
 <<<<<<< HEAD
+<<<<<<< HEAD
   file_selector_windows
 =======
   firebase_auth
   firebase_core
 >>>>>>> d505008 (update feature login)
+=======
+  cloud_firestore
+  firebase_auth
+  firebase_core
+>>>>>>> f08f975 (update login & signup page)
 )
 
 list(APPEND FLUTTER_FFI_PLUGIN_LIST
