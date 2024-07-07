@@ -13,6 +13,7 @@
 import 'package:flutter/material.dart'; 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> aeb3465 (push branch production)
 >>>>>>> 5b710bf (push branch production)
@@ -51,7 +52,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 =======
 =======
 >>>>>>> 6b1fbb2 (push branch production)
+<<<<<<< HEAD
 >>>>>>> b74df55 (push branch production)
+=======
+=======
+import 'package:firebase_auth/firebase_auth.dart';
+>>>>>>> 9288652 (update login & signup page)
+>>>>>>> 229dedd (update login & signup page)
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -76,9 +83,13 @@ class _ProfilePageState extends State<ProfilePage> {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 48b3aba (push branch production)
  Future<void> _selectDate(BuildContext context) async {
+=======
+Future<void> _selectDate(BuildContext context) async {
+>>>>>>> 9288652 (update login & signup page)
   DateTime? picked = await showDatePicker(
     context: context,
     initialDate: DateTime.now(),
@@ -208,7 +219,15 @@ class ProfilePage extends StatelessWidget {
               const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {},
-                child: Text(
+                style: ElevatedButton.styleFrom(
+                  foregroundColor: const Color(0xFFF2F9F1),
+                  backgroundColor: const Color(0xFF5C715E),
+                  padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                ),
+                child: const Text(
                   'Update',
                   style: TextStyle(
                     fontSize: 16,

@@ -9,11 +9,15 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9288652 (update login & signup page)
 #include <file_selector_windows/file_selector_windows.h>
 
 void RegisterPlugins(flutter::PluginRegistry* registry) {
   FileSelectorWindowsRegisterWithRegistrar(
       registry->GetRegistrarForPlugin("FileSelectorWindows"));
+<<<<<<< HEAD
 =======
 #include <firebase_auth/firebase_auth_plugin_c_api.h>
 #include <firebase_core/firebase_core_plugin_c_api.h>
@@ -40,4 +44,6 @@ void RegisterPlugins(flutter::PluginRegistry* registry) {
 
 void RegisterPlugins(flutter::PluginRegistry* registry) {
 >>>>>>> 52a22c8 (update now)
+=======
+>>>>>>> 9288652 (update login & signup page)
 }

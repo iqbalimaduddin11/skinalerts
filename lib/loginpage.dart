@@ -25,6 +25,8 @@ import 'package:skinalert/service/authentication_service.dart';
 
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
   // ignore: library_private_types_in_public_api
   _LoginPageState createState() => _LoginPageState();
@@ -58,7 +60,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Color(0xFFF2F9F1),
+      color: const Color(0xFFF2F9F1),
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: AppBar(
@@ -106,18 +108,19 @@ class _LoginPageState extends State<LoginPage> {
                     textAlign: TextAlign.left,
                   ),
                   const SizedBox(height: 32),
-                  // const Text(
-                  //   'Email or Mobile Number',
-                  //   style: TextStyle(
-                  //     color: Color(0xFF5C715E),
-                  //     fontSize: 20,
-                  //     fontWeight: FontWeight.normal,
-                  //     fontFamily: 'LeagueSpartan',
-                  //   ),
-                  //   textAlign: TextAlign.left,
-                  // ),
+                  const Text(
+                    'Email or Mobile Number',
+                    style: TextStyle(
+                      color: Color(0xFF5C715E),
+                      fontSize: 20,
+                      fontWeight: FontWeight.normal,
+                      fontFamily: 'LeagueSpartan',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
                   Container(
                     decoration: BoxDecoration(
+<<<<<<< HEAD
 <<<<<<< HEAD
                       color: const Color(0xFF5C715E),
 <<<<<<< HEAD
@@ -151,6 +154,16 @@ class _LoginPageState extends State<LoginPage> {
                       decoration: InputDecoration(
                         labelText: 'Email or Mobile Number',
 >>>>>>> 6b1fbb2 (push branch production)
+=======
+                      color: const Color(0xFF5C715E),
+                      borderRadius: BorderRadius.circular(13),
+                    ),
+                    child: TextFormField(
+                      controller: _emailController,
+                      style: const TextStyle(color: Color(0xFFF2F9F1)),
+                      decoration: const InputDecoration(
+                        labelText: 'example@example.com',
+>>>>>>> 9288652 (update login & signup page)
                         labelStyle: TextStyle(color: Color(0xFFF2F9F1)),
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
@@ -164,18 +177,19 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  // const Text(
-                  //   'Password',
-                  //   style: TextStyle(
-                  //     color: Color(0xFF5C715E),
-                  //     fontSize: 20,
-                  //     fontWeight: FontWeight.normal,
-                  //     fontFamily: 'LeagueSpartan',
-                  //   ),
-                  //   textAlign: TextAlign.left,
-                  // ),
+                  const Text(
+                    'Password',
+                    style: TextStyle(
+                      color: Color(0xFF5C715E),
+                      fontSize: 20,
+                      fontWeight: FontWeight.normal,
+                      fontFamily: 'LeagueSpartan',
+                    ),
+                    textAlign: TextAlign.left,
+                  ),
                   Container(
                     decoration: BoxDecoration(
+<<<<<<< HEAD
 <<<<<<< HEAD
                       color: const Color(0xFF5C715E),
 <<<<<<< HEAD
@@ -205,6 +219,14 @@ class _LoginPageState extends State<LoginPage> {
                       controller: _passwordController,
                       style: TextStyle(color: Color(0xFFF2F9F1)),
 >>>>>>> 6b1fbb2 (push branch production)
+=======
+                      color: const Color(0xFF5C715E),
+                      borderRadius: BorderRadius.circular(13),
+                    ),
+                    child: TextFormField(
+                      controller: _passwordController,
+                      style: const TextStyle(color: Color(0xFFF2F9F1)),
+>>>>>>> 9288652 (update login & signup page)
                       obscureText: !_showPassword,
                       decoration: InputDecoration(
 <<<<<<< HEAD
@@ -256,6 +278,7 @@ class _LoginPageState extends State<LoginPage> {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                   const SizedBox(height: 16),
                   Align(
                     alignment: Alignment.centerRight,
@@ -282,6 +305,8 @@ class _LoginPageState extends State<LoginPage> {
 >>>>>>> 834b9f3 (update login & signup page)
 =======
 >>>>>>> f78677d (update now)
+=======
+>>>>>>> 229dedd (update login & signup page)
                   SizedBox(height: 32),
 =======
                   // const SizedBox(height: 16),
@@ -338,11 +363,21 @@ class _LoginPageState extends State<LoginPage> {
 =======
                   SizedBox(height: 32),
 >>>>>>> 52a22c8 (update now)
+<<<<<<< HEAD
 >>>>>>> f78677d (update now)
+=======
+=======
+                  SizedBox(height: 32),
+=======
+                  const SizedBox(height: 32),
+>>>>>>> f08f975 (update login & signup page)
+>>>>>>> 9288652 (update login & signup page)
+>>>>>>> 229dedd (update login & signup page)
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         // Navigate to HomePage after login validation
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -361,6 +396,9 @@ class _LoginPageState extends State<LoginPage> {
 >>>>>>> f08f975 (update login & signup page)
 =======
 >>>>>>> 6b1fbb2 (push branch production)
+=======
+                        handleLogin();
+>>>>>>> 9288652 (update login & signup page)
                       }
                     },
                     child: Text(
@@ -409,7 +447,7 @@ class _LoginPageState extends State<LoginPage> {
                           MaterialPageRoute(builder: (context) => SignUpPage()),
                         );
                       },
-                      child: Text(
+                      child: const Text(
                         "Don't have an account? Sign Up",
                         style: TextStyle(
                           fontFamily: 'LeagueSpartan',

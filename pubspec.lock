@@ -170,6 +170,9 @@ packages:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9288652 (update login & signup page)
   file_selector_linux:
     dependency: transitive
     description:
@@ -202,6 +205,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.9.3+1"
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> f08f975 (update login & signup page)
@@ -330,6 +334,8 @@ packages:
 >>>>>>> f08f975 (update login & signup page)
 =======
 >>>>>>> 52a22c8 (update now)
+=======
+>>>>>>> 9288652 (update login & signup page)
   floating_bottom_navigation_bar:
     dependency: "direct main"
     description:
@@ -410,6 +416,9 @@ packages:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9288652 (update login & signup page)
   http:
     dependency: transitive
     description:
@@ -418,10 +427,13 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.2.1"
+<<<<<<< HEAD
 =======
 >>>>>>> d505008 (update feature login)
 =======
 >>>>>>> f08f975 (update login & signup page)
+=======
+>>>>>>> 9288652 (update login & signup page)
   http_parser:
     dependency: transitive
     description:
@@ -432,10 +444,13 @@ packages:
     version: "4.0.2"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> f08f975 (update login & signup page)
 =======
 >>>>>>> 52a22c8 (update now)
+=======
+>>>>>>> 9288652 (update login & signup page)
   image:
     dependency: transitive
     description:
@@ -757,6 +772,7 @@ sdks:
   dart: ">=3.3.4 <4.0.0"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   flutter: ">=3.19.0"
 =======
 sdks:
@@ -769,3 +785,6 @@ sdks:
 =======
   flutter: ">=2.0.1"
 >>>>>>> 52a22c8 (update now)
+=======
+  flutter: ">=3.19.0"
+>>>>>>> 9288652 (update login & signup page)

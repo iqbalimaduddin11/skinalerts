@@ -25,8 +25,12 @@ void main() {
 =======
 
 void main() {
+<<<<<<< HEAD
   runApp(MyApp());
 >>>>>>> 6b1fbb2 (push branch production)
+=======
+  runApp(const MyApp());
+>>>>>>> 9288652 (update login & signup page)
 }
 
 class MyApp extends StatelessWidget {

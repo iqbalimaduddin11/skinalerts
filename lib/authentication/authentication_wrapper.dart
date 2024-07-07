@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 <<<<<<< HEAD
@@ -49,3 +50,5 @@ class AuthenticationWrapper extends StatelessWidget {
 
 
 }
+=======
+>>>>>>> 9288652 (update login & signup page)

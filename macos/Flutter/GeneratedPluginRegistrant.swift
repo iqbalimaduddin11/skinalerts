@@ -8,10 +8,14 @@ import Foundation
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9288652 (update login & signup page)
 import file_selector_macos
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
   FileSelectorPlugin.register(with: registry.registrar(forPlugin: "FileSelectorPlugin"))
+<<<<<<< HEAD
 =======
 import firebase_auth
 import firebase_core
@@ -38,4 +42,6 @@ func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
 
 func RegisterGeneratedPlugins(registry: FlutterPluginRegistry) {
 >>>>>>> 52a22c8 (update now)
+=======
+>>>>>>> 9288652 (update login & signup page)
 }

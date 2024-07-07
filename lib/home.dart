@@ -2,6 +2,10 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+import 'package:cloud_firestore/cloud_firestore.dart';
+>>>>>>> 9288652 (update login & signup page)
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
@@ -14,7 +18,11 @@ import 'package:skinalert/Symptoms.dart';
 import 'package:skinalert/home/Clickforcheck.dart';
 import 'package:skinalert/home/Diagnosis.dart';
 import 'package:skinalert/home/Symptoms.dart';
+<<<<<<< HEAD
 >>>>>>> 79d77bf (first commit)
+=======
+<<<<<<< HEAD
+>>>>>>> 229dedd (update login & signup page)
 import 'Profile.dart';
 import 'Team.dart';
 // ignore: unused_import
@@ -55,11 +63,15 @@ import 'package:skinalert/home/Symptoms.dart';
 
 // import 'package:skinalert/Symptoms.dart';
 >>>>>>> 48b3aba (push branch production)
+=======
+import 'package:skinalert/loginpage.dart';
+>>>>>>> 9288652 (update login & signup page)
 import 'Profile.dart';
 import 'Team.dart';
 import 'History.dart';
 
 class MyHomePage extends StatefulWidget {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
   const MyHomePage({super.key});
@@ -96,6 +108,9 @@ class _MyHomePageState extends State<MyHomePage> {
       FirebaseFirestore.instance.collection("users");
 =======
   const MyHomePage({super.key});
+=======
+  const MyHomePage({super.key, User? User});
+>>>>>>> 9288652 (update login & signup page)
 
   @override
   // ignore: library_private_types_in_public_api
@@ -103,7 +118,12 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+<<<<<<< HEAD
 >>>>>>> 6b1fbb2 (push branch production)
+=======
+  final CollectionReference myItems =
+      FirebaseFirestore.instance.collection("users");
+>>>>>>> 9288652 (update login & signup page)
   final ScrollController _vertical = ScrollController();
   int _index = 0;
   int _indexNavbar = 0;
@@ -166,6 +186,29 @@ class _MyHomePageState extends State<MyHomePage> {
 <<<<<<< HEAD
 =======
 
+  User? _currentUser;
+
+  @override
+  void initState() {
+    super.initState();
+    _getCurrentUser();
+  }
+
+  Future<void> _getCurrentUser() async {
+    final user = FirebaseAuth.instance.currentUser;
+    setState(() {
+      _currentUser = user;
+    });
+  }
+
+  Future<void> _logout() async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => LoginPage()),
+    );
+  }
+
   @override
   void dispose() {
     _vertical.dispose();
@@ -181,6 +224,7 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         toolbarHeight: 0, // Hide the app bar
       ),
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -412,6 +456,15 @@ class _MyHomePageState extends State<MyHomePage> {
             final userDoc = snapshot.data!;
             return Column(
               children: [
+=======
+      body: StreamBuilder(
+        stream: myItems.doc(_currentUser?.uid).snapshots(),
+        builder: (context, AsyncSnapshot<DocumentSnapshot> snapshot) {
+          if (snapshot.hasData) {
+            final userDoc = snapshot.data!;
+            return Column(
+              children: [
+>>>>>>> 9288652 (update login & signup page)
                 // Profile section
                 Container(
                   padding: const EdgeInsets.all(16.0),
@@ -458,6 +511,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                       ),
                     ],
+<<<<<<< HEAD
 >>>>>>> f08f975 (update login & signup page)
                   ),
                 ),
@@ -564,50 +618,101 @@ class _MyHomePageState extends State<MyHomePage> {
 >>>>>>> 241935e (push first project)
 =======
 >>>>>>> 48b3aba (push branch production)
+=======
+>>>>>>> 9288652 (update login & signup page)
                   ),
                 ),
-                SizedBox(
-                  width: 100, // Set the width of the button
-                  child: TextButton(
-                    onPressed: () {
-                      setState(() => _index = 1);
-                    },
-                    style: ButtonStyle(
-                      backgroundColor: _index == 1 ? MaterialStateProperty.all(Color(0xFF5C715E)) : MaterialStateProperty.all(Color(0xFFF2F9F1)),
-                      foregroundColor: _index == 1 ? MaterialStateProperty.all(Color(0xFFF2F9F1)) : MaterialStateProperty.all(Color(0xFF5C715E)),
+                const SizedBox(height: 8), // Space between profile and carousel slider
+                // Carousel Slider
+                CarouselSlider(
+                  options: CarouselOptions(
+                    height: 200.0,
+                    enlargeCenterPage: true,
+                    autoPlay: true,
+                    aspectRatio: 16/9,
+                    autoPlayCurve: Curves.fastOutSlowIn,
+                    enableInfiniteScroll: true,
+                    autoPlayAnimationDuration: const Duration(milliseconds: 800),
+                    viewportFraction: 0.8,
+                  ),
+                  items: imgList.map((item) => Container(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Color(0xFF5C715E), width: 2), // Border around images
+                      borderRadius: BorderRadius.circular(10), // Rounded corners
                     ),
-                    child: Text('Diagnosis And Treatment', style: TextStyle(fontFamily: 'LeagueSpartan', fontSize: 10,fontWeight: FontWeight.bold)),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(10), // Match the border radius
+                      child: Image.asset(item, fit: BoxFit.cover, width: 1000),
+                    ),
+                  )).toList(),
+                ),
+                const SizedBox(height: 8), // Space between carousel slider and navigation tabs
+                // Navigation Tabs
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      SizedBox(
+                        width: 100, // Set the width of the button
+                        child: TextButton(
+                          onPressed: () {
+                            setState(() => _index = 0);
+                          },
+                          style: ButtonStyle(
+                            backgroundColor: _index == 0? MaterialStateProperty.all(Color(0xFF5C715E)) : MaterialStateProperty.all(Color(0xFFF2F9F1)),
+                            foregroundColor: _index == 0? MaterialStateProperty.all(Color(0xFFF2F9F1)) : MaterialStateProperty.all(Color(0xFF5C715E)),
+                          ),
+                          child: Text('Symptoms', style: TextStyle(fontFamily: 'LeagueSpartan',fontSize: 10,fontWeight: FontWeight.bold)),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 100, // Set the width of the button
+                        child: TextButton(
+                          onPressed: () {
+                            setState(() => _index = 1);
+                          },
+                          style: ButtonStyle(
+                            backgroundColor: _index == 1? MaterialStateProperty.all(Color(0xFF5C715E)) : MaterialStateProperty.all(Color(0xFFF2F9F1)),
+                            foregroundColor: _index == 1? MaterialStateProperty.all(Color(0xFFF2F9F1)) : MaterialStateProperty.all(Color(0xFF5C715E)),
+                          ),
+                          child: Text('Diagnosis And Treatment', style: TextStyle(fontFamily: 'LeagueSpartan', fontSize: 10,fontWeight: FontWeight.bold)),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 100, // Set the width of the button
+                        child: TextButton(
+                          onPressed: () {
+                            setState(() => _index = 2);
+                          },
+                          style: ButtonStyle(
+                            backgroundColor: _index == 2? MaterialStateProperty.all(Color(0xFF5C715E)) : MaterialStateProperty.all(Color(0xFFF2F9F1)),
+                            foregroundColor: _index == 2? MaterialStateProperty.all(Color(0xFFF2F9F1)): MaterialStateProperty.all(Color(0xFF5C715E)),
+                          ),
+                          child: Text('Click For Check', style: TextStyle(fontFamily: 'LeagueSpartan',fontSize: 10,fontWeight: FontWeight.bold)),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
-                SizedBox(
-                  width: 100, // Set the width of the button
-                  child: TextButton(
-                    onPressed: () {
-                      setState(() => _index = 2);
-                    },
-                    style: ButtonStyle(
-                      backgroundColor: _index == 2 ? MaterialStateProperty.all(Color(0xFF5C715E)) : MaterialStateProperty.all(Color(0xFFF2F9F1)),
-                      foregroundColor: _index == 2 ? MaterialStateProperty.all(Color(0xFFF2F9F1)): MaterialStateProperty.all(Color(0xFF5C715E)),
-                    ),
-                    child: Text('Click For Check', style: TextStyle(fontFamily: 'LeagueSpartan',fontSize: 10,fontWeight: FontWeight.bold)),
+                const Divider(),
+                // Content Area
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 16),
+                    child: _index == 0
+                        ? SymptomsPage()
+                        : _index == 1
+                            ? DiagnosisPage()
+                            : ClickForCheckPage(),
                   ),
                 ),
               ],
-            ),
-          ),
-          const Divider(),
-          // Content Area
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(16.0, 16.0, 16.0, 16),
-              child: _index == 0
-                ? SymptomsPage()
-                : _index == 1
-                  ? DiagnosisPage()
-                  : ClickForCheckPage(),
-            ),
-          ),
-        ],
+            );
+          } else {
+            return Center(child: CircularProgressIndicator());
+          }
+        },
       ),
       bottomNavigationBar: Container(
 >>>>>>> 6b1fbb2 (push branch production)
@@ -755,6 +860,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+<<<<<<< HEAD
 }
 <<<<<<< HEAD
 =======
@@ -905,3 +1011,6 @@ class _MyHomePageState extends State<MyHomePage> {
 >>>>>>> ab4caa1 (merging local branch)
 =======
 >>>>>>> 6b1fbb2 (push branch production)
+=======
+}
+>>>>>>> 9288652 (update login & signup page)
