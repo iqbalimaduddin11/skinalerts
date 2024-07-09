@@ -1,10 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:skinalert/home.dart';
 <<<<<<< HEAD
 import 'package:skinalert/loginpage.dart';
 // import 'package:skinalert/signup.dart';
 =======
+=======
+import 'package:skinalert/home/home.dart';
+>>>>>>> b425ea7 (test push project)
 import 'package:skinalert/login_or_signup.dart';
 >>>>>>> f08f975 (update login & signup page)
 

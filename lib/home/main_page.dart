@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:skinalert/History.dart';
 import 'package:skinalert/Profile.dart';
 import 'package:skinalert/Team.dart';
-import 'package:skinalert/home/home.dart';
+import 'package:skinalert/home/home1.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
