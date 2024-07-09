@@ -168,9 +168,6 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   SizedBox(height: 32),
-=======
-                  const SizedBox(height: 32),
->>>>>>> f08f975 (update login & signup page)
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
