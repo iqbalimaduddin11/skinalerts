@@ -171,8 +171,11 @@ packages:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 9288652 (update login & signup page)
+=======
+>>>>>>> 78a5c96 (push production)
   file_selector_linux:
     dependency: transitive
     description:
@@ -206,43 +209,60 @@ packages:
     source: hosted
     version: "0.9.3+1"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> f08f975 (update login & signup page)
+=======
+=======
+>>>>>>> 78a5c96 (push production)
   firebase_auth:
     dependency: "direct main"
     description:
       name: firebase_auth
+<<<<<<< HEAD
 <<<<<<< HEAD
       sha256: "3af60a78e92567af3d9a5e25d3955f0f6a3f7a33b900724c1c4c336ff5e44200"
       url: "https://pub.dev"
     source: hosted
     version: "5.1.0"
 =======
+=======
+>>>>>>> 78a5c96 (push production)
       sha256: "087fdcb54b0af6f4c5c756e1db4f90e9b65871b9b3a75fabaa0e0ee578301669"
       url: "https://pub.dev"
     source: hosted
     version: "5.1.1"
+<<<<<<< HEAD
 >>>>>>> f08f975 (update login & signup page)
+=======
+>>>>>>> 78a5c96 (push production)
   firebase_auth_platform_interface:
     dependency: transitive
     description:
       name: firebase_auth_platform_interface
+<<<<<<< HEAD
 <<<<<<< HEAD
       sha256: "6941c07a1d129a8b834f85b6673d3455f24102b6338346596c26ef3be2c106ce"
       url: "https://pub.dev"
     source: hosted
     version: "7.4.0"
 =======
+=======
+>>>>>>> 78a5c96 (push production)
       sha256: "8fac689f71ac3489a785579e99a4bad24a93ad3d78c313fb786ee517012d25f1"
       url: "https://pub.dev"
     source: hosted
     version: "7.4.1"
+<<<<<<< HEAD
 >>>>>>> f08f975 (update login & signup page)
+=======
+>>>>>>> 78a5c96 (push production)
   firebase_auth_web:
     dependency: transitive
     description:
       name: firebase_auth_web
+<<<<<<< HEAD
 <<<<<<< HEAD
       sha256: "5c3f6b45dc141cec858c050d6a6f07bdbfab45ab92a68b32be4b08805bdcadaa"
       url: "https://pub.dev"
@@ -251,13 +271,18 @@ packages:
   firebase_core:
     dependency: "direct main"
 =======
+=======
+>>>>>>> 78a5c96 (push production)
       sha256: "486b2527fcfcab01278378d8d4791f4f7bee8a9f15bf35e801ba08fbdd84c234"
       url: "https://pub.dev"
     source: hosted
     version: "5.12.3"
   firebase_core:
     dependency: transitive
+<<<<<<< HEAD
 >>>>>>> f08f975 (update login & signup page)
+=======
+>>>>>>> 78a5c96 (push production)
     description:
       name: firebase_core
       sha256: "1e06b0538ab3108a61d895ee16951670b491c4a94fce8f2d30e5de7a5eca4b28"
@@ -281,8 +306,11 @@ packages:
     source: hosted
     version: "2.17.2"
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> d505008 (update feature login)
 =======
+=======
+>>>>>>> 78a5c96 (push production)
   firebase_database:
     dependency: "direct main"
     description:
@@ -332,10 +360,13 @@ packages:
     source: hosted
     version: "3.8.10"
 >>>>>>> f08f975 (update login & signup page)
+<<<<<<< HEAD
 =======
 >>>>>>> 52a22c8 (update now)
 =======
 >>>>>>> 9288652 (update login & signup page)
+=======
+>>>>>>> 78a5c96 (push production)
   floating_bottom_navigation_bar:
     dependency: "direct main"
     description:
@@ -417,8 +448,11 @@ packages:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 9288652 (update login & signup page)
+=======
+>>>>>>> 78a5c96 (push production)
   http:
     dependency: transitive
     description:
@@ -428,12 +462,17 @@ packages:
     source: hosted
     version: "1.2.1"
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> d505008 (update feature login)
 =======
 >>>>>>> f08f975 (update login & signup page)
 =======
 >>>>>>> 9288652 (update login & signup page)
+=======
+=======
+>>>>>>> f08f975 (update login & signup page)
+>>>>>>> 78a5c96 (push production)
   http_parser:
     dependency: transitive
     description:
