@@ -47,12 +47,6 @@ Future<void> _selectDate(BuildContext context) async {
   }
 }
 
-<<<<<<< HEAD
-=======
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
-
->>>>>>> 241935e (push first project)
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -91,7 +85,7 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 20),
-              const ProfileTextField(
+              ProfileTextField(
                 label: 'Full Name',
               ),
               ProfileTextField(

@@ -2,6 +2,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
 import 'package:skinalert/execption/auth_execption_handler.dart';
 import 'package:skinalert/service/authentication_service.dart';
+import 'package:skinalert/signup.dart';
 // import 'signup.dart';
 // import 'home.dart';
 
@@ -106,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(13),
                     ),
                     child: TextFormField(
-                      controller: _emailController,
+                      controller: _email,
                       style: const TextStyle(color: Color(0xFFF2F9F1)),
                       decoration: const InputDecoration(
                         labelText: 'example@example.com',
@@ -139,7 +140,7 @@ class _LoginPageState extends State<LoginPage> {
                       borderRadius: BorderRadius.circular(13),
                     ),
                     child: TextFormField(
-                      controller: _passwordController,
+                      controller: _password,
                       style: const TextStyle(color: Color(0xFFF2F9F1)),
                       obscureText: !_showPassword,
                       decoration: InputDecoration(
@@ -237,6 +238,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
         ),
+      )
     );
   }
 }

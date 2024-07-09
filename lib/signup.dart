@@ -167,8 +167,6 @@ class _SignUpPageState extends State<SignUpPage> {
                           _showPassword ? Icons.visibility : Icons.visibility_off,
                           color: const Color(0xFFF1F8E8),
                         ),
-<<<<<<< HEAD
-<<<<<<< HEAD
                         onPressed: () {
                           setState(() {
                             _showPassword = !_showPassword;
@@ -182,17 +180,7 @@ class _SignUpPageState extends State<SignUpPage> {
                       }
                       return null;
                     },
-=======
-=======
->>>>>>> 96d8553 (update login & signup page)
                   ),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Please enter your password';
-                    }
-                    return null;
-                  },
-                ),
               ),
               SizedBox(height: 20),
               Container(
@@ -201,7 +189,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: TextFormField(
-                  controller: _emailController,
+                  controller: _email,
                   style: TextStyle(color: Color(0xFFF2F9F1)),
                   decoration: InputDecoration(
                     labelText: 'Email',
@@ -224,7 +212,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: TextFormField(
-                  controller: _mobileNumberController,
+                  controller: _mobileNumber,
                   style: TextStyle(color: Color(0xFFF2F9F1)),
                   decoration: InputDecoration(
                     labelText: 'Mobile Number',
@@ -247,7 +235,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: TextFormField(
-                  controller: _dobController,
+                  controller: _dob,
                   readOnly: true,
                   onTap: () => _selectDate(context),
                   style: TextStyle(color: Color(0xFFF2F9F1)),
