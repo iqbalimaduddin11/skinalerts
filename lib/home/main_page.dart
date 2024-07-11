@@ -1,9 +1,9 @@
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:skinalert/History.dart';
-import 'package:skinalert/Profile.dart';
-import 'package:skinalert/Team.dart';
-import 'package:skinalert/home/home1.dart';
+import 'package:skinalert/home/floatingNavbar/History.dart';
+import 'package:skinalert/home/floatingNavbar/Profile.dart';
+import 'package:skinalert/home/floatingNavbar/Team.dart';
+import 'package:skinalert/home/floatingNavbar/home.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});

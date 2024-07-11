@@ -1,5 +1,9 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:skinalert/home/floatingNavbar/home.dart';
+import 'package:skinalert/user_authentication/loginpage.dart';
 
 class Quisonerpage extends StatefulWidget {
   @override
@@ -24,15 +28,22 @@ class _QuisonereState extends State<Quisonerpage> with SingleTickerProviderState
     "Apakah Anda memiliki luka yang berdarah atau berkerak?",
     "Apakah tahi lalat Anda memiliki tepi yang tidak teratur, berbagai warna, dan berdiameter lebih dari 6mm?"
   ];
+  
+  final CollectionReference myItems =
+    FirebaseFirestore.instance.collection("users");
+  // final ScrollController _vertical = ScrollController();
 
   int currentIndex = 0;
   int yesCount = 0;
   late AnimationController _controller;
   late Animation<double> _animation;
+  
+  User? _currentUser;
 
   @override
   void initState() {
     super.initState();
+    _getCurrentUser();
     _controller = AnimationController(
       duration: const Duration(milliseconds: 500),
       vsync: this,
@@ -40,6 +51,14 @@ class _QuisonereState extends State<Quisonerpage> with SingleTickerProviderState
     _animation = Tween<double>(begin: 0, end: 1).animate(_controller);
   }
 
+
+  Future<void> _getCurrentUser() async {
+    final user = FirebaseAuth.instance.currentUser;
+    setState(() {
+      _currentUser = user;
+    });
+  }
+  
   void _answerQuestion(bool answer) {
     setState(() {
       if (answer) {
@@ -51,6 +70,21 @@ class _QuisonereState extends State<Quisonerpage> with SingleTickerProviderState
         _controller.forward();
       }
     });
+  }
+  
+  Future<void> _logout() async {
+    await FirebaseAuth.instance.signOut();
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => LoginPage()),
+    );
+  }
+
+  void _navigateToHomePage() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => MyHomePage()), // Navigate to HomePage
+    );
   }
 
   @override
@@ -104,6 +138,27 @@ class _QuisonereState extends State<Quisonerpage> with SingleTickerProviderState
                           ),
                         ),
                       ],
+                    ),
+                    Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 16.0),
+                      child: ElevatedButton(
+                        onPressed: _logout,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Color(0xFF5C715E),
+                          foregroundColor: Color(0xFFF2F9F1),
+                          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                          textStyle: TextStyle(
+                            fontSize: 12, 
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'LeagueSpartan'
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                        child: Text('Logout'),
+                      ),
                     ),
                   ],
                 ),
@@ -213,6 +268,42 @@ class _QuisonereState extends State<Quisonerpage> with SingleTickerProviderState
                                   fontWeight: FontWeight.bold,
                                   fontFamily: 'LeagueSpartan',
                                   color: Color(0xFF2C4237),
+                                ),
+                              ),
+                              SizedBox(height: 20),
+                              ElevatedButton(
+                                onPressed: _navigateToHomePage,
+                                child: Text('Show The Result'), // Back to Homepage button
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Color(0xFF5C715E),
+                                  foregroundColor: Color(0xFFF2F9F1),
+                                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                                  textStyle: TextStyle(
+                                    fontSize: 16, 
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'LeagueSpartan'
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 20),
+                              ElevatedButton(
+                                onPressed: _navigateToHomePage,
+                                child: Text('Back to Homepage'), // Back to Homepage button
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Color(0xFF5C715E),
+                                  foregroundColor: Color(0xFFF2F9F1),
+                                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                                  textStyle: TextStyle(
+                                    fontSize: 16, 
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'LeagueSpartan'
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
                                 ),
                               ),
                             ],

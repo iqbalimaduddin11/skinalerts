@@ -2,16 +2,16 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
 import 'package:skinalert/execption/auth_execption_handler.dart';
 import 'package:skinalert/service/authentication_service.dart';
-import 'package:skinalert/signup.dart';
-// import 'signup.dart';
-// import 'home.dart';
+
+
 
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  final void Function()? onPressed;
+
+  const LoginPage({super.key,  this.onPressed});
 
   @override
-  // ignore: library_private_types_in_public_api
   _LoginPageState createState() => _LoginPageState();
 }
 
@@ -170,6 +170,13 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   SizedBox(height: 32),
                   ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFF5C715E),
+                      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         // Navigate to HomePage after login validation
@@ -216,12 +223,7 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 16),
                   Center(
                     child: TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => SignUpPage()),
-                        );
-                      },
+                      onPressed: widget.onPressed,
                       child: const Text(
                         "Don't have an account? Sign Up",
                         style: TextStyle(

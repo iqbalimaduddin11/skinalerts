@@ -4,7 +4,11 @@ import 'package:skinalert/authentication/authentication_wrapper.dart';
 import 'package:skinalert/firebase_options.dart';
 
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 

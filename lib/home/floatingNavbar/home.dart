@@ -6,10 +6,10 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:skinalert/home/Clickforcheck.dart';
 import 'package:skinalert/home/Diagnosis.dart';
 import 'package:skinalert/home/Symptoms.dart';
-import 'package:skinalert/loginpage.dart';
-import '../Profile.dart';
-import '../Team.dart';
-import '../History.dart';
+import 'package:skinalert/user_authentication/loginpage.dart';
+import 'Profile.dart';
+import 'Team.dart';
+import 'History.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, User? User});

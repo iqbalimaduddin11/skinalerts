@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart'; 
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 
 class ProfilePage extends StatefulWidget {
   @override
@@ -7,7 +6,6 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> { 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
   final TextEditingController _fullNameController = TextEditingController();
   final TextEditingController _phoneNumberController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();

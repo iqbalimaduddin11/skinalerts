@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:skinalert/loginpage.dart';
-import 'package:skinalert/signup.dart';
+import 'package:skinalert/user_authentication/loginpage.dart';
+import 'package:skinalert/user_authentication/signup.dart';
 
 
 class LoginOrSignUp extends StatefulWidget {
