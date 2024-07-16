@@ -75,4 +75,6 @@ class AuthenticationService {
       'userId': userId,
     });
   }
+
+  getCurrentUser() {}
 }

@@ -15,7 +15,6 @@ class _HistoryPageState extends State<HistoryPage> {
   User? _currentUser;
   String? _fullName;
   //String? _image;
-   
 
   @override
   void initState() {

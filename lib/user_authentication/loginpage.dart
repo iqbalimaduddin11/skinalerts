@@ -1,6 +1,8 @@
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
+import 'package:skinalert/admin/adminMainPage.dart';
 import 'package:skinalert/execption/auth_execption_handler.dart';
+import 'package:skinalert/home/floatingNavbar/home.dart';
 import 'package:skinalert/service/authentication_service.dart';
 
 
@@ -21,24 +23,39 @@ class _LoginPageState extends State<LoginPage> {
   final _formKey = GlobalKey<FormState>();
   bool _showPassword = false;
 
-  void handleLogin() {
-    AuthenticationService()
-      .loginWithEmailAndPassword(
-        email: _email.text,
-        password: _password.text
-      )
-      .then(
-        (status) {
-          if (status == AuthResultStatus.successful) {
-            Fluttertoast.showToast(msg: "Successfull");
-          } else {
-            final errorMsg = 
-              AuthExceptionHandler.generateExceptionMessage(status);
-            Fluttertoast.showToast(msg: errorMsg);
-          }
-        },
+void handleLogin() {
+  AuthenticationService()
+    .loginWithEmailAndPassword(
+      email: _email.text,
+      password: _password.text
+    )
+    .then(
+      (status) {
+        if (status == AuthResultStatus.successful) {
+          Fluttertoast.showToast(msg: "Successfull");
+          // Check if the user is an admin
+          AuthenticationService().getCurrentUser().then((user) {
+            if (user.isAdmin) {
+              // Navigate to AdminMainPage
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => AdminMainPage(user: user,)),
+              );
+            } else {
+              // Navigate to HomePage
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (context) => MyHomePage()),
+              );
+            }
+          });
+        } else {
+          final errorMsg = AuthExceptionHandler.generateExceptionMessage(status);
+          Fluttertoast.showToast(msg: errorMsg);
+        }
+      },
     );
-  }
+}
 
   @override
   Widget build(BuildContext context) {

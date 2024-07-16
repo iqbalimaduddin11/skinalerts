@@ -18,7 +18,7 @@ class _QuisonerPageState extends State<QuisonerPage> with SingleTickerProviderSt
   int currentIndex = 0;
   double combinedCF = 0.0;
   String _riskCategory = '';
-  Timestamp _date ='dd/mm/yyyy' as Timestamp;
+  Timestamp _date = Timestamp.now();
   late AnimationController _controller;
   late Animation<double> _animation;
   String _fullName = '';

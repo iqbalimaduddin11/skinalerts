@@ -12,7 +12,7 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   final TextEditingController _fullNameController = TextEditingController();
-  final TextEditingController _phoneNumberController = TextEditingController();
+  final TextEditingController _mobileNumberController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _dobController = TextEditingController();
 
@@ -22,7 +22,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   void dispose() {
     _fullNameController.dispose();
-    _phoneNumberController.dispose();
+    _mobileNumberController.dispose();
     _emailController.dispose();
     _dobController.dispose();
     super.dispose();
@@ -68,17 +68,18 @@ class _ProfilePageState extends State<ProfilePage> {
     try {
       User? user = FirebaseAuth.instance.currentUser;
 
-      if (user != null) {
-        if (_image != null) {
+      if (user!= null) {
+        if (_image!= null) {
           _uploadedImageUrl = await uploadImage(_image!);
         }
 
         await FirebaseFirestore.instance.collection('users').doc(user.uid).set({
           'fullName': _fullNameController.text,
-          'phoneNumber': _phoneNumberController.text,
+          'mobileNumber': _mobileNumberController.text,
           'email': _emailController.text,
           'dob': _dobController.text,
-          if (_uploadedImageUrl != null) 'image': _uploadedImageUrl,
+          if (_uploadedImageUrl!= null) 'image': _uploadedImageUrl,
+          'userId': user.uid, // Add this line to keep the user_id field
         }, SetOptions(merge: true));
 
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Profile updated successfully')));
@@ -155,7 +156,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
               ProfileTextField(
                 label: 'Phone Number',
-                controller: _phoneNumberController,
+                controller: _mobileNumberController,
               ),
               ProfileTextField(
                 label: 'Email',
