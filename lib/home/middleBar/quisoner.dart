@@ -1,34 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:skinalert/home/Result.dart';
+import 'package:skinalert/home/floatingNavbar/home1.dart';
 
-class Quisonerpage extends StatefulWidget {
+class QuisonerPage extends StatefulWidget {
   @override
-  _QuisonereState createState() => _QuisonereState();
+  _QuisonerPageState createState() => _QuisonerPageState();
 }
 
-class _QuisonereState extends State<Quisonerpage> with SingleTickerProviderStateMixin {
-  final List<String> questions = [
-    "Apakah Anda memiliki bintik kecil yang datar dan merah muda?",
-    "Apakah Anda memiliki tahi lalat dengan tepi yang rata dan berwarna sama dengan kulit sekitarnya?",
-    "Apakah kulit Anda mengelupas tanpa rasa sakit?",
-    "Apakah Anda memiliki area kulit yang terasa kasar atau kering tetapi tidak berubah warna?",
-    "Apakah Anda memiliki benjolan kecil yang keras tanpa perubahan warna?",
-    "Apakah ada area kulit yang berwarna putih, kekuningan, atau lilin?",
-    "Apakah Anda memiliki luka di area yang sering terpapar sinar matahari (wajah, telinga, leher, tangan)?",
-    "Apakah Anda mengalami perubahan tekstur kulit di sekitar tahi lalat atau lesi?",
-    "Apakah Anda memiliki nodul kecil yang mengkilap dan berwarna seperti lilin?",
-    "Apakah Anda memiliki lesi datar, bersisik, dan kemerahan yang bisa menjadi keras?",
-    "Apakah Anda memiliki tahi lalat baru yang muncul setelah usia dewasa?",
-    "Apakah Anda memiliki lesi berwarna kecokelatan atau hitam yang menyerupai tahi lalat?",
-    "Apakah tahi lalat Anda terasa gatal atau berdarah?",
-    "Apakah Anda memiliki luka yang berdarah atau berkerak?",
-    "Apakah tahi lalat Anda memiliki tepi yang tidak teratur, berbagai warna, dan berdiameter lebih dari 6mm?"
-  ];
+class _QuisonerPageState extends State<QuisonerPage> with SingleTickerProviderStateMixin {
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
+  List<Map<String, dynamic>> _questions = [];
   int currentIndex = 0;
-  int yesCount = 0;
+  double combinedCF = 0.0;
+  String _riskCategory = '';
+  Timestamp _date ='dd/mm/yyyy' as Timestamp;
   late AnimationController _controller;
   late Animation<double> _animation;
+  String _fullName = '';
+  // Timestamp? _dob;
+  String? _userId;
 
   @override
   void initState() {
@@ -38,19 +33,80 @@ class _QuisonereState extends State<Quisonerpage> with SingleTickerProviderState
       vsync: this,
     );
     _animation = Tween<double>(begin: 0, end: 1).animate(_controller);
+    _fetchQuestions();
+    _fetchFullName();
+    _fetchUserId();
+  }
+
+  Future<void> _fetchQuestions() async {
+    QuerySnapshot querySnapshot = await _firestore.collection('quisioners').get();
+    setState(() {
+      _questions = querySnapshot.docs.map((doc) => doc.data() as Map<String, dynamic>).toList();
+    });
+  }
+
+  Future<void> _fetchFullName() async {
+    User? user = _auth.currentUser;
+    if (user != null) {
+      DocumentSnapshot documentSnapshot = await _firestore.collection('users').doc(user.uid).get();
+      setState(() {
+        _fullName = documentSnapshot.get('fullName');
+        // _dob = documentSnapshot.get('dob');
+      });
+    }
+  }
+
+  Future<void> _fetchUserId() async {
+    User? user = _auth.currentUser;
+    if (user != null) {
+      setState(() {
+        _userId = user.uid;
+      });
+    }
   }
 
   void _answerQuestion(bool answer) {
     setState(() {
       if (answer) {
-        yesCount++;
+        double bobot = _questions[currentIndex]['bobot'];
+        combinedCF = _combineCF(combinedCF, bobot);
       }
       currentIndex++;
-      if (currentIndex < questions.length) {
+      if (currentIndex < _questions.length) {
         _controller.reset();
         _controller.forward();
+      } else {
+        _riskCategory = _determineRiskCategory(combinedCF);
+        _saveResult();
       }
     });
+  }
+
+  double _combineCF(double bobot1, double bobot2) {
+    return bobot1 + bobot2 * (1 - bobot1);
+  }
+
+  String _determineRiskCategory(double combinedCF) {
+    if (combinedCF >= 0.0 && combinedCF <= 0.4) {
+      return 'Risiko Rendah';
+    } else if (combinedCF > 0.4 && combinedCF <= 0.7) {
+      return 'Risiko Sedang';
+    } else if (combinedCF > 0.7 && combinedCF <= 1.0) {
+      return 'Risiko Tinggi';
+    } else {
+      return 'Nilai CF tidak valid';
+    }
+  }
+
+  Future<void> _saveResult() async {
+    if (_userId != null) {
+      await _firestore.collection('results').add({
+        'point': combinedCF,
+        'description': _riskCategory,
+        'date': Timestamp.now(),
+        'userId': _userId,
+      });
+    }
   }
 
   @override
@@ -61,8 +117,8 @@ class _QuisonereState extends State<Quisonerpage> with SingleTickerProviderState
 
   @override
   Widget build(BuildContext context) {
-    double progress = currentIndex / questions.length;
-    if (currentIndex < questions.length) {
+    double progress = currentIndex / _questions.length;
+    if (currentIndex < _questions.length) {
       _controller.forward();
     }
 
@@ -96,7 +152,7 @@ class _QuisonereState extends State<Quisonerpage> with SingleTickerProviderState
                           ),
                         ),
                         Text(
-                          'John Doe',
+                          _fullName,
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -126,7 +182,7 @@ class _QuisonereState extends State<Quisonerpage> with SingleTickerProviderState
                             return CircularPercentIndicator(
                               radius: 130.0,
                               lineWidth: 15.0,
-                              percent: currentIndex < questions.length ? progress * _animation.value : 1.0,
+                              percent: currentIndex < _questions.length? progress * _animation.value : 1.0,
                               center: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
@@ -149,11 +205,11 @@ class _QuisonereState extends State<Quisonerpage> with SingleTickerProviderState
                           },
                         ),
                         SizedBox(height: 20),
-                        if (currentIndex < questions.length)
+                        if (currentIndex < _questions.length)
                           Column(
                             children: [
                               Text(
-                                questions[currentIndex],
+                                _questions[currentIndex]['question'],
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
                                   fontWeight: FontWeight.bold,
@@ -212,11 +268,60 @@ class _QuisonereState extends State<Quisonerpage> with SingleTickerProviderState
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
                                   fontFamily: 'LeagueSpartan',
-                                  color: Color(0xFF2C4237),
+                                  color: Color(0xFF2C4237), 
+                                ),
+                              ),
+                              SizedBox(height: 20), // add some space between the text and buttons
+                              ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => ResultPage(combinedCF: combinedCF, 
+                                    date: _date,
+                                    riskCategory: _riskCategory, description: _riskCategory, 
+                                    fullName: _fullName, 
+                                    // dob: Timestamp.now(),
+                                    )),
+                                  );
+                                },
+                                child: Text('Show The Result'), 
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Color(0xFF5C715E),
+                                  foregroundColor: Color(0xFFF2F9F1),
+                                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                                  textStyle: TextStyle(
+                                    fontSize: 16,
+                                    fontFamily: 'LeagueSpartan'
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
+                              ),
+                              SizedBox(height: 20),
+                              ElevatedButton(
+                                onPressed: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(builder: (context) => MyHomePage()),
+                                  );
+                                },
+                                child: Text('Back to Homepage'), 
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Color(0xFF5C715E),
+                                  foregroundColor: Color(0xFFF2F9F1),
+                                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                                  textStyle: TextStyle(
+                                    fontSize: 16, 
+                                    fontFamily: 'LeagueSpartan'
+                                  ),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
                                 ),
                               ),
                             ],
-                          ),
+                          )
                       ],
                     ),
                   ),
@@ -228,10 +333,4 @@ class _QuisonereState extends State<Quisonerpage> with SingleTickerProviderState
       ),
     );
   }
-}
-
-void main() {
-  runApp(MaterialApp(
-    home: Quisonerpage(),
-  ));
 }

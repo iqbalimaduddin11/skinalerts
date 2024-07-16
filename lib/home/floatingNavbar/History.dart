@@ -1,25 +1,49 @@
-import 'package:flutter/material.dart'; 
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:skinalert/home/Result.dart';
 
-class Historypage extends StatefulWidget {
+class HistoryPage extends StatefulWidget {
   @override
-  _HistorypageState createState() => _HistorypageState();
+  _HistoryPageState createState() => _HistoryPageState();
 }
 
-class _HistorypageState extends State<Historypage> {
-  final List<Map<String, String>> history = [
-    {
-      'date': '12 April 2023  \n22:00 WIB',
-      'description': 'Telah Melakukan Check For Skin Cancer'
-    },
-    {
-      'date': '10 Feb 2024  \n08:00 WIB',
-      'description': 'Telah Melakukan Check For Skin Cancer'
-    },
-    {
-      'date': '12 Juni 2024  \n13:00 WIB',
-      'description': 'Telah Melakukan Check For Skin Cancer'
-    },
-  ]; 
+class _HistoryPageState extends State<HistoryPage> {
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+  List<Map<String, dynamic>> _history = [];
+  final CollectionReference _usersCollection = FirebaseFirestore.instance.collection('users');
+  User? _currentUser;
+  String? _fullName;
+  //String? _image;
+   
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchHistory();
+    _getCurrentUser();
+  }
+
+  Future<void> _getCurrentUser() async {
+    final user = FirebaseAuth.instance.currentUser;
+    setState(() {
+      _currentUser = user;
+    });
+    if (_currentUser != null) {
+      final userDoc = await _usersCollection.doc(_currentUser!.uid).get();
+      setState(() {
+        _fullName = userDoc.get('fullName');
+       //_image = userDoc.get('image');
+      });
+    }
+  }
+
+  Future<void> _fetchHistory() async {
+    QuerySnapshot querySnapshot = await _firestore.collection('results').get();
+    setState(() {
+      _history = querySnapshot.docs.map((doc) => doc.data() as Map<String, dynamic>).toList();
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,16 +54,15 @@ class _HistorypageState extends State<Historypage> {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              // Profile section
               Container(
                 padding: EdgeInsets.all(16.0),
-                color: Color(0xFFF2F9F1), // Background color for profile section
+                color: Color(0xFFF2F9F1),
                 child: Row(
                   children: [
-                    CircleAvatar(
-                      radius: 30,
-                      backgroundImage: AssetImage('assets/Icons/logo2.png'), // Add your profile picture asset here
-                    ),
+                        CircleAvatar(
+                          radius: 30,
+                          backgroundImage: AssetImage('assets/Icons/logo2.png'), // Add your profile picture asset here
+                        ),
                     SizedBox(width: 16),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,7 +76,7 @@ class _HistorypageState extends State<Historypage> {
                           ),
                         ),
                         Text(
-                          'John Doe',
+                          _fullName ?? '',
                           style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.bold,
@@ -84,13 +107,13 @@ class _HistorypageState extends State<Historypage> {
                               fontSize: 20,
                               fontWeight: FontWeight.bold,
                               fontFamily: 'LeagueSpartan',
-                              color: Color(0xFF5C715E), // Add green color
+                              color: Color(0xFF5C715E),
                             ),
-                            textAlign: TextAlign.center, // Center the text
+                            textAlign: TextAlign.center,
                           ),
                         ),
                         SizedBox(height: 20),
-                        if (history.isEmpty)
+                        if (_history.isEmpty)
                           Center(
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.center,
@@ -112,7 +135,7 @@ class _HistorypageState extends State<Historypage> {
                         else
                           Expanded(
                             child: ListView.builder(
-                              itemCount: history.length,
+                              itemCount: _history.length,
                               itemBuilder: (context, index) {
                                 return Card(
                                   margin: EdgeInsets.only(bottom: 16),
@@ -135,18 +158,18 @@ class _HistorypageState extends State<Historypage> {
                                             crossAxisAlignment: CrossAxisAlignment.start,
                                             children: [
                                               Text(
-                                                history[index]['date']!,
+                                                (_history[index]['date'] as Timestamp).toDate().toString(),
                                                 style: TextStyle(
-                                                  fontSize: 16,
+                                                  fontSize: 14,
                                                   fontWeight: FontWeight.bold,
                                                   fontFamily: 'LeagueSpartan',
                                                   color: Colors.black,
                                                 ),
                                               ),
                                               Text(
-                                                history[index]['description']!,
+                                                'Telah Melakukan Check For Skin Cancer',
                                                 style: TextStyle(
-                                                  fontSize: 14,
+                                                  fontSize: 12,
                                                   fontFamily: 'LeagueSpartan',
                                                   fontWeight: FontWeight.bold,
                                                   color: Colors.black,
@@ -157,7 +180,18 @@ class _HistorypageState extends State<Historypage> {
                                         ),
                                         ElevatedButton(
                                           onPressed: () {
-                                            // Add your onPressed code here!
+                                            Navigator.push(
+                                              context,
+                                              MaterialPageRoute(
+                                                builder: (context) => ResultPage(
+                                                  combinedCF: _history[index]['combinedCF'] ?? 0.0,
+                                                  date: _history[index]['date'],
+                                                  riskCategory: _history[index]['riskCategory'] ?? '',
+                                                  description: _history[index]['description'] ?? '',
+                                                  fullName: _fullName!,
+                                                ),
+                                              ),
+                                            );
                                           },
                                           style: ElevatedButton.styleFrom(
                                             backgroundColor: Color(0xFF5C715E),
@@ -169,8 +203,8 @@ class _HistorypageState extends State<Historypage> {
                                             'Lihat Hasil',
                                             style: TextStyle(
                                               fontSize: 14,
-                                              color: Color(0xFFF2F9F1), 
-                                              fontFamily: 'LeagueSpartan', 
+                                              color: Color(0xFFF2F9F1),
+                                              fontFamily: 'LeagueSpartan',
                                             ),
                                           ),
                                         ),
@@ -190,7 +224,6 @@ class _HistorypageState extends State<Historypage> {
           ),
         ),
       ),
-       
     );
   }
 }

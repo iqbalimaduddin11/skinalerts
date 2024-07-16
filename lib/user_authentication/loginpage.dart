@@ -1,34 +1,17 @@
 import 'package:fluttertoast/fluttertoast.dart';
-<<<<<<< HEAD
-// import 'package:skinalert/authentication/authentication_wrapper.dart';
-import 'package:flutter/material.dart';
-import 'package:skinalert/home/main_page.dart';
-import 'signup.dart'; 
-<<<<<<< HEAD
-=======
-=======
-import 'package:skinalert/execption/auth_execption_handler.dart';
-import 'package:skinalert/service/authentication_service.dart';
-import 'signup.dart';
-import 'home.dart';
-<<<<<<< HEAD
->>>>>>> 617d2db (update loginpage)
-=======
-=======
 import 'package:flutter/material.dart';
 import 'package:skinalert/execption/auth_execption_handler.dart';
 import 'package:skinalert/service/authentication_service.dart';
-// import 'signup.dart';
-// import 'home.dart';
->>>>>>> f08f975 (update login & signup page)
->>>>>>> 834b9f3 (update login & signup page)
+
+
 
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+  final void Function()? onPressed;
+
+  const LoginPage({super.key,  this.onPressed});
 
   @override
-  // ignore: library_private_types_in_public_api
   _LoginPageState createState() => _LoginPageState();
 }
 
@@ -120,50 +103,14 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   Container(
                     decoration: BoxDecoration(
-<<<<<<< HEAD
-<<<<<<< HEAD
-                      color: const Color(0xFF5C715E),
-<<<<<<< HEAD
-<<<<<<< HEAD
-                      borderRadius: BorderRadius.circular(14),
-                    ),
-                    child: TextFormField(
-                      controller: _email,
-=======
-                      borderRadius: BorderRadius.circular(13),
-                    ),
-                    child: TextFormField(
-                      controller: _emailController,
->>>>>>> aeb3465 (push branch production)
-=======
-                      borderRadius: BorderRadius.circular(14),
-                    ),
-                    child: TextFormField(
-                      controller: _email,
->>>>>>> f08f975 (update login & signup page)
-                      style: const TextStyle(color: Color(0xFFF2F9F1)),
-                      decoration: const InputDecoration(
-                        labelText: 'example@example.com',
-=======
-                      color: Color(0xFF5C715E),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: TextFormField(
-                      controller: _emailController,
-                      style: TextStyle(color: Color(0xFFF2F9F1)),
-                      decoration: InputDecoration(
-                        labelText: 'Email or Mobile Number',
->>>>>>> 6b1fbb2 (push branch production)
-=======
                       color: const Color(0xFF5C715E),
                       borderRadius: BorderRadius.circular(13),
                     ),
                     child: TextFormField(
-                      controller: _emailController,
+                      controller: _email,
                       style: const TextStyle(color: Color(0xFFF2F9F1)),
                       decoration: const InputDecoration(
                         labelText: 'example@example.com',
->>>>>>> 9288652 (update login & signup page)
                         labelStyle: TextStyle(color: Color(0xFFF2F9F1)),
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
@@ -189,68 +136,16 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                   Container(
                     decoration: BoxDecoration(
-<<<<<<< HEAD
-<<<<<<< HEAD
-                      color: const Color(0xFF5C715E),
-<<<<<<< HEAD
-<<<<<<< HEAD
-                      borderRadius: BorderRadius.circular(14),
-                    ),
-                    child: TextFormField(
-                      controller: _password,
-=======
-                      borderRadius: BorderRadius.circular(13),
-                    ),
-                    child: TextFormField(
-                      controller: _passwordController,
->>>>>>> aeb3465 (push branch production)
-=======
-                      borderRadius: BorderRadius.circular(14),
-                    ),
-                    child: TextFormField(
-                      controller: _password,
->>>>>>> f08f975 (update login & signup page)
-                      style: const TextStyle(color: Color(0xFFF2F9F1)),
-=======
-                      color: Color(0xFF5C715E),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: TextFormField(
-                      controller: _passwordController,
-                      style: TextStyle(color: Color(0xFFF2F9F1)),
->>>>>>> 6b1fbb2 (push branch production)
-=======
                       color: const Color(0xFF5C715E),
                       borderRadius: BorderRadius.circular(13),
                     ),
                     child: TextFormField(
-                      controller: _passwordController,
+                      controller: _password,
                       style: const TextStyle(color: Color(0xFFF2F9F1)),
->>>>>>> 9288652 (update login & signup page)
                       obscureText: !_showPassword,
                       decoration: InputDecoration(
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
                         labelText: 'Enter your password',
                         labelStyle: const TextStyle(color: Color(0xFFF1F8E8)),
-=======
-<<<<<<< HEAD
-                        labelText: 'Password',
-                        labelStyle: TextStyle(color: Color(0xFFF2F9F1)),
-=======
-                        labelText: 'Enter your password',
-                        labelStyle: const TextStyle(color: Color(0xFFF1F8E8)),
->>>>>>> 9c3a5ef (first commit)
->>>>>>> 5b710bf (push branch production)
-=======
-                        labelText: 'Password',
-                        labelStyle: TextStyle(color: Color(0xFFF2F9F1)),
->>>>>>> 6749efe (push branch production)
-=======
-                        labelText: 'Enter your password',
-                        labelStyle: const TextStyle(color: Color(0xFFF1F8E8)),
->>>>>>> 834b9f3 (update login & signup page)
                         border: InputBorder.none,
                         contentPadding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 14.0),
                         suffixIcon: IconButton(
@@ -273,138 +168,19 @@ class _LoginPageState extends State<LoginPage> {
                       },
                     ),
                   ),
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-                  const SizedBox(height: 16),
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        'Forget Password',
-                        style: TextStyle(
-                          fontFamily: 'LeagueSpartan',
-                          fontSize: 16,
-                          color: Color(0xFF5C715E),
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 32),
-=======
                   SizedBox(height: 32),
->>>>>>> 708b273 (update now)
-=======
-=======
->>>>>>> 5b710bf (push branch production)
-=======
->>>>>>> 834b9f3 (update login & signup page)
-=======
->>>>>>> f78677d (update now)
-=======
->>>>>>> 229dedd (update login & signup page)
-                  SizedBox(height: 32),
-=======
-                  // const SizedBox(height: 16),
-                  // Align(
-                  //   alignment: Alignment.centerRight,
-                  //   child: TextButton(
-                  //     onPressed: () {},
-                  //     child: const Text(
-                  //       'Forget Password',
-                  //       style: TextStyle(
-                  //         fontFamily: 'LeagueSpartan',
-                  //         fontSize: 16,
-                  //         color: Color(0xFF5C715E),
-                  //       ),
-                  //     ),
-                  //   ),
-                  // ),
-                  const SizedBox(height: 32),
->>>>>>> d505008 (update feature login)
-<<<<<<< HEAD
->>>>>>> e3bc1d7 (update feature login)
-=======
-=======
-                  const SizedBox(height: 16),
-=======
-                  SizedBox(height: 16),
->>>>>>> 52a22c8 (update now)
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: TextButton(
-                      onPressed: () {},
-<<<<<<< HEAD
-                      child: const Text(
-=======
-                      child: Text(
->>>>>>> 52a22c8 (update now)
-                        'Forget Password',
-                        style: TextStyle(
-                          fontFamily: 'LeagueSpartan',
-                          fontSize: 16,
-                          color: Color(0xFF5C715E),
-                        ),
-                      ),
-                    ),
-                  ),
-<<<<<<< HEAD
-=======
->>>>>>> f08f975 (update login & signup page)
-                  const SizedBox(height: 32),
->>>>>>> aeb3465 (push branch production)
-<<<<<<< HEAD
->>>>>>> 5b710bf (push branch production)
-=======
-=======
-                  SizedBox(height: 32),
->>>>>>> 52a22c8 (update now)
-<<<<<<< HEAD
->>>>>>> f78677d (update now)
-=======
-=======
-                  SizedBox(height: 32),
-<<<<<<< HEAD
-=======
-                  const SizedBox(height: 32),
->>>>>>> f08f975 (update login & signup page)
->>>>>>> 9288652 (update login & signup page)
-<<<<<<< HEAD
->>>>>>> 229dedd (update login & signup page)
-=======
-=======
->>>>>>> 78a5c96 (push production)
->>>>>>> e319a2a (push production)
                   ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Color(0xFF5C715E),
+                      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                    ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         // Navigate to HomePage after login validation
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 6b1fbb2 (push branch production)
-                        Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (context) => MainPage()),
-                        );
-<<<<<<< HEAD
-=======
                         handleLogin();
->>>>>>> d505008 (update feature login)
-=======
-                        handleLogin();
->>>>>>> f08f975 (update login & signup page)
-=======
->>>>>>> 6b1fbb2 (push branch production)
-=======
-                        handleLogin();
->>>>>>> 9288652 (update login & signup page)
                       }
                     },
                     child: Text(
@@ -447,12 +223,7 @@ class _LoginPageState extends State<LoginPage> {
                   const SizedBox(height: 16),
                   Center(
                     child: TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => SignUpPage()),
-                        );
-                      },
+                      onPressed: widget.onPressed,
                       child: const Text(
                         "Don't have an account? Sign Up",
                         style: TextStyle(
@@ -469,6 +240,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
         ),
+      )
     );
   }
 }

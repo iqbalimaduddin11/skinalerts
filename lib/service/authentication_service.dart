@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-import 'package:skinalert/authentication/authentication_wrapper.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-=======
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:flutter/cupertino.dart';
->>>>>>> f08f975 (update login & signup page)
 import 'package:skinalert/execption/auth_execption_handler.dart';
 
 class AuthenticationService {
@@ -35,8 +29,6 @@ class AuthenticationService {
     }
     return status;
   }
-<<<<<<< HEAD
-=======
 
   Future<AuthResultStatus> SignUpWithEmailAndPassword({
     required String fullName,
@@ -83,5 +75,4 @@ class AuthenticationService {
       'userId': userId,
     });
   }
->>>>>>> f08f975 (update login & signup page)
 }

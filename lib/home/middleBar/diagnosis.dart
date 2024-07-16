@@ -152,7 +152,7 @@ class DiagnosisPage extends StatelessWidget {
                             color: const Color(0xFF5C715E),
                           ),
                           textAlign: TextAlign.justify,
-                       ),
+                        ),
                       ),
                     ],
                   ),
@@ -430,7 +430,7 @@ class DiagnosisPage extends StatelessWidget {
                       // Action for the button
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => Quisonerpage()),
+                        MaterialPageRoute(builder: (context) => QuisonerPage()),
                       );
                     },
                     child: Text(

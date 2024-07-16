@@ -3,13 +3,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:skinalert/home/Clickforcheck.dart';
-import 'package:skinalert/home/Diagnosis.dart';
-import 'package:skinalert/home/Symptoms.dart';
-import 'package:skinalert/loginpage.dart';
-import '../Profile.dart';
-import '../Team.dart';
-import '../History.dart';
+import 'package:skinalert/home/floatingNavbar/history.dart';
+import 'package:skinalert/home/middleBar/Clickforcheck.dart';
+import 'package:skinalert/home/middleBar/Diagnosis.dart';
+import 'package:skinalert/home/middleBar/Symptoms.dart';
+import 'package:skinalert/user_authentication/loginpage.dart';
+import 'Profile.dart';
+import 'Team.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, User? User});
@@ -84,7 +84,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     children: [
                       CircleAvatar(
                         radius: 30,
-                        backgroundImage: userDoc['image'], // Add your profile picture asset here
+                    backgroundImage: AssetImage('assets/Icons/logo2.png'), // Add your profile picture asset here
                       ),
                       const SizedBox(width: 16),
                       Column(
@@ -178,7 +178,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             backgroundColor: _index == 1? MaterialStateProperty.all(Color(0xFF5C715E)) : MaterialStateProperty.all(Color(0xFFF2F9F1)),
                             foregroundColor: _index == 1? MaterialStateProperty.all(Color(0xFFF2F9F1)) : MaterialStateProperty.all(Color(0xFF5C715E)),
                           ),
-                          child: Text('Diagnosis And Treatment', style: TextStyle(fontFamily: 'LeagueSpartan', fontSize: 10,fontWeight: FontWeight.bold)),
+                          child: Text ('Diagnosis And Treatment', style: TextStyle(fontFamily: 'LeagueSpartan', fontSize: 10,fontWeight: FontWeight.bold)),
                         ),
                       ),
                       SizedBox(
@@ -229,7 +229,7 @@ class _MyHomePageState extends State<MyHomePage> {
             } else if (val == 1) {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => Historypage()),
+                MaterialPageRoute(builder: (context) => HistoryPage()),
               );
             } else if (val == 2) {
               Navigator.push(

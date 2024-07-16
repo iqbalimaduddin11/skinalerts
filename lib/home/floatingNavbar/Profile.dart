@@ -1,76 +1,23 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 79d77bf (first commit)
-=======
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 1bc94ab (push branch production)
-import 'package:flutter/material.dart'; 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> aeb3465 (push branch production)
->>>>>>> 5b710bf (push branch production)
-=======
-import 'package:flutter/material.dart'; 
-=======
->>>>>>> 6749efe (push branch production)
-// ignore: file_names
 import 'package:flutter/material.dart';
-import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
-import 'History.dart';
-import 'home.dart';
-import 'Team.dart';
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-import 'package:flutter/material.dart'; 
->>>>>>> c943860 (update now)
-=======
->>>>>>> 79d77bf (first commit)
-=======
->>>>>>> 9c3a5ef (first commit)
-<<<<<<< HEAD
->>>>>>> aeb3465 (push branch production)
->>>>>>> 5b710bf (push branch production)
-=======
->>>>>>> 9c3a5ef (first commit)
->>>>>>> 6749efe (push branch production)
-=======
-=======
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
->>>>>>> f08f975 (update login & signup page)
-<<<<<<< HEAD
->>>>>>> 834b9f3 (update login & signup page)
-=======
-=======
->>>>>>> 6b1fbb2 (push branch production)
-<<<<<<< HEAD
->>>>>>> b74df55 (push branch production)
-=======
-=======
-import 'package:firebase_auth/firebase_auth.dart';
->>>>>>> 9288652 (update login & signup page)
->>>>>>> 229dedd (update login & signup page)
+import 'package:image_picker/image_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'dart:io';
 
 class ProfilePage extends StatefulWidget {
   @override
   _ProfilePageState createState() => _ProfilePageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> { 
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+class _ProfilePageState extends State<ProfilePage> {
   final TextEditingController _fullNameController = TextEditingController();
   final TextEditingController _phoneNumberController = TextEditingController();
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _dobController = TextEditingController();
+
+  File? _image;
+  String? _uploadedImageUrl;
 
   @override
   void dispose() {
@@ -81,28 +28,6 @@ class _ProfilePageState extends State<ProfilePage> {
     super.dispose();
   }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 48b3aba (push branch production)
- Future<void> _selectDate(BuildContext context) async {
-=======
-Future<void> _selectDate(BuildContext context) async {
->>>>>>> 9288652 (update login & signup page)
-  DateTime? picked = await showDatePicker(
-    context: context,
-    initialDate: DateTime.now(),
-    firstDate: DateTime(1900),
-    lastDate: DateTime.now(),
-    builder: (BuildContext context, Widget? child) {
-      return Theme(
-        data: ThemeData(
-          colorScheme: ColorScheme.light(
-            primary: Color(0xFF5C715E), 
-            onPrimary: Color(0xFFF2F9F1), 
-<<<<<<< HEAD
-=======
   Future<void> _selectDate(BuildContext context) async {
     DateTime? picked = await showDatePicker(
       context: context,
@@ -113,53 +38,70 @@ Future<void> _selectDate(BuildContext context) async {
         return Theme(
           data: ThemeData(
             colorScheme: ColorScheme.light(
-              primary: Color(0xFF5C715E), 
-              onPrimary: Color(0xFFF2F9F1), 
+              primary: Color(0xFF5C715E),
+              onPrimary: Color(0xFFF2F9F1),
             ),
->>>>>>> f08f975 (update login & signup page)
-=======
->>>>>>> 48b3aba (push branch production)
           ),
-        ),
-        child: child!,
-      );
-    },
-  );
-  if (picked != null && picked != DateTime.now()) {
+          child: child!,
+        );
+      },
+    );
+    if (picked != null && picked != DateTime.now()) {
+      setState(() {
+        _dobController.text = "${picked.toLocal()}".split(' ')[0];
+      });
+    }
+  }
+
+  Future<void> _selectImage() async {
+    final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
     setState(() {
-      _dobController.text = "${picked.toLocal()}".split(' ')[0];
+      if (pickedFile != null) {
+        _image = File(pickedFile.path);
+      } else {
+        _image = null;
+      }
     });
   }
-}
 
-<<<<<<< HEAD
-=======
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+  Future<void> _updateProfile() async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+      if (user != null) {
+        if (_image != null) {
+          _uploadedImageUrl = await uploadImage(_image!);
+        }
 
-=======
->>>>>>> 5474dc9 (push update)
-=======
-=======
-=======
-<<<<<<< HEAD
-=======
-class ProfilePage extends StatelessWidget {
-  const ProfilePage({super.key});
+        await FirebaseFirestore.instance.collection('users').doc(user.uid).set({
+          'fullName': _fullNameController.text,
+          'phoneNumber': _phoneNumberController.text,
+          'email': _emailController.text,
+          'dob': _dobController.text,
+          if (_uploadedImageUrl != null) 'image': _uploadedImageUrl,
+        }, SetOptions(merge: true));
 
->>>>>>> aeb3465 (push branch production)
->>>>>>> 5b710bf (push branch production)
-=======
->>>>>>> 6749efe (push branch production)
->>>>>>> 241935e (push first project)
->>>>>>> 32e0131 (first commit production)
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Profile updated successfully')));
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('No user is signed in')));
+      }
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Failed to update profile: $e')));
+    }
+  }
+
+  Future<String?> uploadImage(File image) async {
+    try {
+      final storageRef = FirebaseStorage.instance.ref();
+      final uploadTask = storageRef.child('users/${FirebaseAuth.instance.currentUser!.uid}/profile_image').putFile(image);
+      final snapshot = await uploadTask.whenComplete(() => null);
+      return await snapshot.ref.getDownloadURL();
+    } catch (e) {
+      print('Failed to upload image: $e');
+      return null;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -185,27 +127,39 @@ class ProfilePage extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 10),
-              const CircleAvatar(
+              CircleAvatar(
                 radius: 50,
-                backgroundImage: AssetImage('assets/Icons/logo2.png'), // Add your profile picture asset here
+                backgroundImage: _image != null ? FileImage(_image!) : null,
                 child: Align(
                   alignment: Alignment.bottomRight,
                   child: CircleAvatar(
                     radius: 15,
                     backgroundColor: Color(0xFF5C715E),
-                    child: Icon(Icons.edit, color: Color(0xFFF2F9F1), size: 20),
+                    child: ElevatedButton(
+                      onPressed: _selectImage,
+                      style: ElevatedButton.styleFrom(
+                        foregroundColor: const Color(0xFFF2F9F1),
+                        backgroundColor: const Color(0xFF5C715E),
+                        padding: const EdgeInsets.all(8),
+                        shape: CircleBorder(),
+                      ),
+                      child: Icon(Icons.edit, color: Color(0xFFF2F9F1), size: 20),
+                    ),
                   ),
                 ),
               ),
               const SizedBox(height: 20),
-              const ProfileTextField(
+              ProfileTextField(
                 label: 'Full Name',
+                controller: _fullNameController,
               ),
               ProfileTextField(
                 label: 'Phone Number',
+                controller: _phoneNumberController,
               ),
               ProfileTextField(
                 label: 'Email',
+                controller: _emailController,
               ),
               ProfileTextField(
                 label: 'Date Of Birth',
@@ -218,7 +172,7 @@ class ProfilePage extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: _updateProfile,
                 style: ElevatedButton.styleFrom(
                   foregroundColor: const Color(0xFFF2F9F1),
                   backgroundColor: const Color(0xFF5C715E),
@@ -241,7 +195,6 @@ class ProfilePage extends StatelessWidget {
           ),
         ),
       ),
-      
     );
   }
 }
@@ -251,33 +204,7 @@ class ProfileTextField extends StatelessWidget {
   final TextEditingController? controller;
   final VoidCallback? onTap;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  const ProfileTextField({super.key, required this.label});
-=======
   ProfileTextField({required this.label, this.controller, this.onTap});
->>>>>>> c943860 (update now)
-=======
-  ProfileTextField({required this.label, this.controller, this.onTap});
-=======
-  const ProfileTextField({super.key, required this.label});
->>>>>>> 9c3a5ef (first commit)
->>>>>>> 5b710bf (push branch production)
-=======
-  ProfileTextField({required this.label, this.controller, this.onTap});
->>>>>>> 6749efe (push branch production)
-=======
-  ProfileTextField({required this.label, this.controller, this.onTap});
-=======
-  const ProfileTextField({super.key, required this.label});
->>>>>>> 9c3a5ef (first commit)
->>>>>>> b74df55 (push branch production)
-=======
-  ProfileTextField({required this.label, this.controller, this.onTap});
->>>>>>> 1bc94ab (push branch production)
 
   @override
   Widget build(BuildContext context) {
@@ -298,7 +225,7 @@ class ProfileTextField extends StatelessWidget {
           TextFormField(
             controller: controller,
             onTap: onTap,
-            readOnly: onTap != null,
+            readOnly: onTap!= null,
             decoration: InputDecoration(
               filled: true,
               fillColor: const Color(0xFF5C715E),
@@ -313,33 +240,7 @@ class ProfileTextField extends StatelessWidget {
                 fontFamily: 'LeagueSpartan',
               ),
             ),
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-              style: const TextStyle(
-=======
             style: TextStyle(
->>>>>>> c943860 (update now)
-=======
-            style: TextStyle(
-=======
-              style: const TextStyle(
->>>>>>> 9c3a5ef (first commit)
->>>>>>> 5b710bf (push branch production)
-=======
-            style: TextStyle(
->>>>>>> 6749efe (push branch production)
-=======
-            style: TextStyle(
-=======
-              style: const TextStyle(
->>>>>>> 9c3a5ef (first commit)
->>>>>>> b74df55 (push branch production)
-=======
-            style: TextStyle(
->>>>>>> 1bc94ab (push branch production)
               fontSize: 16,
               color: Color(0xFFF2F9F1),
               fontFamily: 'LeagueSpartan',
@@ -383,20 +284,21 @@ class _ProfileDropdownFieldState extends State<ProfileDropdownField> {
           DropdownButtonFormField<String>(
             hint: Text(
               'Select',
-            style: TextStyle(
+              style: TextStyle(
                 fontSize: 16,
                 color: Color(0xFFF2F9F1),
                 fontFamily: 'LeagueSpartan',
-              ),),
-              icon: Icon(Icons.arrow_drop_down_sharp,color:Color(0xFFF2F9F1),size: 25,),
+              ),
+            ),
+            icon: Icon(Icons.arrow_drop_down_sharp, color: Color(0xFFF2F9F1), size: 25,),
             decoration: InputDecoration(
               filled: true,
-              fillColor: Color(0xFF5C715E), 
+              fillColor: Color(0xFF5C715E),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide.none,
               ),
-              contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),   
+              contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
             ),
             dropdownColor: Color(0xFF5C715E),
             value: selectedValue,

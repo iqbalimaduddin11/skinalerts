@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'dart:async';
-import 'package:skinalert/loginpage.dart';
+import 'package:skinalert/user_authentication/loginpage.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

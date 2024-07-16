@@ -47,7 +47,7 @@ class ClickForCheckPage extends StatelessWidget {
                               // Navigate to QuestionerPage when button is clicked
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => Quisonerpage()),
+                                MaterialPageRoute(builder: (context) => QuisonerPage()),
                               );
                             },
                             child: Text(
